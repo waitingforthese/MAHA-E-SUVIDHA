@@ -24,13 +24,13 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Make Gradle wrapper executable
-      run: chmod +x gradlew
-      
+        run: chmod +x gradlew
+
       - name: Build Debug APK
-      run: ./gradlew assembleDebug --no-daemon
+        run: ./gradlew assembleDebug --no-daemon
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: ChandraPanchangAlarm-debug
+          name: MAHA-E-SUVIDHA-debug
           path: app/build/outputs/apk/debug/*.apk
