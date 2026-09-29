@@ -1,0 +1,78 @@
+{
+  "project_info": {
+    "project_number": "408121252150",
+    "firebase_url": "https://my-accountant-1a503-default-rtdb.firebaseio.com",
+    "project_id": "my-accountant-1a503",
+    "storage_bucket": "my-accountant-1a503.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:408121252150:android:b1c45e90879b7061e43b97",
+        "android_client_info": {
+          "package_name": "rahul.jagtap.dmas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "408121252150-5ns0qk6kv0eiv73n9qsnffrodjf3rrf4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "rahul.jagtap.dmas",
+            "certificate_hash": "0a9417eb270135d4ab1baf4e52780be2318f210c"
+          }
+        },
+        {
+          "client_id": "408121252150-7fj5uevmmt55pafg1hfeb4gevhh5sj9v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsq9Rn4w4Azbfu3w29AjGhQDXvkfknTB4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "408121252150-7fj5uevmmt55pafg1hfeb4gevhh5sj9v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-1362852772188633~6349424961"
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:408121252150:android:3a218ca873fe8483e43b97",
+        "android_client_info": {
+          "package_name": "rahul.jagtap.myaccountant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "408121252150-7fj5uevmmt55pafg1hfeb4gevhh5sj9v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsq9Rn4w4Azbfu3w29AjGhQDXvkfknTB4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "408121252150-7fj5uevmmt55pafg1hfeb4gevhh5sj9v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
