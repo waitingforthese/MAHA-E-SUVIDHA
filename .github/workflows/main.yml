@@ -26,11 +26,11 @@ jobs:
       - name: Make Gradle wrapper executable
         run: chmod +x gradlew
 
-      - name: Get SHA-1 signing report
-        run: ./gradlew signingReport --no-daemon
-
       - name: Build Debug APK
         run: ./gradlew assembleDebug --no-daemon
+
+      - name: Get SHA-1 signing report
+        run: ./gradlew signingReport --no-daemon
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
