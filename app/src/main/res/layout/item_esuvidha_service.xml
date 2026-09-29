@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="3dp"
+    app:rippleColor="#33E67817"
+    app:strokeColor="#F0ECE8"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minHeight="150dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="16dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivService"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:scaleType="fitCenter"
+            tools:src="@drawable/ic_svc_id" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvServiceTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lineSpacingExtra="1dp"
+            android:maxLines="2"
+            android:minLines="2"
+            android:textColor="@color/font_black_0"
+            android:textSize="12.5sp"
+            app:fontFamily="@font/sourcesanspro_bold"
+            tools:text="सर्व शासकीय कार्ड" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvServiceFee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_fee_pill"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="3dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="11.5sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:text="₹150"
+            tools:visibility="visible" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

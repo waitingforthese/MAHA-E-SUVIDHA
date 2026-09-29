@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rowRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:minHeight="60dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:weightSum="3">
+
+    <!-- सुविधेचे नाव (bind: leaf.type_title) -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="2"
+        android:gravity="center_vertical|start"
+        android:paddingStart="14dp"
+        android:paddingEnd="8dp"
+        android:textColor="@color/font_black_0"
+        android:textSize="14sp"
+        android:breakStrategy="balanced"
+        android:hyphenationFrequency="full" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/table_divider" />
+
+    <!-- फी चार्जेस (bind: parsed fee or “—”) -->
+    <TextView
+        android:id="@+id/tvFee"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:paddingHorizontal="6dp"
+        android:textColor="@color/font_black_1"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:breakStrategy="simple"
+        android:hyphenationFrequency="none" />
+</LinearLayout>

@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".user.OnlineESuvidhaOptionsActivity"
+    tools:ignore="MissingPrefix"
+    android:background="@color/font_black_0"
+    android:fitsSystemWindows="true">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"/>
+
+    <include
+            android:id="@+id/toolbar_layout"
+            layout="@layout/toolbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_layout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvShriGondaSetuKendra"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_bg_primary"
+                android:backgroundTint="@color/esuvidha_yellow"
+                android:gravity="center"
+                android:text="श्रीगोंदा तालुका सुविधा केंद्र"
+                android:textAllCaps="false"
+                android:textColor="@color/font_black_1"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvIncomeCertificate"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_bg_primary"
+                android:backgroundTint="@color/esuvidha_blue"
+                android:gravity="center"
+                android:text="Income Certificate"
+                android:textAllCaps="false"
+                android:textColor="@color/font_black_1"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAgeNationality"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_bg_primary"
+                android:gravity="center"
+                android:text="Age Nationality and Domicile Certificate"
+                android:backgroundTint="@color/esuvidha_blue"
+                android:textAllCaps="false"
+                android:textColor="@color/font_black_1"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />
+
+            <!--<androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDaundSetuKendra"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_bg_primary"
+                android:backgroundTint="@color/esuvidha_yellow"
+                android:gravity="center"
+                android:text="दौंड तालुका सुविधा केंद्र"
+                android:textAllCaps="false"
+                android:textColor="@color/font_black_1"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvShirurSetuKendra"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_bg_primary"
+                android:backgroundTint="@color/esuvidha_yellow"
+                android:gravity="center"
+                android:text="शिरूर तालुका सुविधा केंद्र"
+                android:textAllCaps="false"
+                android:textColor="@color/font_black_1"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvKarjatSetuKendra"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_bg_primary"
+                android:backgroundTint="@color/esuvidha_yellow"
+                android:gravity="center"
+                android:text="कर्जत तालुका सुविधा केंद्र"
+                android:textAllCaps="false"
+                android:textColor="@color/font_black_1"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBaramatiSetuKendra"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_bg_primary"
+                android:backgroundTint="@color/esuvidha_yellow"
+                android:gravity="center"
+                android:text="बारामती तालुका सुविधा केंद्र"
+                android:textAllCaps="false"
+                android:textColor="@color/font_black_1"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvIndapurSetuKendra"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_bg_primary"
+                android:backgroundTint="@color/esuvidha_yellow"
+                android:gravity="center"
+                android:text="इंदापूर तालुका सुविधा केंद्र"
+                android:textAllCaps="false"
+                android:textColor="@color/font_black_1"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvOtherDocs"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_bg_primary"
+                android:gravity="center"
+                android:text="इतर दाखले"
+                android:backgroundTint="@color/esuvidha_blue"
+                android:textAllCaps="false"
+                android:textColor="@color/font_black_1"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvGazzet"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_bg_primary"
+                android:gravity="center"
+                android:text="गँझेट"
+                android:backgroundTint="@color/esuvidha_blue"
+                android:textAllCaps="false"
+                android:textColor="@color/font_black_1"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPoliceVerification"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_bg_primary"
+                android:gravity="center"
+                android:text="पोलीस वेरिफिकेशन"
+                android:backgroundTint="@color/esuvidha_blue"
+                android:textAllCaps="false"
+                android:textColor="@color/font_black_1"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />-->
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="महा ई – सुविधा या अप्लिकेशन मधील “ई-सुविधा” आणि “MY ACCOUNTANT” या सुविधांचा वापर कसा करावा त्यासंबंधी माहिती खालीलप्रमाणे-"
+                android:textColor="@color/font_black_0" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="महा ई – सुविधा"
+                android:textColor="@color/font_black_0"
+                android:textSize="19sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="ई – सुविधा"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/font_black_0"
+                android:textSize="19sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="❖ आपण व्यवसाय करत असताना किव्हा नोकरी करत असताना आपल्याकडे येणारे ग्राहक, नातेवाईक, मित्रमंडळी, सह कर्मचारी, यांना काही सुविधांची आवश्यकता असते, त्या सुविधा आपल्याला देता येईल व त्यामधून आपल्याला काहीतरी फायदा होईल. या अप च्या माध्यमातून आपल्याकडे अजून एक उत्पन्नाचे साधन तयार होईल. त्यासाठी तुम्हाला कॉम्पुटर, प्रिंटर, स्कॅनर इ. वस्तूंची आवश्यकता नाही. फक्त मोबाईल आवश्यक आहे."
+                android:textColor="@color/font_black_0" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="ई - सुविधा हे अप्लिकेशन कसे वापरावे !"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/font_black_0"
+                android:textSize="19sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="➢“महा ई – सुविधा” या अप्लिकेशन मधील “ई – सुविधा” या बटन वर क्लिक करावे.\n➢“ई – सुविधा” मध्ये गेल्यावर “ई सुविधा येथून पाठवा” या बटन वर क्लिक करावे.\n➢“ई सुविधा येथून पाठवा” या बटन मध्ये गेल्यावर आपणाला खूप सुविधा दिसतील त्यामधून तुम्हाला पाहिजे त्या सुविधेवर क्लिक करावे.\n➢‘सुविधा” मध्ये गेल्यावर अगोदर संपूर्ण सूचना वाचाव्यात व त्याप्रमाणे माहिती भरावी व सांगितलेल्या ठिकाणी तुमच्या ग्राहकाची माहिती भरावी व कागदपत्रे उपलोड करावी किव्हा त्याचे फोटो काढावेत.\n➢“सुविधा” मध्ये जाण्याच्या अगोदर “ई-सुविधा’ मधील “येथून फी भरावी” या ठीकाणावरून फी पेमेंट करून त्याचा स्कीनशॉट काढावा व तो उपलोड करावा.\n➢तुम्ही पाठविलेल्या सुविधा योग्य वेळेवर “ई-सुविधा” फोल्डर मधील “पाठविलेल्या सुविधा” या बटन मध्ये पाहता येतील.\n➢रिसीट किव्हा प्रमाणपत्र “मिळालेल्या सुविधा” मध्ये पाहता येतील.\n➢तुम्ही तुमच्या ग्राहकाकडून कितीही फी घेऊ शकता. आम्ही तुमच्या ग्राहकाशी फी बद्दल कोणतेही संभाषण करणार नाही. झालेले काम तुम्हालाच पाठविले जाईल तुमच्या ग्राहकास पाठवणार नाही."
+                android:textColor="@color/font_black_0" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="❖आपली टीम सकाळी 9 ते 6 वेळेमध्ये तुम्हाला पाहिजे ती मदत करण्यासाठी कटिबद्ध आहे. हे अप्लिकेशन तुम्हाला नक्कीच फायदा करून देईल"
+                android:textColor="@color/font_black_0" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="महा ई – सुविधा"
+                android:textColor="@color/font_black_0"
+                android:textSize="19sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="MY ACCOUNTANT"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/font_black_0"
+                android:textSize="19sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="( 1 रुपया VOUCHER ENTRY )"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="MY ACCOUNTANT या सुविधेमधून तुम्ही तुमच्या व्यवसायाचे ACCOUNTING ONLINE करू शकता. तुमच्या व्यवसायामध्ये तुम्हाला कॉम्पुटर, प्रिंटर, स्कॅनर इ. वस्तूंची आवश्यकता नाही. ACCOUNTANT नेमण्याची गरज नाही.\nव्यवसाय छोटा असो किव्हा मोठा त्याचे ACCOUNTING करणे खूप गरजेचे आहे त्यामधून व्यवसायाची संपूर्ण माहिती आपल्याला होते. व्यवसाय फायद्यात चालू आहे कि तोट्यात? आपल्याकडे स्टोक किती आहे? आपली उधारी किती आहे? ई.\nखूप व्यावसाईक GST RETURN भरतात त्यावेळी फक्त GST लागणाऱ्या वस्तूंचे ACCOUNTING केले जाते. \nउदा. जर तुमच्या व्यवसायामध्ये १०० प्रकारच्या वस्तू आहेत. त्यामधील २० वस्तूंना GST लागू होतो त्यावेळी तुम्ही किव्हा तुमचे CA फक्त २० वस्तूंचे ACCOUNTING करतात बाकीच्या वस्तूंचे करत नाही. \n❖आम्ही तुमच्या १०० किव्हा कितीही वस्तू असतील, GST असो व नसो त्याचे ACCOUNTING करतो त्यांचे स्टोक रजिस्टर तयार करतो. व त्याचे दररोज रिपोर्ट या अप्लिकेशन मधील “TALLY REPORT” फोल्डर मध्ये दिसते ते तुम्ही पाहू शकता, DOWNLOAD करू शकता किव्हा WHATS APP / इमेल वर शेअर करू शकता. संपूर्ण ACCOUNTING “TALLY PRIME” मध्ये केले जाईल.\nहे अप्लिकेशन एकावेळी व्यवसायातील खूप लोक वापरू शकतात जसे कि मालक, मुलगा, कर्मचारी, व्यवसायामध्ये न येणारे मालक, सर्व पार्टनर ई. कोठूनही व्यवसायामधील व्यवहार पाहू शकतात, स्टोक पाहू शकतात."
+                android:textColor="@color/font_black_0" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="MY ACCOUNTANT  हे अप्लिकेशन कसे वापरावे !"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/font_black_0"
+                android:textSize="19sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="➢“महा ई – सुविधा” या अप्लिकेशन मधील “MY ACCOUTANT” या बटन वर क्लिक करावे.\n➢“MY ACCOUTANT” मध्ये गेल्यावर “SCAN BILLS” या बटन वर क्लिक करावे.\n➢त्यामध्ये तुम्हाला वेगवेगळे बटन दिसतील जसे कि “PURCHASE” “SALES” इत्यादी. त्या बटन वर क्लिक केल्यावर कॅमेरा चालू होईल त्यावेळी त्या दिवसाच्या बिल्स चे फोटो काढायचे. व तुमचे काम संपले.\n➢घेतलेल्या बिल्स चे फोटो कायमस्वरूपी “VIEW BILLS” या फोल्डर मध्ये राहतील.
+\n➢पाहिजे ते रेपोर्त “REPORT” फोल्डर मध्ये दिसतील.\n➢बिल चे फोटो भेत्यावर ५ ते १५ मिनिट च्या आत मध्ये VOUCHER “TALLY REPORT” मध्ये दिसेल. त्या तुम्ही लगेच शेअर करू शकता."
+                android:textColor="@color/font_black_0" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="MY ACCOUNTANT सुविधेच्या बिलिंग ची पद्धत !"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/font_black_0"
+                android:textSize="19sp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="❖आम्ही २०२२ – २०२३ मध्ये येणाऱ्या ग्राहकांसाठी फक्त १ रुपया ENTRY / VOUCHER एवढी फी घेऊ."
+                android:textColor="@color/font_black_0" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="MY ACCOUNTANT महत्वाच्या सूचना."
+                android:layout_marginTop="10dp"
+                android:textColor="@color/font_black_0"
+                android:textSize="19sp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="✓तुमचे CA बदलण्याची गरज नाही. तुमचे RETURN, GST, AUDIT कोणते CA करत असतील त्याच्याशी संपर्क करून त्यांना तुमचे रिपोर्ट पाठविले जातील.\n✓आम्ही व्यवसाईक ACCOUNTING मध्ये अद्ययावत असून सर्व तांत्रिक साधने, पद्धती विषयी चागल्या प्रकारे परिचित आहोत. तुमच्या व्यवसायाचा आदर ठेवणे, माहितीची गोपनीयता ठेवणे व तुम्हाला सर्व फायनान्शियल सर्व्हिसेस मिळवून देण्या बद्दल आम्ही कटीबद्ध आहोत.\n✓तुमच्या व्यवसायामध्ये कॉम्पुटर, प्रिंटर, अकौंटंट नेमण्याची गरज नाही. दररोज संध्याकाळी अप्लिकेशन मध्ये बिलाचे फोटो काढा. आणि कधीही तुमचे रिपोर्ट पहा, मागवा, शेअर करा. संपूर्ण ACCOUNTING “TALLY PRIME” मध्ये केले जाईल.\n✓अधिक माहितीसाठी 9552789899 या मोबाईल नंबर वर संपर्क करावा."
+                android:textColor="@color/font_black_0" />
+        </LinearLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:theme="@style/progressBarTheme"
+        android:visibility="gone"
+        app:backgroundTint="@color/colorPrimary" />
+</RelativeLayout>

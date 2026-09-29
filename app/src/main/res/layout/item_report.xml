@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivFile"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:adjustViewBounds="true"
+            android:padding="12dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ic_folder" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/ivDelete"
+            android:layout_toEndOf="@+id/ivFile"
+            android:layout_toRightOf="@+id/ivFile"
+            android:textColor="@color/font_black_0"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/sourcesanspro_bold" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivDelete"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_toStartOf="@+id/ivDownload"
+            android:adjustViewBounds="true"
+            android:padding="12dp"
+            android:scaleType="centerCrop"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_baseline_delete_24" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivDownload"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentEnd="true"
+            android:adjustViewBounds="true"
+            android:padding="12dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ic_baseline_cloud_download_24"
+            app:tint="@color/colorPrimary" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/font_black_5" />
+</LinearLayout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBill"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvBillType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/font_black_0"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/sourcesanspro_bold"
+                    tools:text="Purchase" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:layout_alignParentEnd="true"
+                    app:srcCompat="@drawable/ic_baseline_delete_24" />
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCreatedBy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_toStartOf="@+id/tvDateTime"
+                android:layout_toLeftOf="@+id/tvDateTime"
+                android:textColor="@color/color_primary"
+                android:textSize="15sp"
+                android:visibility="gone"
+                app:fontFamily="@font/sourcesanspro_regular"
+                tools:text="Purchase" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCreatedByShopName"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_toStartOf="@+id/tvDateTime"
+                android:layout_toLeftOf="@+id/tvDateTime"
+                android:textColor="@color/color_primary"
+                android:textSize="15sp"
+                app:fontFamily="@font/sourcesanspro_regular"
+                tools:text="Purchase" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDateTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="6dp"
+                android:textColor="@color/font_black_2"
+                android:textSize="14sp"
+                app:fontFamily="@font/sourcesanspro_regular"
+                tools:text="07-06-2020 15:41:13" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/font_black_5" />
+</LinearLayout>

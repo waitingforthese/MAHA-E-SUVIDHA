@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Hero banner for the Training Video screen (no phone graphic, per client). -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_tv_hero"
+    android:orientation="vertical"
+    android:padding="18dp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="शिका सोपे पद्धतीने"
+        android:textColor="@color/font_black_0"
+        android:textSize="23sp"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="Maha e Suvidha"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_tv_pill"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
+        android:text="ट्रेनिंग व्हिडिओ"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="अ‍ॅपमधील सर्व सेवा कशा वापरायच्या ते शिका स्टेप बाय स्टेप."
+        android:textColor="@color/font_black_2"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:background="@drawable/bg_tv_circle_blue"
+            android:padding="6dp"
+            app:srcCompat="@drawable/ic_tv_easy" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="सोपे"
+            android:textColor="@color/font_black_1"
+            android:textSize="13sp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/bg_tv_circle_orange"
+            android:padding="6dp"
+            app:srcCompat="@drawable/ic_tv_fast" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="जलद"
+            android:textColor="@color/font_black_1"
+            android:textSize="13sp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/bg_tv_circle_green"
+            android:padding="6dp"
+            app:srcCompat="@drawable/ic_tv_simple" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="समजण्यास सोपे"
+            android:textColor="@color/font_black_1"
+            android:textSize="13sp" />
+    </LinearLayout>
+</LinearLayout>

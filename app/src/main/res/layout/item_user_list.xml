@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/font_black_0"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/sourcesanspro_bold"
+            tools:text="User Name" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/font_black_1"
+            android:textSize="14sp"
+            app:fontFamily="@font/sourcesanspro_regular"
+            tools:text="User Name" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvUid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/font_black_1"
+            android:textSize="12sp"
+            app:fontFamily="@font/sourcesanspro_regular"
+            tools:text="User Name" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/font_black_5" />
+</LinearLayout>

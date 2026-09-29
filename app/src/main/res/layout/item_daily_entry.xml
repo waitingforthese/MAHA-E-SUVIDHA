@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="8dp"
+            android:textSize="13sp"
+            android:textColor="@color/font_black_0"
+            tools:text="Date" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/font_black_6" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:padding="8dp"
+            android:textSize="13sp"
+            android:textColor="@color/font_black_0"
+            tools:text="Details" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/font_black_6" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCashBank"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:padding="8dp"
+            android:textSize="13sp"
+            android:textColor="@color/font_black_0"
+            tools:text="Cash/Bank" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/font_black_6" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDebitCredit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:padding="8dp"
+            android:textSize="13sp"
+            android:textColor="@color/font_black_0"
+            tools:text="Debit/Credit" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/font_black_6" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:padding="8dp"
+            android:textSize="13sp"
+            android:textColor="@color/font_black_0"
+            tools:text="Amount" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/font_black_6" />
+</LinearLayout>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tvSL"
+        android:layout_width="56dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        android:gravity="center"
+        android:background="@drawable/table_content_cell_bg"
+        android:textSize="14sp"
+        tools:text="Sr No" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="@drawable/table_content_cell_bg"
+        android:textSize="14sp"
+        tools:text="Date" />
+
+    <TextView
+        android:id="@+id/tvLedger1"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        android:background="@drawable/table_content_cell_bg"
+        android:textSize="14sp"
+        tools:text="Ledger 1" />
+
+    <TextView
+        android:id="@+id/tvCredit"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/table_content_cell_bg"
+        android:textSize="14sp"
+        tools:text="Credit" />
+
+    <TextView
+        android:id="@+id/tvLedger2"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        android:background="@drawable/table_content_cell_bg"
+        android:textSize="14sp"
+        tools:text="Ledger 2" />
+
+    <TextView
+        android:id="@+id/tvDebit"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/table_content_cell_bg"
+        android:textSize="14sp"
+        tools:text="Debit" />
+
+    <TextView
+        android:id="@+id/tvVoucherType"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/table_content_cell_bg"
+        android:textSize="14sp"
+        tools:text="Voucher Type" />
+
+    <TextView
+        android:id="@+id/tvVoucherNo"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/table_content_cell_bg"
+        android:textSize="14sp"
+        tools:text="Voucher No" />
+
+    <TextView
+        android:id="@+id/tvStockItemName"
+        android:layout_width="170dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/table_content_cell_bg"
+        android:textSize="14sp"
+        tools:text="Stock Item Name" />
+
+    <TextView
+        android:id="@+id/tvStockItemQuantity"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/table_content_cell_bg"
+        android:textSize="14sp"
+        tools:text="Stock Item Quantity" />
+
+    <TextView
+        android:id="@+id/tvStockItemRate"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/table_content_cell_bg"
+        android:textSize="14sp"
+        tools:text="Stock Item Rate" />
+
+    <TextView
+        android:id="@+id/tvTaxable"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/table_content_cell_bg"
+        android:textSize="14sp"
+        tools:text="Taxable" />
+
+    <TextView
+        android:id="@+id/tvCgst"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/table_content_cell_bg"
+        android:textSize="14sp"
+        tools:text="Cgst" />
+
+    <TextView
+        android:id="@+id/tvSgst"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/table_content_cell_bg"
+        android:textSize="14sp"
+        tools:text="Sgst" />
+
+    <TextView
+        android:id="@+id/tvIgst"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/table_content_cell_bg"
+        android:textSize="14sp"
+        tools:text="Igst" />
+</LinearLayout>
