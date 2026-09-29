@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_filter"
+        android:icon="@drawable/ic_action_action_search"
+        android:title="Date range Filter"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_date"
+        android:icon="@drawable/ic_date_range_calendar"
+        android:title="Date filter"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_pdf"
+        android:title="Convert to PDF"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/action_ledger1"
+        android:title="Filter by Ledger 1"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/action_ledger2"
+        android:title="Filter by Ledger 2"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/action_vouch_type"
+        android:title="Filter by Vouch Type"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/action_stock_item_name"
+        android:title="Filter by Stock Item Name"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/action_filter_column"
+        android:title="Filter by Column"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/action_reset"
+        android:title="Reset"
+        app:showAsAction="collapseActionView" />
+</menu>

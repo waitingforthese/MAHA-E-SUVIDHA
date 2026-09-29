@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_create"
+        android:title="Create"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_download_datewise"
+        android:title="Download - Datewise"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/action_download"
+        android:title="Download"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/action_send_to_admin"
+        android:title="Send to Admin"
+        android:visible="false"
+        app:showAsAction="collapseActionView" />
+</menu>

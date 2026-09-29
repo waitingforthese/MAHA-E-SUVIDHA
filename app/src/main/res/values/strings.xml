@@ -1,0 +1,500 @@
+<resources>
+    <string name="app_name">Maha E-Suvidha</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="txt_email">Email</string>
+    <string name="txt_password">पासवर्ड(या अँप साठी पासवर्ड तयार करा)</string>
+    <string name="txt_login">लॉग इन</string>
+    <string name="txt_forgot_password">पासवर्ड विसरलात?</string>
+    <string name="txt_register">नवीन रेजिस्ट्रेशन ( फ्री )</string>
+    <string name="txt_name">नाव</string>
+    <string name="txt_shop_name">दुकानाचे नाव किंवा प्रोफेशन</string>
+    <string name="txt_contact_number">संपर्क क्रमांक</string>
+    <string name="txt_confirm_password">कन्फर्म पासवर्ड</string>
+    <string name="txt_submit">सबमिट</string>
+    <string name="txt_registration">Free Registration</string>
+    <string name="txt_scan_bills">Scan Bills</string>
+    <string name="txt_accounting_services">Accounting Services</string>
+    <string name="txt_choose_bill_type">Choose Bill Type</string>
+    <string name="txt_online_e_suvidha">Online E Suvidha</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="txt_try_later">Try later</string>
+
+    <string name="progress_downloading">Downloading…</string>
+    <string name="progress_uploading">Uploading…</string>
+    <string name="progress_auth">Signing In…</string>
+
+    <string name="upload_success">Upload finished</string>
+    <string name="upload_failure">Upload failed</string>\
+
+    <string name="download_success">Download finished</string>
+    <string name="download_failure">Download failure</string>
+    <string name="txt_bills">Bills</string>
+    <string name="txt_reports">Reports</string>
+    <string name="txt_notifications">Notifications</string>
+    <string name="txt_pan_card">पॅन कार्ड (नवीन / दुरुस्ती)</string>
+    <string name="txt_business_pan_card">व्यवसाय पॅन कार्ड</string>
+    <string name="txt_election_card">इलेक्शन कार्ड</string>
+    <string name="txt_shop_act">शॉप ऍक्ट</string>
+    <string name="txt_udyam_aadhar">उद्यम आधार</string>
+    <string name="txt_food_license">फूड लायसन्स</string>
+    <string name="txt_shriGondaTalukaSetuKendra">श्रीगोंदा तालुका सुविधा केंद्र</string>
+    <string name="txt_provident_fund">प्रोव्हिडंट फंड</string>
+    <string name="txt_manual_aadhar_card">Manual Aadhar Card</string>
+    <string name="txt_manual_aadhar_pan_card">Manual Aadhar - PAN</string>
+    <string name="txt_nepal_money_transfer">नेपाळ मनी ट्रान्सफर</string>
+    <string name="txt_railway_ticket_booking">तात्काळ रेल्वे तिकीट बुकिंग</string>
+    <string name="txt_manual_pan_card">Manual Pan Card</string>
+    <string name="txt_passport">पासपोर्ट</string>
+    <string name="txt_driving_learning_license">आर टी ओ ची कामे</string>
+    <string name="txt_send_report">Send Report</string>
+    <string name="txt_daily_entries">Daily Entries</string>
+    <string name="txt_payment_details">Payment Details</string>
+    <string name="txt_about_team">About Team</string>
+    <string name="txt_day_book">Day Book</string>
+    <string name="txt_day_book_list">Day Book List</string>
+    <string name="txt_upi_mode">UPI Mode</string>
+    <string name="txt_tutorial">हे अँप कसे वापरावे</string>
+    <string name="jyotish_shastra_note"><font size="20" color="#e64446"><b>सूचना व माहिती :-</b></font>
+        \n<font color="#e64446">ॐ</font>  - वधू वर \ कुंडली मिलन ग्रहमिलन व गुण मिलन अचूकरित्या केले जाईल तसेच स्थळ आलेल्या मुलाचे व मुलीचे साधारणत: व्यक्तिमत्वा बद्दल थोडक्यात माहिती मिळेल.
+        \n<font color="#e64446">ॐ</font> - वधू वर \ कुंडली मिलन ग्रहमिलन व गुण मिलन अचूकरित्या केले जाईल तसेच स्थळ आलेल्या मुलाचे व मुलीचे साधारणत: व्यक्तिमत्वा बद्दल थोडक्यात माहिती मिळेल.
+        \n<font color="#e64446">ॐ</font> - यासाठी खरी जन्मतारीख, जन्मवेळ, (AM/PM - २४ तासाच्या घड्याळा प्रमाणे वेळ) जन्मठिकाण (गावाचे नाव तालुक्याचे, जिल्हाच्या नाव सहित) ही माहिती आवश्यक असेल.
+        \n<font color="#e64446">ॐ</font> - मुलाचे किव्हा मुलीचे कुंडलीतील दोष व त्याचा परिहार करावा किव्हा नाही याची माहिती वेगळी पाहिजे असल्यास या कार्याची फी वेगळी असेल.
+        \n<font color="#e64446">ॐ</font> - ज्या व्यक्तीस काही गोष्टींसाठी (गाडी, घर, वस्तू, कार्य इत्यादी) मुहूर्त पाहिजे असतील तर त्याच्या स्वतःच्या कुंडली नुसार ते दिले जातील.
+        \n<font color="#e64446">ॐ</font> - जे काही विचारावयाचे असेल ते स्पष्ट पणे लिहून पाठवावे. एका विनंती नंतर त्यावर पुन्हा कोणतीही माहिती दिली जाणार नाही त्यासाठी पुन्हा दुसरा प्रश्न व फी द्यावी लागेल.
+        \n<font color="#e64446">ॐ</font> – वेगवेगळ्या माहितीसाठी वेगवेगळी फी असेल. उत्तर स्पष्ट शब्दांत सांगितले जाईल कोणतीही लपवाछपवी होणार नाही.
+        \n<font color="#e64446">ॐ</font> – <font color="#e64446">एकदा दिलेली फी पुन्हा दुसऱ्या प्रश्नासाठी वापरता येणार नाही.</font>
+        \n<font color="#e64446">सुविधा -</font>
+    \n1. वधू-वर कुंडली मिलन + ग्रह मिलन + गुण मिलन = 200
+    \n2. जन्मकुंडली आणि परीहर = 150
+    \n3. मुहूर्त = फी 100 रुपये
+    \n4. महिना कसा जाईल = फी 100 रुपये
+    \n5. प्रश्न = फी 100 रुपये
+    </string>
+    <string name="police_verification_note"><font size="20" color="#e64446"><b>सूचना व माहिती :-</b></font>
+    \n• आम्ही तुम्हाला पैसे कमविण्याची संधी देतो आहे. त्याचा पुरेपूर वापर करावा. सौजन्य आणि सहकार्य करावे.
+    \n• तुमच्या ग्राहकाकडून या फी व्यतिरिक्त जास्त फी घेऊन पैसे कमवा त्याबद्दल आम्ही सहकार्यच करू.
+    \n• खालील माहिती भरण्य अगोदर फी पेमेंट करून स्क्रीन शॉट काढून ठेवावा व खाली अपलोड करावा.
+    \n• ओ टी पी साठी 9552789899 या मोबाईल वरून फोन येईल. आम्ही तुमच्या ग्राहकाशी कोणतेही संभाषण करणार नाही याची खात्री बाळगा.
+    \n• खालील फॉर्म इंग्लिश मध्ये कोणतीही चूक न करता भरावा. तुम्ही भरलेले नाव व माहिती जशीच्या तशी येईल पुन्हा तक्रार चालणार नाही. स्पेलिंग मिस्टेक अजिबात नको. एड्रेस मध्ये जागेचे नाव, गावाचे नाव, तालुका, जिल्हा व पिन कोड टाकावा.
+    \n• आधार कार्ड वर संपूर्ण जन्मतारीख असावी, 10वी च्या आत मधील विद्यार्थ्यांना बोनाफाईड व 10 च्या वरील विद्यार्थ्यांना शाळा सोडल्याचा दाखला लागेल.
+    \n• शासकीय वेळ – १५ दिवस किव्हा जास्त असू शकते त्याची खात्री देता येत नाही.
+    \n• शासकीय वेळेनुसार व नियमानुसार फॉर्म रिजेक्ट झाल्यावर फी पुन्हा माघारी मिळणार नाही याची नोंद घ्या.
+    \n• आम्ही फक्त फॉर्म भरण्याचे काम करतो. एका दिवसात रिसीट मिळेल. रिसीट घेऊन तुम्ही संबंधित कार्यालयात जाऊन अप्रूव करून घ्यावे असे असेल तरच फॉर्म भरावा अन्यथा भरू नये. अप्रूवल घेण्याची जबाबदारी आमची नसेल.
+        \n<font color="#e64446"><b>चरित्र प्रमाणपत्र 270 रू\nसिक्युरिटी गार्ड साठी 370 रू</b></font>
+<!--        \n<font color="#e64446">• प्रमाणपत्र शासकीय वेळेनुसार तुमच्या पर्यंत पोहचेल. आपण फोर्म सबमिशन चे काम प्रामाणिक पणे करतो.</font>-->
+<!--        \n<font color="#e64446">• 9552789899 या मोबाईल वरून फोन आल्यावरच ओ टी पी द्यावा.</font>-->
+    </string>
+    <string name="age_certificate_note"><font size="20" color="#e64446"><b>सूचना व माहिती :-</b></font>
+    \n• आम्ही तुम्हाला पैसे कमविण्याची संधी देतो आहे. त्याचा पुरेपूर वापर करावा. सौजन्य आणि सहकार्य करावे.
+    \n• तुमच्या ग्राहकाकडून या फी व्यतिरिक्त जास्त फी घेऊन पैसे कमवा त्याबद्दल आम्ही सहकार्यच करू.
+    \n• खालील माहिती भरण्य अगोदर फी पेमेंट करून स्क्रीन शॉट काढून ठेवावा व खाली अपलोड करावा.
+    \n• ओ टी पी साठी 9552789899 या मोबाईल वरून फोन येईल. आम्ही तुमच्या ग्राहकाशी कोणतेही संभाषण करणार नाही याची खात्री बाळगा.
+    \n• खालील फॉर्म इंग्लिश मध्ये कोणतीही चूक न करता भरावा. तुम्ही भरलेले नाव व माहिती जशीच्या तशी येईल पुन्हा तक्रार चालणार नाही. स्पेलिंग मिस्टेक अजिबात नको. एड्रेस मध्ये जागेचे नाव, गावाचे नाव, तालुका, जिल्हा व पिन कोड टाकावा.
+    \n• आधार कार्ड वर संपूर्ण जन्मतारीख असावी, 10वी च्या आत मधील विद्यार्थ्यांना बोनाफाईड व 10 च्या वरील विद्यार्थ्यांना शाळा सोडल्याचा दाखला लागेल.
+    \n• शासकीय वेळ – १५ दिवस किव्हा जास्त असू शकते त्याची खात्री देता येत नाही.
+    \n• शासकीय वेळेनुसार व नियमानुसार फॉर्म रिजेक्ट झाल्यावर फी पुन्हा माघारी मिळणार नाही याची नोंद घ्या.
+    \n• आम्ही फक्त फॉर्म भरण्याचे काम करतो. एका दिवसात रिसीट मिळेल. रिसीट घेऊन तुम्ही संबंधित कार्यालयात जाऊन अप्रूव करून घ्यावे असे असेल तरच फॉर्म भरावा अन्यथा भरू नये. अप्रूवल घेण्याची जबाबदारी आमची नसेल.
+        \n<font size="20" color="#e64446"><b>फी 150 रू</b></font>
+    </string>
+    <string name="income_certificate_note"><font size="20" color="#e64446"><b>सूचना व माहिती :-</b></font>
+    \n• आम्ही तुम्हाला पैसे कमविण्याची संधी देतो आहे. त्याचा पुरेपूर वापर करावा. सौजन्य आणि सहकार्य करावे.
+    \n• तुमच्या ग्राहकाकडून या फी व्यतिरिक्त जास्त फी घेऊन पैसे कमवा त्याबद्दल आम्ही सहकार्यच करू.
+    \n• खालील माहिती भरण्य अगोदर फी पेमेंट करून स्क्रीन शॉट काढून ठेवावा व खाली अपलोड करावा.
+    \n• ओ टी पी साठी 9552789899 या मोबाईल वरून फोन येईल. आम्ही तुमच्या ग्राहकाशी कोणतेही संभाषण करणार नाही याची खात्री बाळगा.
+    \n• खालील फॉर्म इंग्लिश मध्ये कोणतीही चूक न करता भरावा. तुम्ही भरलेले नाव व माहिती जशीच्या तशी येईल पुन्हा तक्रार चालणार नाही. स्पेलिंग मिस्टेक अजिबात नको. एड्रेस मध्ये जागेचे नाव, गावाचे नाव, तालुका, जिल्हा व पिन कोड टाकावा.
+    \n• आधार कार्ड वर संपूर्ण जन्मतारीख असावी, 10वी च्या आत मधील विद्यार्थ्यांना बोनाफाईड व 10 च्या वरील विद्यार्थ्यांना शाळा सोडल्याचा दाखला लागेल.
+    \n• शासकीय वेळ – १५ दिवस किव्हा जास्त असू शकते त्याची खात्री देता येत नाही.
+    \n• शासकीय वेळेनुसार व नियमानुसार फॉर्म रिजेक्ट झाल्यावर फी पुन्हा माघारी मिळणार नाही याची नोंद घ्या.
+    \n• आम्ही फक्त फॉर्म भरण्याचे काम करतो. एका दिवसात रिसीट मिळेल. रिसीट घेऊन तुम्ही संबंधित कार्यालयात जाऊन अप्रूव करून घ्यावे असे असेल तरच फॉर्म भरावा अन्यथा भरू नये. अप्रूवल घेण्याची जबाबदारी आमची नसेल.
+        \n<font size="20" color="#e64446"><b>फी 150 रू</b></font>
+    </string>
+    <string name="gazzet_note"><font size="20" color="#e64446"><b>सूचना व माहिती :-</b></font>
+    \n• आम्ही तुम्हाला पैसे कमविण्याची संधी देतो आहे. त्याचा पुरेपूर वापर करावा. सौजन्य आणि सहकार्य करावे.
+    \n• तुमच्या ग्राहकाकडून या फी व्यतिरिक्त जास्त फी घेऊन पैसे कमवा त्याबद्दल आम्ही सहकार्यच करू.
+    \n• खालील माहिती भरण्य अगोदर फी पेमेंट करून स्क्रीन शॉट काढून ठेवावा व खाली अपलोड करावा.
+    \n• ओ टी पी साठी 9552789899 या मोबाईल वरून फोन येईल. आम्ही तुमच्या ग्राहकाशी कोणतेही संभाषण करणार नाही याची खात्री बाळगा.
+    \n• खालील फॉर्म इंग्लिश मध्ये कोणतीही चूक न करता भरावा. तुम्ही भरलेले नाव व माहिती जशीच्या तशी येईल पुन्हा तक्रार चालणार नाही. स्पेलिंग मिस्टेक अजिबात नको. एड्रेस मध्ये जागेचे नाव, गावाचे नाव, तालुका, जिल्हा व पिन कोड टाकावा.
+    \n• आधार कार्ड वर संपूर्ण जन्मतारीख असावी, 10वी च्या आत मधील विद्यार्थ्यांना बोनाफाईड व 10 च्या वरील विद्यार्थ्यांना शाळा सोडल्याचा दाखला लागेल.
+    \n• महत्वाचे – १०० रुपयाच्या स्ट्ँम्प वर काय बदल करावयाचा आहे ते एफेडेव्हीट करून द्यावे लागेल.
+        \n<font size="20" color="#e64446"><b>एस सी कॅटेगरी - फी 700रु</b></font>
+        \n<font size="20" color="#e64446"><b>ओ बी सी कॅटेगरी - फी 800रू</b></font>
+        \n<font size="20" color="#e64446"><b>जनरल कॅटेगरी - फी 900रू</b></font>
+    </string>
+    <string name="project_funding_note"><font size="20" color="#e64446"><b>सूचना :-</b></font>
+\nतुमच्या कडे असे ग्राहक असतील तर तुम्हाला त्यांच्या कर्ज रकमेवर ठराविक टक्के कमिशन मिळेल.
+\nशक्यतो ५० लाख ते 10 कोटी पर्यंत कर्ज प्रकरण हवे आहे. ५० लाखांच्या आत मध्ये होत नाही.
+\nही सुविधा फक्त खालील कागदपत्रे असतील तरच होईल. तरच माहिती मिळेल तोपर्यंत कोणतीही माहिती दिली जाणार नाही. लोन कोणत्या बँकेचे होईल, किती व्याजदर असेल, कशी प्रोसेस असेल हे सर्व प्रश्न संपूर्ण फाईल तयार झाल्यावर माहिती दिली जाईल.
+\nजास्तीत जास्त कमिशन मिळण्यासाठी या सुविधेचा नक्की विचार करावा. ग्राहक शोधावेत.
+\nअग्रीकल्चर कर्ज सबसिडी योजना अश्या सुविधा नाही त्यामुळे त्याची माहिती विचारू नये.
+        \n<font color="#e64446">Flat, Shop, construction, Open Plot, Salaried etc इत्यादी सुविधा आहेत.</font>
+\n\nProprietorship Firm
+\n1) 3 Years Income tax Return, Balance sheet, Audit Report
+\n2) Pan Card, 1 Year All Current Account Banking Shown in Balance sheet Till Date.
+\n3) All Saving Account Banking 1 Year till Date, 5 Photos
+\n4) All Loan Sanction Letters and Closer Letters, Track Record, CC Sanction Letter If Exist.
+\n5) Shop-act, Office &amp; Residence Telephone &amp; ELECTRICITY Bill Latest.
+\nCompany Profile, Proprietors Profile, Proprietors Net worth Certificate
+Project Report, CMA Data,
+
+\n\nPartnership Firm
+\n1)3 Years Income tax Return, Balance sheet, Audit Report of Partnership Firm.
+\n2) Company Pan Card, 1 Year All Current Account Banking Shown in Balance sheet Till Date.
+\n3) All Partner Saving Account Banking 1 Year till Date, 5 Photos
+\n4) All Partners, All Loan Sanction Letters and Closer Letters, Track Record If Exist.
+\n5) Shop-act, Office Telephone &amp; ELECTRICITY Bill Latest.
+\n6) All Partner Individual Pan Card, Individual 3 Years IT Returns, Balance sheet.
+\n7) Companies All Loan Sanction Letters, Cash Credit Sanction Letter If Exist.
+\n8) Partnership deed, All Partner Residence Telephone &amp; ELECTRICITY Bill Latest. Company Profile, Partners Profile, Partners Net worth Certificate, Project Report, CMA Data,
+
+\n\nPrivate Limited Company (Pvt. Ltd)
+\n1) 3 Years Income tax Return, Balance sheet, Audit Report of Company.
+\n2) Company Pan Card, 1 Year All Current Account Banking (Shown in Balance sheet) Till Date.
+\n3) All Directors Saving Account Banking 1 Year till Date, 5 Photos
+\n4) All Directors All Loan Sanction Letters and Closer Letters, Track Record If Exist.
+\n5) Shop act, Office Telephone &amp; ELECTRICITY Bill Latest, MOA, AOA
+\n6) All Directors Individual Pan Card, Individual 3 Years IT Returns, Balance sheet.
+\n7) Companies All Loan Sanction Letters, Cash Credit Sanction Letter, Closer Letters If Exist.
+\n8) All Partner Residence Telephone &amp; ELECTRICITY Bill Latest.
+\n9) Share Holding Pattern On Letter Head Of Company Attested By CA.
+\n10) Company Profile, Directors Profile, Directors Net worth Certificate
+Project Report, CMA Data,
+
+\n\nLimited Company (Ltd. Company)
+\n1) 3 Years Income tax Return, Balance sheet, Audit Report of Company.
+\n2) Company Pan Card, 1 Year All Current Account Banking (Shown in Balance sheet) Till Date.
+\n3) All Directors Saving Account Banking 1 Year till Date, 5 Photos
+\n4) All Directors All Loan Sanction Letters and Closer Letters, Track Record If Exist.
+\n5) Shop-act, Office Telephone &amp; ELECTRICITY Bill Latest, MOA, AOA
+\n6) All Directors Individual Pan Card, Individual 3 Years IT Returns, Balance sheet.
+\n7) Companies All Loan Sanction Letters, Cash Credit Sanction Letter, Closer Letters If Exist.
+\n8) All Partner Residence Telephone &amp; ELECTRICITY Bill Latest.
+\n9) Share Holding Pattern On Letter Head Of Company Attested By CA.
+\n10) Company Profile, Directors Profile, Directors Net worth Certificate
+Project Report, CMA Data,
+
+\n\nIF Salaried
+\n1) 3 Years Income tax Return, Balance sheet, Form 16.
+\n2) All Saving Account / Salary Account 1 Year Till Date Updated Banking.
+\n3) All Joining &amp; Reliving Letters, Experience Letters.
+\n4) Pan Card, Company ID Proof. Two Photo.
+\n5) All Loan Sanction &amp; Closer Letters If Exist.
+\n6) Residence Latest Telephone &amp; Electricity Bill.
+
+\n\nIf Trust
+\n1) 3 Years Income tax Return, Balance sheet, Audit Report of Trust Firm &amp; Tentative Balance- Sheet
+\n2) Trust Pan Card, 1 Year All Current Account Banking Shown in Balance sheet Till Date.
+\n3) Trust Incorporation Documents All, Trust Signing Authority Resolution If Exist.
+\n4) Trust All Loan Sanction Letters and Closer Letters, Track Record If Exist.
+\n5) Shop-act, Trust Office Telephone &amp; ELECTRICITY Bill Latest.
+\n6) All Trustee Pan Card, Individual 3 Years IT Returns, Balance sheet &amp; 6 Month Saving Banking Updated.
+\n7) Trust All Loan Sanction Letters, Cash Credit Sanction Letter If Exist.
+\n8) Trust deed, All Main Trustee Residence Telephone &amp; ELECTRICITY Bill Latest. Company Profile, Trustee Profile.
+\n9) All Property Papers With Sanction Plan, All Chain Agreement, Sell Deed, Each &amp; Every Documents Related To Property.
+
+\n\n\nCOLATERAL SECURITY DOCUMENTS (For Secured Funding)
+        \n<font color="#e64446">In case the property offered, is Open Plot</font>
+    \n1. Sale Deed
+    \n2. Sanctioned Map of the layout/ plot under reference
+    \n3. Latest 7/12 extracts of the property under reference
+    \n4. Gaon Namuna-8 A of the property under reference
+    \n5. Non Agricultural order issued by the appropriate authority
+    \n6. General Power of Attorney in case the transaction has been carried out as a power of attorney holder
+    \n7. Four corners photographs of the property under reference
+    \n8. Latest Cess Tax receipt of the property under reference
+
+        \n<font color="#e64446">In case the property offered is Flat / Shop / constructed own house</font>
+    \n1. Sale deed/ Deed of Apartment/ Deed of Assignment
+    \n2. Sanctioned layout plan/ plan of construction of the building or apartment
+    \n3. Property card/ 7/12 extract,  Fer-far nond vahi / Akhiv patrika of the property under reference
+    \n4. Commencement certificate of the Building/ Apartment
+    \n5. Latest Tax receipt of the property under reference
+    \n6. Non Agricultural order issued by the appropriate authority
+    \n7. Deed of declaration of the building
+    \n8. General Power of Attorney in case the transaction has been carried out as a power of attorney holder
+    \n9. Development agreement if any executed of the property under reference
+    \n10. Share Certificate regarding the membership if any society is established for the said building/ apartment
+    \n11. Possession certificate of flat/shop
+    \n12. Building completion certificate
+    \n13. Four corners photographs of the property under reference
+    \n14. Latest Electricity bill of the property under reference </string>
+    <string name="credit_card_note"><font size="20" color="#e64446"><b>सूचना व माहिती :-</b></font>
+    \n• आम्ही तुम्हाला पैसे कमविण्याची संधी देतो आहे. त्याचा पुरेपूर वापर करावा. सौजन्य आणि सहकार्य करावे.
+    \n• तुमच्या ग्राहकाकडून जास्त फी घेऊन पैसे कमवा त्याबद्दल आम्ही सहकार्यच करू.
+    \n• सिबील स्कोअर 725 पाहिजे. 15 दिवसात डिलिव्हरी.
+    \n• एका reference साठी 500 रुपये कमिशन महा ई सुविधा कडून मिळेल. ग्राहकास कार्ड मिळाल्यानंतर कमिशन दिले जाईल.
+    \n• आम्ही तुम्हाला पैसे कमविण्याची संधी देतो आहे. त्याचा पुरेपूर वापर करावा. सौजन्य आणि सहकार्य करावे.
+तुमच्या कस्टमर कडे खालील कागदपत्रे असतील तर त्यांना क्रेडिट कार्ड मिळेल
+    \n• जॉब असेल तर 2 महिन्याची पेमेंट स्लीप - कमीतकमी 20,000 पगार.
+\nOr
+    \n• व्यवसाय असेल तर इन्कम टॅक्स रिटर्न 6 lac च्य वर इन्कम
+\nOr
+    \n• कोणत्याही बँकेचे जुने कार्ड असेल तर त्याचे लेटेस्ट स्टेटमेंट. त्याची लिमिट 30हजार आणि 10% अवेलेबल पाहिजे.
+    </string>
+    <string name="all_govt_cards_note"><font size="20" color="#e64446"><b>सूचना –</b></font>
+    \n• आम्ही तुम्हाला पैसे कमविण्याची संधी देतो आहे. त्याचा पुरेपूर वापर करावा. सौजन्य आणि सहकार्य करावे.
+    \n• तुमच्या ग्राहकाकडून या फी व्यतिरिक्त जास्त फी घेऊन पैसे कमवा त्याबद्दल आम्ही सहकार्यच करू.
+    \n• खालील माहिती भरण्य अगोदर फी पेमेंट करून स्क्रीन शॉट काढून ठेवावा व खाली अपलोड करावा.
+    \n• ओ टी पी साठी 9552789899 या मोबाईल वरून फोन येईल. आम्ही तुमच्या ग्राहकाशी कोणतेही संभाषण करणार नाही याची खात्री बाळगा.
+    \n• खालील फॉर्म इंग्लिश मध्ये कोणतीही चूक न करता भरावा. तुम्ही भरलेले नाव व माहिती जशीच्या तशी येईल पुन्हा तक्रार चालणार नाही. स्पेलिंग मिस्टेक अजिबात नको. एड्रेस मध्ये जागेचे नाव, गावाचे नाव, तालुका, जिल्हा व पिन कोड टाकावा.
+    \n<font color="#e64446"><b>1) आयुष्यमान कार्ड -		50 रुपये फी
+    \n2) श्रम कार्ड -			50 रुपये फी
+    \n3) आभा कार्ड -			50 रुपये फी
+    \n4) जन आरोग्य योजना -		50 रुपये फी
+    \n5) आधार कार्ड पीव्हीसी -		80 रुपये फी
+        \n6) हरवलेला पँणकार्ड नंबर शोधणे -	100 रुपये फी
+            \n7) अर्जंट पँणकार्ड ३ तास मध्ये -	170 रुपये फी</b></font>
+    <!--\n6) पँणकार्ड डाऊनलोड पीडीएफ -	80 रुपये फी
+    \n7) हरवलेले पँणकार्ड मागविणे -	80 रुपये फी-->
+    </string>
+    <string name="farmer_policy_note"><font size="20" color="#e64446"><b>सूचना –</b></font>
+    \n• आम्ही तुम्हाला पैसे कमविण्याची संधी देतो आहे. त्याचा पुरेपूर वापर करावा. सौजन्य आणि सहकार्य करावे.
+    \n• तुमच्या ग्राहकाकडून या फी व्यतिरिक्त जास्त फी घेऊन पैसे कमवा त्याबद्दल आम्ही सहकार्यच करू.
+    \n• खालील माहिती भरण्य अगोदर फी पेमेंट करून स्क्रीन शॉट काढून ठेवावा व खाली अपलोड करावा.
+    \n• ओ टी पी साठी 9552789899 या मोबाईल वरून फोन येईल. आम्ही तुमच्या ग्राहकाशी कोणतेही संभाषण करणार नाही याची खात्री बाळगा.
+    \n• खालील फॉर्म इंग्लिश मध्ये कोणतीही चूक न करता भरावा. तुम्ही भरलेले नाव व माहिती जशीच्या तशी येईल पुन्हा तक्रार चालणार नाही. स्पेलिंग मिस्टेक अजिबात नको. एड्रेस मध्ये जागेचे नाव, गावाचे नाव, तालुका, जिल्हा व पिन कोड टाकावा.
+    \n<font color="#e64446"><b>1) पीक विमा -				100 रुपये फी
+    \n2) हरितगृह -				100 रुपये फी
+    \n3) कांदा चाळ - 				100 रुपये फी
+    \n4) ठिबक - 		 		100 रुपये फी
+    \n5) किसान क्रेडीट कार्ड - 		 	100 रुपये फी
+    \n6) अभियांत्रिकीकारण (औजारे) -	 	100 रुपये फी
+            \n7) श्रम योगी मानधन योजना - 		100 रुपये फी</b></font>
+    </string>
+    <string name="all_other_docs_note"><font size="20" color="#e64446"><b>सूचना –</b></font>
+    \n• आम्ही तुम्हाला पैसे कमविण्याची संधी देतो आहे. त्याचा पुरेपूर वापर करावा. सौजन्य आणि सहकार्य करावे.
+    \n• ओ टी पी साठी 9552789899 या मोबाईल वरून फोन येईल. आम्ही तुमच्या ग्राहकाशी कोणतेही संभाषण करणार नाही याची खात्री बाळगा.
+    \n• खालील फॉर्म इंग्लिश मध्ये कोणतीही चूक न करता भरावा. तुम्ही भरलेले नाव व माहिती जशीच्या तशी येईल पुन्हा तक्रार चालणार नाही. स्पेलिंग मिस्टेक अजिबात नको. एड्रेस मध्ये जागेचे नाव, गावाचे नाव, तालुका, जिल्हा व पिन कोड टाकावा.
+    \n• या सुविधा फक्त याच तालुक्यातील सर्व नागरिकांसाठी आहेत.
+    \n• उत्पन्न दाखला आणि दोमासाईल साठी वेगळी बटन दिलेली आहेत.
+
+    \n<font color="#e64446"><b>1. शेतकरी / अल्पभुधारक दाखला - 350
+    \n2. नॉनक्रिमीलेयर - 350
+    \n3. जातीचा दाखला - 1000
+            \n4. EWS State/Central List - 350</b></font>
+    </string>
+    <string name="all_other_docs_cast_doc_note">1) जातीचा दाखला काढत असताना स्थानिक चौकशी अहवाल द्यावा लागतो. त्यासाठी अर्ज उपलब्ध आहे तो तयार करून द्यावा लागेल.
+
+\n2) 1960 वर्ष अगोदर वा नंतर चे 7/12, खासरा पाणी किंव्हा इतर दस्त जोडावे लागतील.
+
+\n3) एका वंशावळ असेल तर त्या वंशावळीतील सर्व मुलांचे दाखले एकदाच एका वेळी द्यावे त्यामुळे एकत्र काम करता येईल. सर्वांचा फायदा होईल.
+
+\n4) वरील फी फॉर्म भरणे, स्कॅन करणे, प्रिंट काढणे, अपलोड करणे इत्यादी व कन्सल्टिंग फी, वेळ, मनुष्यबळ, वापरण्यात येणारी साधने, सेतू केंद्राची फी व शासकीय फी इत्यादी साठी आहे.
+
+\n5) अधिक माहिती साठी 9552789899 या मोबाईल नंबर वर संपर्क करावा
+    </string>
+    <string name="edit_pan_card_aadhar_card">EDIT पँण कार्ड / आधार कार्ड</string>
+    <string name="police_verification">रजिस्ट्रेशन / नोंदणी</string>
+    <string name="income_certificate">Income Certificate</string>
+    <string name="age_nationality_amp_domicile_certificate"><![CDATA[Age Nationality & Domicile Certificate]]></string>
+    <string name="gazzet">गँझेट</string>
+    <string name="jyotish_shastriche_prashn">ज्योतिष शास्त्रींचे प्रश्न</string>
+    <string name="cibil_report">Cibil Report</string>
+    <string name="free_credit_card">टॅक्स एजंट ची कामे</string>
+    <string name="all_govt_cards">सर्व शासकीय कार्ड</string>
+    <string name="txt_verification">व्हेरिफिकेशन</string>
+    <string name="farmer_policy">सर्व शेतकरी योजना</string>
+    <string name="gst_registration">जी एस टी रजिस्ट्रेशन</string>
+    <string name="all_other_docs">इतर सर्व दाखले</string>
+    <string name="txt_maha_e_suvidha_login_screen"><font color="#FF3A00">महा</font> <font color="#304FFF">ई सुविधा</font></string>
+    <string name="demat_account">इतर सेवा / सुविधा</string>
+    <string name="txt_referral_program">रेफरल प्रोग्रॅम</string>
+    <string name="txt_govt_schemes">नवीन शासकीय योजना</string>
+    <string name="tx_coming_soon">Coming Soon...</string>
+    <string name="pan_card_note"><font size="20" color="#e64446"><b>सूचना –</b></font>
+        \n1) आम्ही तुम्हाला पैसे कमविण्याची संधी देतो आहे. त्याचा पुरेपूर वापर करावा. सौजन्य आणि सहकार्य करावे.
+        \n2) तुमच्या ग्राहकाकडून या फी व्यतिरिक्त जास्त फी घेऊन पैसे कमवा त्याबद्दल आम्ही सहकार्यच करू.
+        \n3) पासपोर्ट साईज फोटो व इतर फोटो खराब पाठविल्यामुळे अर्ज रिजेक्ट झाल्यास २० रुपये फी पाठवावी लागेल. त्यामुळे फोटो चांगले अपलोड करावे. स्क्रीन शॉट पाठवू नये. फोटो कँमेरा ने काढून अपलोड करावे.
+        \n4) पँण कार्ड मध्ये बदल करण्यासाठी Annexure – A तयार करावा लागतो. बदल करण्यात आलेले पँण कार्ड १५ दिवसांनी इमेल वर येते त्यानंतर १५ दिवसांनी पोस्ट ने आधार पत्त्यावर जाते.
+        \n5) नवीन पँण कार्ड 6 दिवसांनी इमेल वर येते त्यानंतर १५ दिवसांनी पोस्ट ने आधार पत्त्यावर जाते.
+        \n6) खालील माहिती भरण्य अगोदर फी पेमेंट करून स्क्रीन शॉट काढून ठेवावा व खाली अपलोड करावा.
+        \n7) पॅन कार्ड ची पी डी एफ ओपन करण्याचा पासवर्ड ग्राहकाची जन्मतरिख असते DDMMYYYY या फॉरमॅट मध्ये टाकावी.
+        \n8) पॅन कार्ड नंबर माहित नसल्यास विसरला हरवला असल्यास पॅन नंबर शोधून प्रिंट अर्जंट दिली जाईल = फी 120रू
+        \n9) मोबाईल नंबर 9552789899 फक्त यावरूनच ओटीपी साठी संपर्क केला जाईल.
+        \n\n<font color="#e64446"><b>नवीन पॅन कार्ड (सही, नवीन फोटो सहित) - फी 150 \u20B9</b></font>
+\n<font color="#e64446"><b>पॅन दुरुस्ती - फी 170 \u20B9</b></font>
+\n<font color="#e64446"><b>हरवलेले पॅन मागविणे (दुरुस्ती नाही) - फी 170 \u20B9</b></font>
+\n<font color="#e64446"><b>अर्जंट नवीन पॅन (आधार ओटीपी येईल, आधार चा फोटो येईल) 3 तासात प्रिंट - फी 170 \u20B9</b></font>
+\n<font color="#e64446"><b>हरवलेले पॅन कार्ड चा फक्त नंबर शोधणे - फी 100 \u20B9</b></font>
+    </string>
+    <string name="election_card_note"><font size="20" color="#e64446"><b>सूचना –</b></font>
+\n1) पासपोर्ट साईज फोटो चा फोटो व इतर फोटो काढताना फोटो क्वालिटी एकदम चांगली पाहिजे.
+\n2) फी फोन पे / गुगल पे ने पाठवून त्याचा स्क्रीन शॉट उपलोड करावा..
+\n3) फी पाठवण्यासाठी होम वरील Payment Details मध्ये QR कोड आहे. तो वापरावा.
+\n4) आम्ही कस्टमर बरोबर कोणतेही संभाषण करणार नाही, तुम्ही कितीही फी घेऊ शकता.
+\n5) अजून कागदपत्रांची गरज पडल्यास या 9552789899 मोबाईल नंबर वर WHATS APP करावे.
+        \n\n<font size="20" color="#e64446"><b>नवीन मतदान कार्ड काढणे - फी 50 रू</b></font>
+        \n\n<font size="20" color="#e64446"><b>मतदान कार्ड दुरुस्ती - फी 70 रू</b></font>
+        <!--\n\nआवश्यक कागदपत्रे –
+\n1) ज्या व्यक्तीचा मतदान कार्ड काढायचा असेल त्याचे
+\n2) आधार कार्ड,
+\n3) पँण कार्ड,
+\n4) रेशन कार्ड
+\n5) बँक पासबुक
+\n6) मोबाईल नंबर – (ओटीपी जाईल)
+\n7) घरातील एका व्यक्तीचे मतदान कार्ड, (आई, वडील, पती, पत्नी यापैकी कोणाचेही एकाचे)-->
+    </string>
+    <string name="edit_pan_aadhar_card_note"><font size="20" color="#e64446"><b>सूचना -:</b></font>  अवैध कामासाठी उपयोग करू नये. दुरुपयोग करू नये. RED
+जर पँण कार्ड हरवले असेल व त्याचा नंबर माहितअसेल तर आपल्याला ती कॉपी कॅम्पूटर द्वारे तयार करता येऊ शकते.
+जर आधार कार्ड हरवले असेल व त्याचा नंबर माहित असेल तर आपल्याला ती कॉपी कॅम्पूटर द्वारे तयार करता येऊ शकते.
+लक्षात घ्या हे बदल आधार सर्व्हर वर होत नाही किव्हा केले जात नाही ते फक्त कार्डवर केले जातात.
+माहिती भरताना कोणतीही चूक करू नये.
+आम्ही कस्टमर बरोबर फी संबंधी कोणतेही संभाषण करणार नाही. तयार झालेली कार्ड तुमच्याकडे पाठवला जाईल.\nशब्दामधील अक्षर बदल केला जाईल. संपूर्ण कार्ड मध्ये बदल करून दिला जाणार नाही. जुने आधार कार्ड पॅन कार्ड पाहूनच काम केले जाईल.
+        \n\n<font size="20" color="#e64446"><b>फी 50 \u20B9</b></font>
+    </string>
+    <string name="govt_scheme_note"><font size="20" color="#e64446"><b>सूचना –</b></font>
+\n1) आम्ही तुम्हाला पैसे कमविण्याची संधी देतो आहे. त्याचा पुरेपूर वापर करावा. सौजन्य आणि सहकार्य करावे.
+\n2) तुमच्या ग्राहकाकडून या फी व्यतिरिक्त जास्त फी घेऊन पैसे कमवा त्याबद्दल आम्ही सहकार्यच करू.
+\n3) खालील माहिती भरण्य अगोदर फी पेमेंट करून स्क्रीन शॉट काढून ठेवावा व खाली अपलोड करावा.
+\n4) ओ टी पी साठी 9552789899 या मोबाईल वरून फोन येईल. आम्ही तुमच्या ग्राहकाशी कोणतेही संभाषण करणार नाही याची खात्री बाळगा.
+\n5) खालील फॉर्म इंग्लिश मध्ये कोणतीही चूक न करता भरावा. तुम्ही भरलेले नाव व माहिती जशीच्या तशी येईल पुन्हा तक्रार चालणार नाही. स्पेलिंग मिस्टेक अजिबात नको. एड्रेस मध्ये जागेचे नाव, गावाचे नाव, तालुका, जिल्हा व पिन कोड टाकावा.
+        \n\n<font color="#e64446"><b>नवीन आलेली योजना - 1</b></font>
+\n<font color="#e64446"><b>सी एम ई जी पी (मुख्यमंत्री रोजगार निर्मिती कार्यक्रम) - फी 500 \u20B9</b></font>
+\n<font color="#e64446"><b>नवीन आलेली योजना - 2</b></font>
+\n<font color="#e64446"><b>अण्णासाहेब पाटील व्याज परतावा योजना - फी 500 \u20B9</b></font>
+    </string>
+    <string name="provident_fund_note"><font size="20" color="#e64446"><b>सूचना –</b></font>
+\n1) पी एफ साठी आधार कार्ड बरोबर मोबाईल नंबर लिंक असणे गरजेचे आहे.
+\n2) UAN नंबर ACTIVATE / KYC / EXIT DATE मार्क करणे / नोमिनी / WITHDRAWN
+\n3) पासपोर्ट साईज फोटो चा फोटो व इतर फोटो काढताना फोटो क्वालिटी एकदम चांगली पाहिजे.
+\n4) नॉमिनेशन साठी वेगळे 100 रुपये फी राहील.
+\n5) 150 फी फोन पे / गुगल पे ने पाठवून त्याचा स्क्रीन शॉट अपलोड करावा.
+\n6) फी पाठवण्यासाठी होम वरील डाव्या बाजूला payment डिटेल्स मध्ये QR कोड आहे. तो वापरावा.
+\n7) ओटीपी साठी या 9552789899 मोबाईल नंबर बरून कॉल येईल.
+\n8) आम्ही कस्टमर बरोबर कोणतेही संभाषण करणार नाही, तुम्ही कितीही फी घेऊ शकता.
+\n9) अजून कागदपत्रांची गरज पडल्यास या 9552789899 मोबाईल नंबर वर व्हाट्सअँप करावे.
+\n<font color="#e64446"><b>पासवर्ड तयार करणे फी 50 रू
+\nयू ए एन एक्टीवेट करणे फी 50 रू
+\nके वाय सी करणे फी 50 रू
+\nजुन्या कंपनीचा पी एफ चालू कंपनी मध्ये ट्रान्स्फर करणे फी 50 रू
+\nएक्झिट डेट मार्क करणे फी 50 रू
+\nवीड्रॉल फॉर्म भरणे फी 50रू
+\nनोमिनी / वारसदार लावणे फी 100 रू
+\nपासबुक पाठविणे फी 50 रू</b></font>
+\nवरील कामा प्रमाणे फी आकारली जाईल.
+    </string>
+    <string name="passport_note"><font size="20" color="#e64446"><b>सूचना –:</b></font>
+    \n• आम्ही तुम्हाला पैसे कमविण्याची संधी देतो आहे. त्याचा पुरेपूर वापर करावा. सौजन्य आणि सहकार्य करावे.
+    \n• तुमच्या ग्राहकाकडून या फी व्यतिरिक्त जास्त फी घेऊन पैसे कमवा त्याबद्दल आम्ही सहकार्यच करू.
+    \n• खालील माहिती भरण्य अगोदर फी पेमेंट करून स्क्रीन शॉट काढून ठेवावा व खाली अपलोड करावा.
+    \n• ओ टी पी साठी 9552789899 या मोबाईल वरून फोन येईल. आम्ही तुमच्या ग्राहकाशी कोणतेही संभाषण करणार नाही याची खात्री बाळगा.
+    \n• खालील फॉर्म इंग्लिश मध्ये कोणतीही चूक न करता भरावा. तुम्ही भरलेले नाव व माहिती जशीच्या तशी येईल पुन्हा तक्रार चालणार नाही. स्पेलिंग मिस्टेक अजिबात नको. एड्रेस मध्ये जागेचे नाव, गावाचे नाव, तालुका, जिल्हा व पिन कोड टाकावा.
+    \n• पासपोर्ट फॉर्म ऑनलाईन भरल्यावर ग्राहकास पासपोर्ट कार्यालयात जाऊन ओरिजिनल कागदपत्रे दाखवावे लागतात त्यासाठी अपोइन्टमेंट घ्यावी लागते.
+    \n• तुमच्या जवळच्या पासपोर्ट कार्यालयामध्ये तुमच्या वेळेत अपोइन्टमेंट घेऊन दिली जाईल.
+    \n• अपोइन्टमेंट वेळी पासपोर्ट कार्यालयामध्ये – ई आधार प्रिंट, पासपोर्ट फॉर्म, शाळेचे मार्कशीट आधार कार्ड, पँण कार्ड, रेशन कार्ड घेऊन जाणे. हे काम झाल्यावर तुमच्या जवळच्या पोलीस स्टेशन मधून मेसेज येईल तेव्हा हेच कागदपत्रे पोलीस स्टेशन मध्ये घेऊन जाणे.
+    \n• पासपोर्ट कार्यालयामधील अपोइन्टमेंट व पोलीस व्हेरिफिकेशन झाले कि १५ दिवसात पासपोर्ट आधार अड्रेस वर येईल.
+    \n• आम्ही पासपोर्ट रिन्यू करून देऊ. हरवलेला पुन्हा मागवून देऊ. त्यसाठी सुधा खालील फॉर्म वापरावा.
+<!--\n<font color="#e64446"><b>फी 1700 रू</b></font>-->
+        \n<font size="20" color="#e64446"><b>नवीन पासपोर्ट काढणे - फी 1750 रू</b></font>
+        \n<font size="20" color="#e64446"><b>पासपोर्ट रीन्यू करणे - फी 1750 रू</b></font>
+    </string>
+    <string name="business_pan_card_note"><font size="20" color="#e64446"><b>सूचना –</b></font>
+\n1) आम्ही तुम्हाला पैसे कमविण्याची संधी देतो आहे. त्याचा पुरेपूर वापर करावा. सौजन्य आणि सहकार्य करावे.
+\n2) तुमच्या ग्राहकाकडून या फी व्यतिरिक्त जास्त फी घेऊन पैसे कमवा त्याबद्दल आम्ही सहकार्यच करू.
+\n3) फोटो खराब पाठविल्यामुळे अर्ज रिजेक्ट झाल्यास २० रुपये फी पाठवावी लागेल. त्यामुळे फोटो चांगले अपलोड करावे. स्क्रीन शॉट पाठवू नये. फोटो कँमेरा ने काढून अपलोड करावे.
+\n4) खालील माहिती भरण्य अगोदर फी पेमेंट करून स्क्रीन शॉट काढून ठेवावा व खाली अपलोड करावा.
+\n5) पॅन कार्ड ची पी डी एफ ओपन करण्याचा पासवर्ड व्यवसायाची सुरुवात झाली ती तारीख असते (DDMMYYYY)
+\n6) ग्रामपंचायत ना हरकत दाखल्यावर व्यवसाय चालू केल्याची तारीख व ग्रामसेवक व सरपंच या दोघांची सही शिक्का पाहिजे.
+\n<font size="20" color="#e64446"><b>फी 200 रू</b></font>
+    </string>
+    <string name="shop_act_note"><font size="20" color="#e64446"><b>सूचना –</b></font>
+\n1) आम्ही तुम्हाला पैसे कमविण्याची संधी देतो आहे. त्याचा पुरेपूर वापर करावा. सौजन्य आणि सहकार्य करावे.
+\n2) तुमच्या ग्राहकाकडून या फी व्यतिरिक्त जास्त फी घेऊन पैसे कमवा त्याबद्दल आम्ही सहकार्यच करू.
+\n3) खालील माहिती भरण्य अगोदर फी पेमेंट करून स्क्रीन शॉट काढून ठेवावा व खाली अपलोड करावा.
+\n4) ओ टी पी साठी 9552789899 या मोबाईल वरून फोन येईल. आम्ही तुमच्या ग्राहकाशी कोणतेही संभाषण करणार नाही याची खात्री बाळगा.
+\n5) पार्टनरशिप, ट्रस्ट चे शॉप एक्ट काढण्यासाठी सर्व पार्टनर चे नाव, आधार नंबर, फोन नं व इमेल आयडी व्हाट्स अँप वर पाठवावे त्याची फी २५० रुपये राहील.
+\n6) खालील फॉर्म इंग्लिश मध्ये कोणतीही चूक न करता भरावा. तुम्ही भरलेले नाव व माहिती जशीच्या तशी येईल पुन्हा तक्रार चालणार नाही. स्पेलिंग मिस्टेक अजिबात नको. एड्रेस मध्ये जागेचे नाव, गावाचे नाव, तालुका, जिल्हा व पिन कोड टाकावा.
+\n<font size="20" color="#e64446"><b>फी 150 रू</b></font>
+    </string>
+    <string name="udyam_aadhar_note"><font size="20" color="#e64446"><b>सूचना –</b></font>
+\n1) आम्ही तुम्हाला पैसे कमविण्याची संधी देतो आहे. त्याचा पुरेपूर वापर करावा. सौजन्य आणि सहकार्य करावे.
+\n2) तुमच्या ग्राहकाकडून या फी व्यतिरिक्त जास्त फी घेऊन पैसे कमवा त्याबद्दल आम्ही सहकार्यच करू.
+\n3) खालील माहिती भरण्य अगोदर फी पेमेंट करून स्क्रीन शॉट काढून ठेवावा व खाली अपलोड करावा.
+\n4) ओ टी पी साठी 9552789899 या मोबाईल वरून फोन येईल. आम्ही तुमच्या ग्राहकाशी कोणतेही संभाषण करणार नाही याची खात्री बाळगा.
+\n5) खालील फॉर्म इंग्लिश मध्ये कोणतीही चूक न करता भरावा. तुम्ही भरलेले नाव व माहिती जशीच्या तशी येईल पुन्हा तक्रार चालणार नाही. स्पेलिंग मिस्टेक अजिबात नको. एड्रेस मध्ये जागेचे नाव, गावाचे नाव, तालुका, जिल्हा व पिन कोड टाकावा.
+\n6) उद्यम साठी आधार कार्ड वारोबर मोबाईल लिंक असणे बंधनकारक आहे. त्यावर ओ टी पी जाईल.
+\n<font size="20" color="#e64446"><b>फी 150 रू</b></font>
+    </string>
+    <string name="food_license_note"><font size="20" color="#e64446"><b>सूचना –</b></font>
+\n1) आम्ही तुम्हाला पैसे कमविण्याची संधी देतो आहे. त्याचा पुरेपूर वापर करावा. सौजन्य आणि सहकार्य करावे.
+\n2) तुमच्या ग्राहकाकडून या फी व्यतिरिक्त जास्त फी घेऊन पैसे कमवा त्याबद्दल आम्ही सहकार्यच करू.
+\n2) खालील माहिती भरण्य अगोदर फी पेमेंट करून स्क्रीन शॉट काढून ठेवावा व खाली अपलोड करावा.
+\n3) ओ टी पी साठी 9552789899 या मोबाईल वरून फोन येईल. आम्ही तुमच्या ग्राहकाशी कोणतेही संभाषण करणार नाही याची खात्री बाळगा.
+\n4) खालील फॉर्म इंग्लिश मध्ये कोणतीही चूक न करता भरावा. तुम्ही भरलेले नाव व माहिती जशीच्या तशी येईल पुन्हा तक्रार चालणार नाही. स्पेलिंग मिस्टेक अजिबात नको. एड्रेस मध्ये जागेचे नाव, गावाचे नाव, तालुका, जिल्हा व पिन कोड टाकावा.
+\n5) स्टेट फूड लायसेन्स काढून दिले जाईल. ज्या व्यवसायचे टर्न ओवर 12 लाख वार्षिक च्या वर असेल त्यांना स्टेट लायसेन्स काढावे लागते. त्याची फी वेगळी असेल. खलील फॉर्म भरावा व फी साठी फोन करावा.
+\n6) लायसेन्स रिन्यू / नूतनीकरण – ज्या ग्राहकाच्या लायसेन्स ची वैद्यता संपणार असेल त्यांना १८० दिवसाच्या आत मध्ये लायसेन्स रिन्यू करावे लागते ते कमीत कमी फी मध्ये करून दिले जाईल.
+\n<font size="20" color="#e64446"><b>फी - 1 वर्षे - फी 400, 2 वर्षे - फी 500, 3 वर्षे - फी 600, 4 वर्षे - फी 700, 5 वर्षे - फी 800</b></font>
+    </string>
+    <string name="gst_reg_note"><font size="20" color="#e64446"><b>सूचना –</b></font>
+\n• आम्ही तुम्हाला पैसे कमविण्याची संधी देतो आहे. त्याचा पुरेपूर वापर करावा. सौजन्य आणि सहकार्य करावे.
+\n• तुमच्या ग्राहकाकडून या फी व्यतिरिक्त जास्त फी घेऊन पैसे कमवा त्याबद्दल आम्ही सहकार्यच करू.
+\n• खालील माहिती भरण्य अगोदर फी पेमेंट करून स्क्रीन शॉट काढून ठेवावा व खाली अपलोड करावा.
+\n• भाडेकरार हा ऑनलाईन असावा (लिव्ह &amp; लायसेन्स) त्यावर लाईट बिल प्रमणे पत्ता असावा. पत्त्यामध्ये चोक, रस्ता, जवळची खुण, योग्य पिन कोड या गोष्टी टाकणे बंधनकारक आहे.
+\n• इतर आवश्यक कागदपत्रे WHATS APP वर पाठवावीत.
+\n<font size="20" color="#e64446"><b>फी 1200 रू</b></font>
+    </string>
+    <string name="cibil_report_note"><font size="20" color="#e64446"><b>सूचना –</b></font>
+\n1) पासपोर्ट साईज फोटो चा फोटो व इतर फोटो काढताना फोटो क्वालिटी एकदम चांगली पाहिजे.
+\n2) फी फोन पे / गुगल पे ने पाठवून त्याचा स्क्रीन शॉट उपलोड करावा..
+\n3) फी पाठवण्यासाठी होम वरील Payment Details मध्ये QR कोड आहे. तो वापरावा.
+\n4) आम्ही कस्टमर बरोबर कोणतेही संभाषण करणार नाही, तुम्ही कितीही फी घेऊ शकता.
+\n5) अजून कागदपत्रांची गरज पडल्यास या 9552789899 मोबाईल नंबर वर WHATS APP करावे.
+\n6) मोबाईल नं आधार कार्ड बरोबर जोडलेला पाहिजे.\n\nआवश्यक कागदपत्रे –
+\n1) ज्या व्यक्तीचा सिबिल रिपोर्ट काढायचा असेल त्याचे
+\n2) आधार कार्ड,
+\n3) पँण कार्ड,
+\n4) मोबाईल नंबर ओ टी पी जाईल
+\n5) ई मेल आयडी
+\n<font size="20" color="#e64446"><b>फी 350 रू</b></font>
+    </string>
+    <string name="read_more"><font size="20" color="#e64446"><b>show more</b></font></string>
+    <string name="read_less"><font size="20" color="#e64446"><b>show less</b></font></string>
+    <string name="search_hint">Search</string>
+    <!-- old sha1 fingerprint: 0A:94:17:EB:27:01:35:D4:AB:1B:AF:4E:52:78:0B:E2:31:8F:21:0C -->
+    <string name="google_signin_client_id">408121252150-b4o8t51jqn61omk7u421bil2vhboa3bh.apps.googleusercontent.com</string>
+    <string name="ad_application_id">ca-app-pub-1362852772188633~6349424961</string>
+    <string name="driving_learning_license_note"><font size="20" color="#e64446"><b>सूचना -:</b></font>
+\n1) आम्ही तुम्हाला पैसे कमविण्याची संधी देतो आहे. त्याचा पुरेपूर वापर करावा. सौजन्य आणि सहकार्य करावे.
+\n2) तुमच्या ग्राहकाकडून या फी व्यतिरिक्त जास्त फी घेऊन पैसे कमवा त्याबद्दल आम्ही सहकार्यच करू.
+\n3) १८ ते ४० वर्ष मधील लोकांचे लर्निग ड्रायव्हिंग लायसेन्स ऑनलाईन मिळेल. ४० वरील लोकांना आर टी ओ मध्ये जावे लागेल.
+\n4) आधार कार्ड मधील पत्ता / एड्रेस मध्ये son of (वडिलांचे नाव) असणे बंधनकारक आहे. अपडेट करावे.
+\n5) खालील माहिती भरण्य अगोदर फी पेमेंट करून स्क्रीन शॉट काढून ठेवावा व खाली अपलोड करावा.
+\n6) ओ टी पी साठी 9552789899 या मोबाईल वरून फोन येईल. आम्ही तुमच्या ग्राहकाशी कोणतेही संभाषण करणार नाही याची खात्री बाळगा.
+\n7) खालील फॉर्म इंग्लिश मध्ये कोणतीही चूक न करता भरावा. तुम्ही भरलेले नाव व माहिती जशीच्या तशी येईल पुन्हा तक्रार चालणार नाही. स्पेलिंग मिस्टेक अजिबात नको. एड्रेस मध्ये जागेचे नाव, गावाचे नाव, तालुका, जिल्हा व पिन कोड टाकावा.
+        \n<font color="#e64446"><b>• फक्त लर्निग लायसेन्स साठी -</b></font>
+        \n<font color="#e64446"><b>2 व्हीलर - 500 + (अर्जंट असेल तर 500 + 100/-)</b></font>
+        \n<font color="#e64446"><b>2+4 व्हीलर - 650 + (अर्जंट असेल तर 650 + 100/-)</b></font>
+        \n<font color="#e64446"><b>लर्निग + पक्के लायसेन्स काढण्यासाठी</b></font>
+        \n<font color="#e64446"><b>2 व्हीलर - 1500</b></font>
+        \n<font color="#e64446"><b>2+4 व्हीलर - 2000</b></font>
+        \n<font color="#e64446"><b>बाहेरील एजेंट यापेक्षा जास्त फी घेऊन पैसे कमवतात. तुम्ही सुद्धा कमवा.</b></font>
+    \n<font size="20" color="#e64446"><b>फी 500 रू</b></font></string>
+
+    <string name="are_link_title">Link</string>
+    <string name="are_link_insert_hint">Insert a link</string>
+    <string name="are_image_insert_hint">Insert an image</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="title_activity_are__video_player">Video</string>
+    <string name="btn_attach_video">Attach Video</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="title_activity_default_image_preview">DefaultImagePreviewActivity</string>
+    <string name="save_to_local">Save to local</string>
+
+    <string name="snap_time_picker_cancel">@android:string/cancel</string>
+    <string name="snap_time_picker_confirm">@android:string/ok</string>
+    <string name="snap_time_picker_separator">:</string>
+    <string name="birth_time">जन्म वेळ</string>
+    <string name="girl_birth_time">वधूची/मुलीची जन्म वेळ</string>
+    <string name="txt_terms_and_conditions">नियम व अटी</string>
+</resources>

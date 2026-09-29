@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ReadMoreTextView">
+        <attr name="trimExpandedText" format="string" />
+        <attr name="trimCollapsedText" format="string" />
+        <attr name="trimLength" format="integer" />
+        <attr name="showTrimExpandedText" format="boolean" />
+        <attr name="colorClickableText" format="color" />
+        <attr name="trimLines" format="integer" />
+        <attr name="trimMode">
+            <enum name="trimModeLine" value="0"/>
+            <enum name="trimModeLength" value="1"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="MaterialSearchView">
+        <attr name="searchBackground" format="integer" />
+        <attr name="searchVoiceIcon" format="integer" />
+        <attr name="searchCloseIcon" format="integer" />
+        <attr name="searchBackIcon" format="integer" />
+        <attr name="searchSuggestionIcon" format="integer" />
+        <attr name="searchSuggestionBackground" format="integer" />
+        <attr name="android:hint" />
+        <attr name="android:textColor" />
+        <attr name="android:textColorHint" />
+        <attr name="android:inputType" />
+    </declare-styleable>
+
+    <declare-styleable name="ButtonBarContainerTheme">
+        <attr name="metaButtonBarStyle" format="reference" />
+        <attr name="metaButtonBarButtonStyle" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ColorPickerView">
+        <attr name="colorViewWidth" format="dimension" />
+        <attr name="colorViewHeight" format="dimension" />
+        <attr name="colorViewMarginLeft" format="dimension" />
+        <attr name="colorViewMarginRight" format="dimension" />
+        <attr name="colorViewCheckedType" format="enum">
+            <enum name="dot" value="0" />
+            <enum name="checkMark" value="1" />
+        </attr>
+        <attr name="colors" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="are">
+        <attr name="expandMode" format="enum">
+            <enum name="FULL" value="0" />
+            <enum name="MIN" value="1" />
+        </attr>
+        <attr name="hideToolbar" format="boolean" />
+        <attr name="toolbarAlignment" format="enum">
+            <enum name="BOTTOM" value="0" />
+            <enum name="TOP" value="1" />
+        </attr>
+        <attr name="useEmoji" format="boolean" />
+    </declare-styleable>
+</resources>

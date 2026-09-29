@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#E67817</color>
+    <color name="colorPrimaryDark">#E67817</color>
+    <color name="colorAccent">#ec407a</color>
+
+
+    <color name="red">#e64446</color>
+
+    <color name="card_background">#ffffff</color>
+    <color name="white">#ffffff</color>
+    <color name="card_shadow">#10000000</color>
+    <color name="lite_blue">#ff359ff2</color>
+    <color name="window_background">#00000000</color>
+    <color name="black_de">#DE000000</color>
+    <color name="color_primary">#009B4C</color>
+    <color name="transparent">#00000000</color>
+    <color name="esuvidha_yellow">#F7D600</color>
+    <color name="esuvidha_blue">#87CADE</color>
+    <color name="esuvidha_green">#D6F6D6</color>
+    <color name="esuvidha_liberty">#665CAC</color>
+    <color name="esuvidha_golden">#CCA600</color>
+    <color name="esuvidha_pink">#FF6A87</color>
+
+    <!-- material design black font color -->
+    <color name="font_black_0">#212121</color>
+    <color name="font_black_1">#424242</color>
+    <color name="font_black_2">#616161</color>
+    <color name="font_black_3">#757575</color>
+    <color name="font_black_4">#9e9e9e</color>
+    <color name="font_black_5">#bdbdbd</color>
+    <color name="font_black_6">#e0e0e0</color>
+
+    <color name="lite_gray">#dddada</color>
+    <color name="lt_gray">#f7f7f7</color>
+    <color name="gray_lt">#e9e9e9</color>
+
+    <!-- services fee table -->
+    <color name="table_row_alt">#FFF6EC</color>
+    <color name="table_divider">#EFEFEF</color>
+
+    <!-- home banner -->
+    <color name="home_banner_cyan">#2CC8DA</color>
+    <color name="home_banner_title">#1A3E8C</color>
+
+    <!-- social brand colors -->
+    <color name="youtube_red">#FF0000</color>
+    <color name="instagram_pink">#E1306C</color>
+    <color name="facebook_blue">#1877F2</color>
+
+    <!-- contact us screen -->
+    <color name="contact_peach">#FFF1E4</color>
+    <color name="contact_peach_border">#F7D8BB</color>
+    <color name="contact_card_border">#EFEFEF</color>
+    <color name="icon_circle_orange">#FBE2C8</color>
+    <color name="icon_circle_blue">#D7EBF9</color>
+    <color name="building_blue">#2E9BDB</color>
+
+    <color name="yellow">#FFB342</color>
+    <color name="green">#4CAF50</color>
+
+    <color name="trans_dark">#15000000</color>
+    <color name="blue">#0000ff</color>
+    <color name="light_green">#E9FFF3</color>
+
+    <bool name="default_circle_indicator_centered">true</bool>
+
+    <color name="default_circle_indicator_fill_color">@color/colorPrimary</color>
+    <color name="default_circle_indicator_page_color">#FFFFFFFF</color>
+
+    <integer name="default_circle_indicator_orientation">0</integer>
+
+    <dimen name="default_circle_indicator_radius">5dp</dimen>
+
+    <bool name="default_circle_indicator_snap">false</bool>
+
+    <color name="default_circle_indicator_stroke_color">#FFDDDDDD</color>
+
+    <dimen name="default_circle_indicator_stroke_width">0dp</dimen>
+
+    <color name="year">#999999</color>
+    <color name="title">#222222</color>
+    <color name="accent">#FF4081</color>
+    <color name="search_layover_bg">#50000000</color>
+
+    <array name="colorPickerColors">
+        <item>#000000</item>
+        <item>#607D8B</item>
+        <item>#9E9E9E</item>
+        <item>#795548</item>
+        <item>#FF5722</item>
+        <item>#FF9800</item>
+        <item>#FFC107</item>
+        <item>#FFEB3B</item>
+        <item>#CDDC39</item>
+        <item>#8BC34A</item>
+        <item>#4CAF50</item>
+        <item>#009688</item>
+        <item>#00BCD4</item>
+        <item>#03A9F4</item>
+        <item>#2196F3</item>
+        <item>#3F51B5</item>
+        <item>#673AB7</item>
+        <item>#9C27B0</item>
+        <item>#E91E63</item>
+        <item>#f44336</item>
+    </array>
+
+    <color name="black_overlay">#66000000</color>
+
+    <array name="colors">
+        <item>#000000</item>
+        <item>#0000FF</item>
+    </array>
+
+    <color name="snap_time_picker_transparent_white">#00ffffff</color>
+    <color name="snap_time_picker_white">#FFFFFF</color>
+    <color name="snap_time_picker_black">#333333</color>
+    <color name="snap_time_picker_black_5">#0c000000</color>
+    <color name="snap_time_picker_default_primary">#008577</color>
+    <color name="snap_time_picker_default_accent">#D81B60</color>
+    <color name="snap_time_picker_light_gray">#c2c2c2</color>
+    <color name="snap_time_picker_extra_light_gray">#ebebeb</color>
+</resources>

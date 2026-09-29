@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/grp1"
+        android:orderInCategory="101">
+        <item
+            android:id="@+id/nav_home"
+            android:title="होम" />
+        <item
+            android:id="@+id/nav_privacy_policy"
+            android:visible="false"
+            android:title="Privacy Policy" />
+        <item
+            android:id="@+id/nav_contact_us"
+            android:title="आमच्याशी संपर्क साधा" />
+        <item
+            android:id="@+id/nav_share"
+            android:title="शेअर करा" />
+        <item
+            android:id="@+id/nav_rate_us"
+            android:title="आम्हाला रेट करा" />
+        <item
+            android:id="@+id/nav_about_team"
+            android:title="टीम बद्दल" />
+        <item
+            android:id="@+id/nav_payment_details"
+            android:title="पेमेंट तपशील" />
+        <item
+            android:id="@+id/nav_new_update"
+            android:title="नवीन अपडेट" />
+        <item
+            android:id="@+id/nav_banner_image"
+            android:visible="false"
+            android:title="Add/Update Banner Image" />
+        <item
+            android:id="@+id/nav_esuvidha_image"
+            android:visible="false"
+            android:title="Add/Update E-Suvidha Image" />
+        <item
+            android:id="@+id/nav_esuvidha_list_image"
+            android:visible="false"
+            android:title="Add/Update ई सुविधा लिस्ट मध्ये फोटो" />
+        <item
+            android:id="@+id/nav_taluka_suvidha_list_image"
+            android:visible="false"
+            android:title="Add/Update तालुका नुसार सुविधा मध्ये फोटो" />
+        <item
+            android:id="@+id/nav_accounting_menu_image"
+            android:visible="false"
+            android:title="Add/Update Accounting Menu Image" />
+        <item
+            android:id="@+id/nav_register_image"
+            android:visible="false"
+            android:title="Add/Update Register Image" />
+        <item
+            android:id="@+id/nav_logout"
+            android:title="बाहेर पडा" />
+    </group>
+</menu>
