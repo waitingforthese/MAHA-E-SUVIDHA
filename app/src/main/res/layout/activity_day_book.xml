@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    tools:ignore="MissingPrefix"
+    android:background="@color/font_black_0"
+    android:fitsSystemWindows="true">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"/>
+
+    <include
+            android:id="@+id/toolbar_layout"
+            layout="@layout/toolbar" />
+
+    <RelativeLayout
+        android:id="@+id/rlTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_layout"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvOpenLedgerPopup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_color_primary_outline"
+            android:fontFamily="@font/sourcesanspro_bold"
+            android:gravity="center"
+            android:paddingStart="10dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="2dp"
+            android:textColor="@color/green"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:text="L" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_toStartOf="@+id/tvOpenPdfPopup"
+            android:layout_toEndOf="@+id/tvOpenLedgerPopup"
+            android:fontFamily="@font/sourcesanspro_bold"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="22sp"
+            tools:text="Krishi Seva Services 2021-2022" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvOpenPdfPopup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/circle_color_primary_outline"
+            android:fontFamily="@font/sourcesanspro_bold"
+            android:gravity="center"
+            android:paddingStart="10dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="2dp"
+            android:textColor="@color/blue"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:text="P" />
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSubTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlTitle"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/sourcesanspro_regular"
+        android:gravity="center"
+        android:textColor="@color/font_black_1"
+        android:textSize="17sp"
+        android:visibility="gone"
+        tools:text="Krishi Seva Services 2021-2022" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvSubTitle"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/sourcesanspro_regular"
+        android:gravity="center"
+        android:textColor="@color/font_black_2"
+        android:textSize="15sp"
+        android:visibility="gone"
+        tools:text="Krishi Seva Services 2021-2022 Krishi Seva Services 2021-2022 Krishi Seva Services 2021-2022 Krishi Seva Services 2021-2022" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/llBottom"
+        android:layout_below="@+id/tvDescription"
+        android:layout_marginTop="12dp">
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvSL"
+                        android:layout_width="56dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="top"
+                        android:background="@drawable/table_header_cell_bg"
+                        android:gravity="center"
+                        android:text="Sr No"
+                        android:textSize="18sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tvDate"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top"
+                        android:background="@drawable/table_header_cell_bg"
+                        android:text="Date"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tvLedger1"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="top"
+                        android:background="@drawable/table_header_cell_bg"
+                        android:text="PERTICULAR-C"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tvCredit"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/table_header_cell_bg"
+                        android:text="AMT-C"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tvLedger2"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="top"
+                        android:background="@drawable/table_header_cell_bg"
+                        android:text="PERTICULAR-D"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tvDebit"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/table_header_cell_bg"
+                        android:text="AMT-D"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tvVouchType"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/table_header_cell_bg"
+                        android:text="Voucher Type"
+                        android:textSize="18sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tvVoucherNo"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/table_header_cell_bg"
+                        android:text="Voucher No"
+                        android:textSize="18sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tvStockItemName"
+                        android:layout_width="170dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/table_header_cell_bg"
+                        android:text="Stock Item Name"
+                        android:textSize="18sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tvStockItemQuantity"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/table_header_cell_bg"
+                        android:text="Stock Item Qty"
+                        android:textSize="18sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tvStockItemRate"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/table_header_cell_bg"
+                        android:text="Stock Item Rate"
+                        android:textSize="18sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tvTaxable"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/table_header_cell_bg"
+                        android:text="TAXABLE"
+                        android:textSize="18sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tvCgst"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/table_header_cell_bg"
+                        android:text="CGST"
+                        android:textSize="18sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tvSgst"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/table_header_cell_bg"
+                        android:text="SGST"
+                        android:textSize="18sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tvIgst"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/table_header_cell_bg"
+                        android:text="IGST"
+                        android:textSize="18sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    tools:listitem="@layout/item_bill_user" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </HorizontalScrollView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="No Records found."
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/font_black_6"
+        android:visibility="gone" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:theme="@style/progressBarTheme"
+        android:visibility="gone"
+        app:backgroundTint="@color/colorPrimary"
+        tools:visibility="visible" />
+
+    <LinearLayout
+        android:id="@+id/llBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#C8E0B6"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDebitTotal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Debit:"
+                android:textSize="15sp"
+                app:fontFamily="@font/sourcesanspro_regular" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCreditTotal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right|end"
+                android:text="Credit:"
+                android:textSize="15sp"
+                app:fontFamily="@font/sourcesanspro_regular" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvStockQuantityTotal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right|end"
+                android:text="Stock Qty:"
+                android:textSize="15sp"
+                app:fontFamily="@font/sourcesanspro_regular" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="3dp"
+            android:text="Total Balance:"
+            android:textSize="24sp"
+            app:fontFamily="@font/sourcesanspro_bold" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    tools:ignore="MissingPrefix"
+    android:background="@color/font_black_0"
+    android:fitsSystemWindows="true">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"/>
+
+    <FrameLayout
+        android:id="@+id/fl_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/toolbar_layout"
+            layout="@layout/toolbar" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sourcesanspro_bold"
+            android:text="फी 1100 \u20B9"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:layout_margin="12dp"
+            android:layout_gravity="center_vertical|end"
+            app:fontFamily="@font/sourcesanspro_bold" />
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fl_toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:paddingRight="20dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSuchna"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginBottom="12dp"
+                android:background="@color/esuvidha_yellow"
+                android:backgroundTint="@color/esuvidha_yellow"
+                android:text="सुविधेबद्दल माहिती व सूचना वाचा"
+                android:textColor="@color/font_black_1"
+                android:textStyle="bold"
+                app:backgroundTint="@color/esuvidha_yellow"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/ic_arrow_right_file_picker"
+                app:iconGravity="end"
+                app:iconTint="@color/font_black_1"
+                app:strokeColor="@color/esuvidha_yellow" />
+
+            <!--<rahul.jagtap.dmas.widget.areditor.render.AreTextView
+                android:id="@+id/tvInstructions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="\u25CF आधार कार्ड पॅन कार्ड लिंक फी 1000+100 = 1100
+\n1. आधार नंबर
+\n2. पॅन नंबर
+\n3. मोबाईल नंबर
+\n4. पेमेंट स्क्रीनशॉट व्हॉट्स ॲपवर पाठवावा"
+                android:fontFamily="@font/sourcesanspro_regular"
+                app:fontFamily="@font/sourcesanspro_regular" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:text="\n\u25BA 1000 रुपये लेट फी असून 100 रुपये फी असेल\n"
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                android:fontFamily="@font/sourcesanspro_regular"
+                app:fontFamily="@font/sourcesanspro_regular" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:text="\u25CF माहिती / सूचना = पैसे, खाते, आधार-पॅनशी संबंधित अशी अनेक मोठी कामे (Financial Tasks before 31st March) आहेत, जी पूर्ण करणे महत्त्वाचे आहे. सरकार सातत्याने ग्राहकांना आधार-पॅन कार्ड लिंक (Aadhar-Pan linking) करण्याच्या सूचना देते आहे. यापूर्वीही आधार-पॅन लिंक करण्यासाठी सरकारने अनेकवेळा मुदत वाढवून दिली आहे. आता आधार-पॅन लिंकची शेवटची तारीख ३१ मार्च आहे.
+\n\n\u25CF त्यामुळे पुढील आरामाची वाट न पाहता लगेच लिंक करा. अन्यथा तुम्हाला मोठ्या आर्थिक नुकसानीला सामोरे जावे लागू शकते. (These people do not need to link Aadhar card with PAN, check the details)
+\n\n\u25CF आर्थिक व्यवहार करता येणार नाही
+\n\n\u25CF उल्लेखनीय आहे की आयकर कायदा 1961 च्या कलम 139AA नुसार, आधार आणि पॅन असलेल्या प्रत्येक व्यक्तीला 31 मार्च 2022 पूर्वी त्याचे आधार पॅनशी लिंक करावे लागेल.  मात्र, असे काही लोक आहेत ज्यांना आधार आणि पॅन लिंक करण्याची गरज नाही. या लोकांसाठी पॅन-आधार लिंक करणे आवश्यक नाही
+\n\n1. त्यांच्याकडे आधार क्रमांक किंवा नावनोंदणी आयडी नाही
+\n2. आसाम, जम्मू-काश्मीर आणि मेघालयातील रहिवाशांना याची गरज नाही
+\n3. प्राप्तिकर कायदा 1961 नुसार अनिवासींसाठी अनिवार्य नाही - 80 वर्षांवरील किंवा 80 वर्षांवरील नागरिकांसाठी गेल्या वर्षापर्यंत आवश्यक नाही
+\n4. जे भारताचे नागरिक नाहीत त्यांना याची गरज नाही"
+                android:textColor="@color/font_black_1"
+                android:textSize="14sp"
+                android:fontFamily="@font/sourcesanspro_regular"
+                app:fontFamily="@font/sourcesanspro_regular" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:text="\n\n\u25BA पॅन-आधार लिंक नसल्यास येतील या समस्या\n"
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                android:fontFamily="@font/sourcesanspro_regular"
+                app:fontFamily="@font/sourcesanspro_regular" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:text="तुम्ही वर नमूद केलेल्या कोणत्याही श्रेणीमध्ये येत नसल्यास, तुम्हाला कोणत्याही परिस्थितीत 31 मार्चपूर्वी ते लिंक करावे लागतील. अन्यथा नागरिकांना आर्थिक व्यवहाराबाबत अनेक समस्यांना सामोरे जावे लागू शकते. यामुळे कोणकोणत्या समस्या उद्भवू शकतात ते जाणून घेऊया.
+                \n\u25CF तुम्हाला 50 हजार रुपयांपेक्षा जास्तीची एफडी घेता येणार नाही.
+                \n\u25CF तुम्ही 50,000 रुपयांपेक्षा जास्त रोख जमा करू शकणार नाही.
+                \n\u25CF नवीन डेबिट-क्रेडिट कार्ड घेता येणार नाही.
+\n\u25CF म्युच्युअल फंडात गुंतवणूक किंवा रिडीम करू शकणार नाही.
+\n\u25CF तुम्ही 50,000 रुपयांपेक्षा जास्त रकमेचे कोणतेही विदेशी चलन खरेदी करू शकणार नाही."
+                android:textColor="@color/font_black_1"
+                android:textSize="14sp"
+                android:fontFamily="@font/sourcesanspro_regular"
+                app:fontFamily="@font/sourcesanspro_regular" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="\n\n\u25BA कोणती कागदपत्रे आहेत आवश्यक\n"
+                android:textColor="@color/font_black_2"
+                android:visibility="gone"
+                android:textSize="14sp"
+                android:fontFamily="@font/sourcesanspro_regular"
+                app:fontFamily="@font/sourcesanspro_regular" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:text="\u25CF ते लिंक करण्यासाठी, तुम्हाला आधार-पॅन लिंकसाठी फक्त तुमचा आधार क्रमांक आणि पॅन आवश्यक असेल.\n\n"
+                android:textColor="@color/font_black_1"
+                android:textSize="14sp"
+                android:fontFamily="@font/sourcesanspro_regular"
+                app:fontFamily="@font/sourcesanspro_regular" />-->
+
+            <!--<com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etApplicantName"
+                android:layout_width="match_parent"
+                android:layout_marginTop="6dp"
+                android:layout_height="wrap_content"
+                android:hint="Enter Applicant's Name"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:paddingLeft="8dp"
+                android:maxLines="1"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Select Type(नवीन/दुरुस्ती)"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:paddingLeft="8dp"
+                android:maxLines="1"
+                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
+                android:drawableRight="@drawable/ic_baseline_keyboard_arrow_down_24"
+                android:focusable="false"
+                android:longClickable="false"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etFatherName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Father's Full Name"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:paddingLeft="8dp"
+                android:maxLines="1"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etDob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Select date of birth"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:paddingLeft="8dp"
+                android:maxLines="1"
+                android:drawableEnd="@drawable/ic_baseline_date_range_24"
+                android:drawableRight="@drawable/ic_baseline_date_range_24"
+                android:focusable="false"
+                android:longClickable="false"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etMobileNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Mobile Number"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:paddingLeft="8dp"
+                android:maxLines="1"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etPassportPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                android:drawableRight="@drawable/ic_baseline_attach_file_24"
+                android:focusable="false"
+                android:hint="Select Passport Photo"
+                android:imeOptions="actionNext"
+                android:layout_marginTop="8dp"
+                android:inputType="text"
+                android:longClickable="false"
+                android:maxLines="1"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etOldPanCardPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                android:drawableRight="@drawable/ic_baseline_attach_file_24"
+                android:focusable="false"
+                android:hint="Select Old Pan Card Photo"
+                android:visibility="gone"
+                android:imeOptions="actionNext"
+                android:layout_marginTop="8dp"
+                android:inputType="text"
+                android:longClickable="false"
+                android:maxLines="1"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etAadharFrontPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                android:drawableRight="@drawable/ic_baseline_attach_file_24"
+                android:focusable="false"
+                android:hint="Select Aadhar Card Front Photo"
+                android:layout_marginTop="8dp"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:longClickable="false"
+                android:maxLines="1"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etAadharBackPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                android:drawableRight="@drawable/ic_baseline_attach_file_24"
+                android:focusable="false"
+                android:hint="Select Aadhar Card Back Photo"
+                android:layout_marginTop="8dp"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:longClickable="false"
+                android:maxLines="1"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etSignPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                android:drawableRight="@drawable/ic_baseline_attach_file_24"
+                android:focusable="false"
+                android:hint="Select Signature Photo"
+                android:layout_marginTop="8dp"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:longClickable="false"
+                android:maxLines="1"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etPaymentScreenshot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                android:drawableRight="@drawable/ic_baseline_attach_file_24"
+                android:focusable="false"
+                android:hint="Select Payment Screenshot"
+                android:layout_marginTop="8dp"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:longClickable="false"
+                android:maxLines="1"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etNOCPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                android:drawableRight="@drawable/ic_baseline_attach_file_24"
+                android:focusable="false"
+                android:hint="Select NOC Photo"
+                android:layout_marginTop="8dp"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:visibility="gone"
+                android:longClickable="false"
+                android:maxLines="1"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etStampPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                android:drawableRight="@drawable/ic_baseline_attach_file_24"
+                android:focusable="false"
+                android:hint="Select शिक्का Photo"
+                android:layout_marginTop="8dp"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:longClickable="false"
+                android:visibility="gone"
+                android:maxLines="1"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginBottom="12dp"
+                android:background="@color/colorPrimary"
+                android:text="Submit"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:cornerRadius="20dp"
+                app:strokeColor="@color/colorPrimary" />-->
+        </LinearLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:theme="@style/progressBarTheme"
+        android:visibility="gone"
+        app:backgroundTint="@color/colorPrimary" />
+</RelativeLayout>

@@ -1,0 +1,917 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    tools:ignore="MissingPrefix"
+    android:background="@color/font_black_0"
+    android:fitsSystemWindows="true">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"/>
+
+    <FrameLayout
+        android:id="@+id/fl_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/toolbar_layout"
+            layout="@layout/toolbar" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:layout_margin="12dp"
+            android:fontFamily="@font/sourcesanspro_bold"
+            android:text="फी 1250 \u20B9"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:visibility="gone"
+            app:fontFamily="@font/sourcesanspro_bold" />
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fl_toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:paddingRight="20dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSuchna"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginBottom="12dp"
+                android:background="@color/esuvidha_yellow"
+                android:backgroundTint="@color/esuvidha_yellow"
+                android:text="सुविधेबद्दल माहिती व सूचना वाचा"
+                android:textColor="@color/font_black_1"
+                android:textStyle="bold"
+                app:backgroundTint="@color/esuvidha_yellow"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/ic_arrow_right_file_picker"
+                app:iconGravity="end"
+                app:iconTint="@color/font_black_1"
+                app:strokeColor="@color/esuvidha_yellow" />
+
+            <!--<rahul.jagtap.dmas.widget.areditor.render.AreTextView
+                android:id="@+id/tvInstructions"
+                app:trimMode="trimModeLine"
+                app:trimLines="4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="सूचना -:  तुमच्या ग्राहकास डी मॅट खाते उघडण्यास मदत करा. त्यासाठी त्यांच्या कडून कसलीही फी घेऊ नका. आम्ही त्यांचे खाते फ्री मध्ये उघडुन देऊ."
+                android:textColor="@color/font_black_1"
+                android:fontFamily="@font/sourcesanspro_regular"
+                app:fontFamily="@font/sourcesanspro_regular" />-->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/dashed_line" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@color/white"
+                    android:fontFamily="@font/sourcesanspro_regular"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:text="इंग्रजी मध्ये माहिती भरा"
+                    android:textColor="@color/font_black_1"
+                    android:textSize="16sp"
+                    app:fontFamily="@font/sourcesanspro_regular" />
+            </RelativeLayout>
+
+            <rahul.jagtap.dmas.widget.ReadMoreTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:text="सूचना –
+\n• आम्ही तुम्हाला पैसे कमविण्याची संधी देतो आहे. त्याचा पुरेपूर वापर करावा. सौजन्य आणि सहकार्य करावे.
+\n• तुमच्या ग्राहकाकडून या फी व्यतिरिक्त जास्त फी घेऊन पैसे कमवा त्याबद्दल आम्ही सहकार्यच करू.
+\n• खालील माहिती भरण्य अगोदर फी पेमेंट करून स्क्रीन शॉट काढून ठेवावा व खाली अपलोड करावा.
+\n• भाडेकरार हा ऑनलाईन असावा (लिव्ह &amp; लायसेन्स) त्यावर लाईट बिल प्रमणे पत्ता असावा. पत्त्यामध्ये चोक, रस्ता, जवळची खुण, योग्य पिन कोड या गोष्टी टाकणे बंधनकारक आहे.
+\n• इतर आवश्यक कागदपत्रे WHATS APP वर पाठवावीत."
+                android:textColor="@color/font_black_1"
+                android:textSize="14sp"
+                android:visibility="gone"
+                app:fontFamily="@font/sourcesanspro_regular"
+                app:trimLines="4"
+                app:trimMode="trimModeLine" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilServiceType"
+                    style="@style/AppInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:hint="प्रकार निवडा - कोणते काम पाहिजे आहे ते निवडा"
+                    app:helperText="प्रथम सेवा प्रकार निवडा, त्यानंतर संबंधित माहिती दिसेल">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etServiceType"
+                        style="@style/AppInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
+                        android:focusable="false"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:longClickable="false"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEdittext1"
+                    style="@style/AppInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edittext1"
+                        style="@style/AppInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionDone"
+                        android:inputType="textMultiLine" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEdittext2"
+                    style="@style/AppInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edittext2"
+                        style="@style/AppInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionDone"
+                        android:inputType="textMultiLine" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEdittext3"
+                    style="@style/AppInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edittext3"
+                        style="@style/AppInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionDone"
+                        android:inputType="textMultiLine" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEdittext4"
+                    style="@style/AppInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edittext4"
+                        style="@style/AppInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionDone"
+                        android:inputType="textMultiLine" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEdittext5"
+                    style="@style/AppInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edittext5"
+                        style="@style/AppInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionDone"
+                        android:inputType="textMultiLine" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEdittextDate1"
+                    style="@style/AppInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edittextDate1"
+                        style="@style/AppInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_baseline_date_range_24"
+                        android:focusable="false"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:longClickable="false"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEdittextPhoto1"
+                    style="@style/AppInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edittextPhoto1"
+                        style="@style/AppInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                        android:focusable="false"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:longClickable="false"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEdittextPhoto2"
+                    style="@style/AppInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edittextPhoto2"
+                        style="@style/AppInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                        android:focusable="false"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:longClickable="false"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEdittextPhoto3"
+                    style="@style/AppInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edittextPhoto3"
+                        style="@style/AppInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                        android:focusable="false"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:longClickable="false"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEdittextPhoto4"
+                    style="@style/AppInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edittextPhoto4"
+                        style="@style/AppInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                        android:focusable="false"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:longClickable="false"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEdittextPhoto5"
+                    style="@style/AppInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edittextPhoto5"
+                        style="@style/AppInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                        android:focusable="false"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:longClickable="false"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEdittextPhoto6"
+                    style="@style/AppInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edittextPhoto6"
+                        style="@style/AppInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                        android:focusable="false"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:longClickable="false"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEdittextPhoto7"
+                    style="@style/AppInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edittextPhoto7"
+                        style="@style/AppInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                        android:focusable="false"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:longClickable="false"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEdittextPhoto8"
+                    style="@style/AppInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edittextPhoto8"
+                        style="@style/AppInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                        android:focusable="false"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:longClickable="false"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEdittextPhoto9"
+                    style="@style/AppInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edittextPhoto9"
+                        style="@style/AppInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                        android:focusable="false"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:longClickable="false"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEdittextPhoto10"
+                    style="@style/AppInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edittextPhoto10"
+                        style="@style/AppInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                        android:focusable="false"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:longClickable="false"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            <!--<com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etCustomerName"
+                android:layout_width="match_parent"
+                android:layout_marginTop="6dp"
+                android:layout_height="wrap_content"
+                android:hint="कस्टमरचे नाव"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:paddingLeft="8dp"
+                android:maxLines="1"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etMobileNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="मोबाईल नंबर"
+                android:imeOptions="actionNext"
+                android:inputType="phone"
+                android:digits="1234567890"
+                android:paddingLeft="8dp"
+                android:maxLines="1"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="इमेल आयडी"
+                android:imeOptions="actionDone"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="8dp"
+                android:maxLines="1"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="संपूर्ण पत्ता"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:paddingLeft="8dp"
+                android:maxLines="1"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etAadharFrontPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                android:drawableRight="@drawable/ic_baseline_attach_file_24"
+                android:focusable="false"
+                android:hint="आधार कार्ड पुढील फोटो"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:longClickable="false"
+                android:maxLines="1"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etAadharBackPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                android:drawableRight="@drawable/ic_baseline_attach_file_24"
+                android:focusable="false"
+                android:hint="आधार कार्ड मागील फोटो"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:longClickable="false"
+                android:maxLines="1"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etLightBillPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                android:drawableRight="@drawable/ic_baseline_attach_file_24"
+                android:focusable="false"
+                android:hint="लाईट बिल किंव्हा इतर पत्त्याचा पुरावा"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:longClickable="false"
+                android:maxLines="1"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etBankPassbook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                android:drawableRight="@drawable/ic_baseline_attach_file_24"
+                android:focusable="false"
+                android:hint="बँक पासबुक/स्टेटमेंट"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:longClickable="false"
+                android:maxLines="1"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etOtherDocs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                android:drawableRight="@drawable/ic_baseline_attach_file_24"
+                android:focusable="false"
+                android:hint="इतर कागदपत्रे"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:longClickable="false"
+                android:maxLines="1"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />-->
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginBottom="12dp"
+                android:background="@color/colorPrimary"
+                android:text="सबमिट"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:cornerRadius="20dp"
+                app:strokeColor="@color/colorPrimary" />
+
+            <!--
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Select Type(नवीन/दुरुस्ती)"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:paddingLeft="8dp"
+                android:maxLines="1"
+                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
+                android:drawableRight="@drawable/ic_baseline_keyboard_arrow_down_24"
+                android:focusable="false"
+                android:longClickable="false"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etFatherName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Father's Full Name"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:paddingLeft="8dp"
+                android:maxLines="1"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etDob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Select date of birth"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:paddingLeft="8dp"
+                android:maxLines="1"
+                android:drawableEnd="@drawable/ic_baseline_date_range_24"
+                android:drawableRight="@drawable/ic_baseline_date_range_24"
+                android:focusable="false"
+                android:longClickable="false"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etPassportPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                android:drawableRight="@drawable/ic_baseline_attach_file_24"
+                android:focusable="false"
+                android:hint="Select Passport Photo"
+                android:imeOptions="actionNext"
+                android:layout_marginTop="8dp"
+                android:inputType="text"
+                android:longClickable="false"
+                android:maxLines="1"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etOldPanCardPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                android:drawableRight="@drawable/ic_baseline_attach_file_24"
+                android:focusable="false"
+                android:hint="Select Old Pan Card Photo"
+                android:visibility="gone"
+                android:imeOptions="actionNext"
+                android:layout_marginTop="8dp"
+                android:inputType="text"
+                android:longClickable="false"
+                android:maxLines="1"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etSignPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                android:drawableRight="@drawable/ic_baseline_attach_file_24"
+                android:focusable="false"
+                android:hint="Select Signature Photo"
+                android:layout_marginTop="8dp"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:longClickable="false"
+                android:maxLines="1"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etPaymentScreenshot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                android:drawableRight="@drawable/ic_baseline_attach_file_24"
+                android:focusable="false"
+                android:hint="Select Payment Screenshot"
+                android:layout_marginTop="8dp"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:longClickable="false"
+                android:maxLines="1"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etNOCPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                android:drawableRight="@drawable/ic_baseline_attach_file_24"
+                android:focusable="false"
+                android:hint="Select NOC Photo"
+                android:layout_marginTop="8dp"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:visibility="gone"
+                android:longClickable="false"
+                android:maxLines="1"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/etStampPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+                android:drawableRight="@drawable/ic_baseline_attach_file_24"
+                android:focusable="false"
+                android:hint="Select शिक्का Photo"
+                android:layout_marginTop="8dp"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:longClickable="false"
+                android:visibility="gone"
+                android:maxLines="1"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textSize="15sp"
+                app:met_baseColor="@color/font_black_0"
+                app:met_floatingLabel="highlight"
+                app:met_helperTextColor="@color/font_black_0"
+                app:met_iconPadding="0dp"
+                app:met_primaryColor="@color/font_black_0"
+                app:met_textColor="@color/font_black_0"
+                app:met_textColorHint="@color/font_black_3"
+                app:met_underlineColor="@color/font_black_0" />-->
+        </LinearLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:theme="@style/progressBarTheme"
+        android:visibility="gone"
+        app:backgroundTint="@color/colorPrimary" />
+</RelativeLayout>

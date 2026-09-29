@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    tools:ignore="MissingPrefix"
+    android:background="@color/font_black_0"
+    android:fitsSystemWindows="true">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"/>
+
+    <include
+            android:id="@+id/toolbar_layout"
+            layout="@layout/toolbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_layout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPanCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/txt_pan_card"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/panDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvShopAct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/txt_shop_act"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/shopActDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvUdyamAadhar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/txt_udyam_aadhar"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/udyamAadharDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFoodLicense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/txt_food_license"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/foodLicenseDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvManualAadharPanCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/txt_manual_aadhar_pan_card"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/manualAadharPanCardDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvProvidentFund"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/txt_provident_fund"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/providentFundDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNepalMoneyTransfer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/txt_nepal_money_transfer"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/nepalMoneyTransferDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvRailwayTicketBooking"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/txt_railway_ticket_booking"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/railwayTicketBookingDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBusinessPanCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/txt_business_pan_card"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/businessPanDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvElectionCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/txt_election_card"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/electionCardDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPassport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/txt_passport"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/passportDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDrivingLearningLicence"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/txt_driving_learning_license"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/drivingLearningLicenceDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvEditPanOrAadharCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/edit_pan_card_aadhar_card"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/editPanOrAadharCardDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPoliceVerification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/police_verification"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/policeVerificationDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvIncomeCertificate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/income_certificate"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/incomeCertificateDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAgeCertificate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/age_nationality_amp_domicile_certificate"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/ageCertificateDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvGazzet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/gazzet"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/gazzetDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvJyotishShastra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/jyotish_shastriche_prashn"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/jyotishShastraDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCibilReport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/cibil_report"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/cibilReportDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCreditCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/free_credit_card"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/creditCardDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvGstReg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/gst_registration"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/gstRegDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAllGovtCards"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/all_govt_cards"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/allGovtCardsDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvVerification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/txt_verification"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/verificationDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFarmerPolicy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/farmer_policy"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/farmerPolicyDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAllOtherDocs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/all_other_docs"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/allOtherDocsDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDematAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/demat_account"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/dematAccountDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvGovtScheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@string/txt_govt_schemes"
+                android:textColor="@color/font_black_0"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/govtSchemeDivider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/font_black_2"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:theme="@style/progressBarTheme"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:backgroundTint="@color/colorPrimary" />
+</RelativeLayout>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".user.OnlineESuvidhaOptionsActivity"
+    tools:ignore="MissingPrefix"
+    android:background="@color/font_black_0"
+    android:fitsSystemWindows="true">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"/>
+
+    <include
+            android:id="@+id/toolbar_layout"
+            layout="@layout/toolbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_layout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDayBook"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_bg_light_green"
+                android:gravity="center"
+                android:text="DAY BOOK"
+                android:textAllCaps="false"
+                android:textColor="@color/font_black_1"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPurchaseRegister"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_bg_light_green"
+                android:gravity="center"
+                android:text="PURCHASE REGISTER"
+                android:textAllCaps="false"
+                android:textColor="@color/font_black_1"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSalesRegister"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_bg_light_green"
+                android:gravity="center"
+                android:text="SALES REGISTER"
+                android:textAllCaps="false"
+                android:textColor="@color/font_black_1"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLedger"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_bg_light_green"
+                android:gravity="center"
+                android:text="LEDGER"
+                android:textAllCaps="false"
+                android:textColor="@color/font_black_1"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvStockItems"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_bg_light_green"
+                android:gravity="center"
+                android:text="STOCK ITEMS"
+                android:textAllCaps="false"
+                android:textColor="@color/font_black_1"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTradingProfitLoss"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_bg_grey_disabled"
+                android:gravity="center"
+                android:text="TRADING AND PROFIT AND LOSS A/C"
+                android:textAllCaps="false"
+                android:textColor="@color/font_black_1"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBusinessGraph"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_bg_grey_disabled"
+                android:gravity="center"
+                android:text="BUSINESS GRAPH"
+                android:textAllCaps="false"
+                android:textColor="@color/font_black_1"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvClosingStock"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_bg_grey_disabled"
+                android:gravity="center"
+                android:text="CLOSING STOCK"
+                android:textAllCaps="false"
+                android:textColor="@color/font_black_1"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvGstData"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_bg_light_green"
+                android:gravity="center"
+                android:text="GST DATA"
+                android:textAllCaps="false"
+                android:textColor="@color/font_black_1"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:theme="@style/progressBarTheme"
+        android:visibility="gone"
+        app:backgroundTint="@color/colorPrimary" />
+</RelativeLayout>

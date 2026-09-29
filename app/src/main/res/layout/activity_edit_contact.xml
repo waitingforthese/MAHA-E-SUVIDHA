@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/font_black_0"
+    android:fitsSystemWindows="true">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"/>
+
+    <include
+        android:id="@+id/toolbar_layout"
+        layout="@layout/toolbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_layout"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="24dp">
+
+            <!-- HERO -->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/EditContactSection"
+                android:text="HERO" />
+
+            <LinearLayout style="@style/EditContactField">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/EditContactLabel"
+                    android:text="Intro Title" />
+
+                <EditText
+                    android:id="@+id/etIntroTitle"
+                    style="@style/EditContactInput"
+                    android:inputType="textCapSentences"
+                    tools:ignore="Autofill,LabelFor" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/EditContactField">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/EditContactLabel"
+                    android:text="Intro Text" />
+
+                <EditText
+                    android:id="@+id/etIntroText"
+                    style="@style/EditContactInput"
+                    android:inputType="textCapSentences|textMultiLine"
+                    tools:ignore="Autofill,LabelFor" />
+            </LinearLayout>
+
+            <!-- ADDRESS -->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/EditContactSection"
+                android:text="ADDRESS" />
+
+            <LinearLayout style="@style/EditContactField">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/EditContactLabel"
+                    android:text="Marketing Team - Label" />
+
+                <EditText
+                    android:id="@+id/etMarketingLabel"
+                    style="@style/EditContactInput"
+                    android:inputType="textCapWords"
+                    tools:ignore="Autofill,LabelFor" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/EditContactField">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/EditContactLabel"
+                    android:text="Marketing Team - Address" />
+
+                <EditText
+                    android:id="@+id/etMarketingAddress"
+                    style="@style/EditContactInput"
+                    android:inputType="textCapSentences|textMultiLine"
+                    tools:ignore="Autofill,LabelFor" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/EditContactField">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/EditContactLabel"
+                    android:text="Back Office - Label" />
+
+                <EditText
+                    android:id="@+id/etBackOfficeLabel"
+                    style="@style/EditContactInput"
+                    android:inputType="textCapWords"
+                    tools:ignore="Autofill,LabelFor" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/EditContactField">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/EditContactLabel"
+                    android:text="Back Office - Address" />
+
+                <EditText
+                    android:id="@+id/etBackOfficeAddress"
+                    style="@style/EditContactInput"
+                    android:inputType="textCapSentences|textMultiLine"
+                    tools:ignore="Autofill,LabelFor" />
+            </LinearLayout>
+
+            <!-- PHONE -->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/EditContactSection"
+                android:text="PHONE / CUSTOMER CARE" />
+
+            <LinearLayout style="@style/EditContactField">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/EditContactLabel"
+                    android:text="Phone 1" />
+
+                <EditText
+                    android:id="@+id/etPhone1"
+                    style="@style/EditContactInput"
+                    android:inputType="phone"
+                    tools:ignore="Autofill,LabelFor" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/EditContactField">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/EditContactLabel"
+                    android:text="Phone 2" />
+
+                <EditText
+                    android:id="@+id/etPhone2"
+                    style="@style/EditContactInput"
+                    android:inputType="phone"
+                    tools:ignore="Autofill,LabelFor" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/EditContactField">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/EditContactLabel"
+                    android:text="WhatsApp Number (e.g. 919552789899)" />
+
+                <EditText
+                    android:id="@+id/etWhatsappNumber"
+                    style="@style/EditContactInput"
+                    android:inputType="phone"
+                    tools:ignore="Autofill,LabelFor" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/EditContactField">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/EditContactLabel"
+                    android:text="WhatsApp Button Label" />
+
+                <EditText
+                    android:id="@+id/etWhatsappLabel"
+                    style="@style/EditContactInput"
+                    android:inputType="textCapSentences"
+                    tools:ignore="Autofill,LabelFor" />
+            </LinearLayout>
+
+            <!-- EMAIL -->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/EditContactSection"
+                android:text="EMAIL" />
+
+            <LinearLayout style="@style/EditContactField">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/EditContactLabel"
+                    android:text="Email" />
+
+                <EditText
+                    android:id="@+id/etEmail"
+                    style="@style/EditContactInput"
+                    android:inputType="textEmailAddress"
+                    tools:ignore="Autofill,LabelFor" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/EditContactField">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/EditContactLabel"
+                    android:text="Website" />
+
+                <EditText
+                    android:id="@+id/etWebsite"
+                    style="@style/EditContactInput"
+                    android:hint="www.example.com"
+                    android:inputType="textUri"
+                    tools:ignore="Autofill,LabelFor" />
+            </LinearLayout>
+
+            <!-- SOCIAL -->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/EditContactSection"
+                android:text="SOCIAL LINKS" />
+
+            <LinearLayout style="@style/EditContactField">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/EditContactLabel"
+                    android:text="YouTube URL" />
+
+                <EditText
+                    android:id="@+id/etYoutubeUrl"
+                    style="@style/EditContactInput"
+                    android:inputType="textUri"
+                    tools:ignore="Autofill,LabelFor" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/EditContactField">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/EditContactLabel"
+                    android:text="Instagram URL" />
+
+                <EditText
+                    android:id="@+id/etInstagramUrl"
+                    style="@style/EditContactInput"
+                    android:inputType="textUri"
+                    tools:ignore="Autofill,LabelFor" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/EditContactField">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/EditContactLabel"
+                    android:text="Facebook URL" />
+
+                <EditText
+                    android:id="@+id/etFacebookUrl"
+                    style="@style/EditContactInput"
+                    android:inputType="textUri"
+                    tools:ignore="Autofill,LabelFor" />
+            </LinearLayout>
+
+            <!-- TRUST BANNER -->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/EditContactSection"
+                android:text="TRUST BANNER" />
+
+            <LinearLayout style="@style/EditContactField">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/EditContactLabel"
+                    android:text="Trust Title" />
+
+                <EditText
+                    android:id="@+id/etTrustTitle"
+                    style="@style/EditContactInput"
+                    android:inputType="textCapSentences"
+                    tools:ignore="Autofill,LabelFor" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/EditContactField">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/EditContactLabel"
+                    android:text="Trust Subtitle" />
+
+                <EditText
+                    android:id="@+id/etTrustSubtitle"
+                    style="@style/EditContactInput"
+                    android:inputType="textCapSentences"
+                    tools:ignore="Autofill,LabelFor" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Save"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/colorPrimary"
+                app:cornerRadius="20dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:theme="@style/progressBarTheme"
+        android:visibility="gone"
+        app:backgroundTint="@color/colorPrimary" />
+
+</RelativeLayout>
