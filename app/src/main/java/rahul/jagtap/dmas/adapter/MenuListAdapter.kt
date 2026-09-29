@@ -1,0 +1,225 @@
+package rahul.jagtap.dmas.adapter
+
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import rahul.jagtap.dmas.*
+import rahul.jagtap.dmas.GovtSchemesInfoActivity
+import rahul.jagtap.dmas.admin.*
+import rahul.jagtap.dmas.admin.bills.BillDatesActivity
+import rahul.jagtap.dmas.admin.esuvidha.DownloadHistoryActivity
+import rahul.jagtap.dmas.admin.esuvidha.ESuvidhaDatesActivity
+import rahul.jagtap.dmas.admin.esuvidha.newimpl.ESuvidhaListActivity
+import rahul.jagtap.dmas.admin.esuvidha.EsuvidhaGridAdminActivity
+import rahul.jagtap.dmas.user.ESuvidhaServicesGridActivity
+import rahul.jagtap.dmas.admin.reports.ReportTypesActivity
+import rahul.jagtap.dmas.databinding.ItemHomeBannerBinding
+import rahul.jagtap.dmas.databinding.ItemHomeMenuBinding
+import rahul.jagtap.dmas.model.User
+import rahul.jagtap.dmas.user.*
+
+class MenuListAdapter(var context: Context?, var itemList: List<String?>? = null) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    private var loggedInUser: User? = null
+    var isAdmin = false
+    var isEmployee = false
+
+    init {
+        val app = context?.applicationContext as App
+        loggedInUser = app.preferences?.loggedInUser
+        isAdmin = app.preferences?.loggedInUser?.isAdmin == "1"
+        isEmployee = app.preferences?.loggedInUser?.userType == "2"
+    }
+
+    companion object {
+        private const val TYPE_BANNER = 0
+        private const val TYPE_TILE = 1
+        private val BANNER_TITLES = setOf("ई सुविधा येथून पाठवा", "My Accountant")
+    }
+
+    /** Items that should span the full grid width (rendered as banners). */
+    fun isFullWidth(title: String?): Boolean = title in BANNER_TITLES
+
+    override fun getItemViewType(position: Int): Int =
+        if (isFullWidth(itemList?.get(position))) TYPE_BANNER else TYPE_TILE
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        return if (viewType == TYPE_BANNER) {
+            BannerViewHolder(ItemHomeBannerBinding.inflate(inflater, parent, false))
+        } else {
+            TileViewHolder(ItemHomeMenuBinding.inflate(inflater, parent, false))
+        }
+    }
+
+    override fun getItemCount(): Int = itemList?.size ?: 0
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        val title = itemList?.get(position)
+        when (holder) {
+            is BannerViewHolder -> bindBanner(holder, title)
+            is TileViewHolder -> bindTile(holder, title)
+        }
+        holder.itemView.setOnClickListener { onItemClick(title) }
+    }
+
+    private fun bindBanner(holder: BannerViewHolder, title: String?) {
+        when (title) {
+            "ई सुविधा येथून पाठवा" -> {
+                holder.binding.bannerIconBg.setBackgroundResource(R.drawable.bg_banner_logo_orange)
+                holder.binding.ivBanner.setImageResource(R.drawable.ic_esuvidha)
+                holder.binding.tvBannerTitle.text = "ई सुविधा येथून पाठवा"
+                holder.binding.tvBannerSubtitle.text = "चालता बोलता कामे घ्या - आम्ही कमी चार्जेस मध्ये पूर्ण करून देऊ"
+            }
+            "My Accountant" -> {
+                holder.binding.bannerIconBg.setBackgroundResource(R.drawable.bg_banner_logo_blue)
+                holder.binding.ivBanner.setImageResource(R.drawable.ic_accounting)
+                holder.binding.tvBannerTitle.text = "My Accountant"
+                holder.binding.tvBannerSubtitle.text = "बिलाचे फोटो पाठवा - आम्ही अकाउंटिंग करू - येथे रिपोर्ट दिसतील"
+            }
+        }
+    }
+
+    private fun bindTile(holder: TileViewHolder, title: String?) {
+        holder.binding.tvMenuTitle.text = title
+        when (title) {
+            "Day Book" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
+            "Accounting Services" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_scan_bill)
+            "Accounting", "My Accountant\n(Outsourcing)" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_accounting)
+            "ई सुविधा येथून पाठवा", "ई - सुविधा बास्केट", "सुविधा संग्रह" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_esuvidha)
+            "Reports" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
+            "Send Report" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
+            "Notifications" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_notifications)
+            "Daily Entries", "खाते बुक\n(स्वतःचा हिशोब स्वतः करा)" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_khate_book)
+            "View Scan Bills" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
+            "View Scan E-Suvidha" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
+            "Block/Unblock User", "All Users" -> holder.binding.ivMenu.setImageResource(R.drawable.user_icon)
+            "येथून फी भरावी" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_make_payment)
+            "हे अँप कसे वापरावे" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_tutorial)
+            "Download History" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
+            "रेफरल प्रोग्रॅम" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_referral_program)
+            "Text Msg" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
+            "नवनवीन माहिती" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_govt_scheme_white)
+            "मिळालेल्या सुविधा" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
+            "ज्योतिष शास्त्रींना प्रश्न विचारा" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_jyotish_shastra)
+            "Project Funding" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_project_funding)
+            "फी - सूचना - सुविधा माहिती" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
+            "सुविधा प्रकार बदल" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
+            "सेवा ग्रिड सेटिंग" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_svc_report)
+            "फी/चार्जेस" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_charges)
+            "पाठविलेल्या सुविधा" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
+            "नियम व अटी" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_terms_conditions)
+            "contact us" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_headset)
+            "ट्रेनिंग व्हिडिओ" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_training_video)
+        }
+    }
+
+    private fun onItemClick(title: String?) {
+        when (title) {
+            "Day Book" -> {
+                if (isAdmin || isEmployee) context?.startActivity(Intent(context, DayBookListActivity::class.java))
+                else {
+                    context?.startActivity(Intent(context, DayBookActivity::class.java).putExtra("userUid", (context as? MainActivity)?.dayBook?.userUid))
+                }
+            }
+            "Accounting Services" -> {
+                if (isAdmin || isEmployee) context?.startActivity(Intent(context, BillDatesActivity::class.java))
+                else context?.startActivity(Intent(context, AccountingServicesActivity::class.java))
+            }
+            "Accounting", "My Accountant", "My Accountant\n(Outsourcing)" -> {
+                context?.startActivity(Intent(context, AccountingMenuActivity::class.java))
+            }
+            "ई सुविधा येथून पाठवा" -> {
+                // Home banner jumps straight to the new services grid for users; the category menu
+                // (ESuvidhaMenuActivity) stays reachable via the "इतर" tile below.
+                if (isAdmin || isEmployee) context?.startActivity(Intent(context, ESuvidhaListActivity::class.java))
+                else context?.startActivity(Intent(context, ESuvidhaServicesGridActivity::class.java))
+            }
+            "ई - सुविधा बास्केट", "सुविधा संग्रह" -> {
+                if (isAdmin || isEmployee) context?.startActivity(Intent(context, ESuvidhaListActivity::class.java))
+                else context?.startActivity(Intent(context, ESuvidhaMenuActivity::class.java))
+            }
+            "Reports" -> {
+                if (isAdmin || isEmployee) context?.startActivity(Intent(context, ReportTypesActivity::class.java))
+                else context?.startActivity(Intent(context, UserReportTypesActivity::class.java))
+            }
+            "Notifications" -> {
+                context?.startActivity(Intent(context, NotificationsActivity::class.java))
+            }
+            "Send Report" -> {
+                context?.startActivity(Intent(context, SendReportActivity::class.java))
+            }
+            "Daily Entries", "खाते बुक\n(स्वतःचा हिशोब स्वतः करा)" -> {
+                context?.startActivity(Intent(context, DailyEntriesActivity::class.java))
+            }
+            "View Scan Bills" -> {
+                context?.startActivity(Intent(context, BillDatesActivity::class.java))
+            }
+            "View Scan E-Suvidha" -> {
+                context?.startActivity(Intent(context, ESuvidhaDatesActivity::class.java))
+            }
+            "Block/Unblock User" -> {
+                context?.startActivity(Intent(context, BlockUnblockUserActivity::class.java))
+            }
+            "All Users" -> {
+                context?.startActivity(Intent(context, UsersActivity::class.java))
+            }
+            "येथून फी भरावी" -> {
+                context?.startActivity(Intent(context, PaymentDetailsActivity::class.java))
+            }
+            "हे अँप कसे वापरावे" -> {
+                context?.startActivity(Intent(context, TutorialActivity::class.java))
+            }
+            "ट्रेनिंग व्हिडिओ" -> {
+                context?.startActivity(Intent(context, TrainingVideoActivity::class.java))
+            }
+            "Download History" -> {
+                context?.startActivity(Intent(context, DownloadHistoryActivity::class.java))
+            }
+            "फी/चार्जेस" -> {
+                context?.startActivity(Intent(context, ESuvidhaServicesTableActivity::class.java))
+            }
+            "Text Msg" -> {
+                context?.startActivity(Intent(context, TextMsgActivity::class.java))
+            }
+            "नवनवीन माहिती" -> {
+                context?.startActivity(Intent(context, GovtSchemesInfoActivity::class.java))
+            }
+            "मिळालेल्या सुविधा" -> {
+                if (isAdmin || isEmployee) context?.startActivity(Intent(context, ReportTypesActivity::class.java))
+                else context?.startActivity(Intent(context, UserReportTypesActivity::class.java).putExtra("isEsuvidha", true))
+            }
+            "ज्योतिष शास्त्रींना प्रश्न विचारा" -> {
+                // Needs the dynamic types + suchna, so MainActivity fetches them before launching.
+                (context as? MainActivity)?.openJyotishShastra()
+            }
+            "Project Funding" -> {
+                context?.startActivity(Intent(context, ProjectFundingActivity::class.java))
+            }
+            "फी - सूचना - सुविधा माहिती" -> {
+                context?.startActivity(Intent(context, ESuvidhaSuchnaOptionsActivity::class.java))
+            }
+            "सुविधा प्रकार बदल" -> {
+                context?.startActivity(Intent(context, ESuvidhaOptionsDynamicTypesActivity::class.java))
+            }
+            "सेवा ग्रिड सेटिंग" -> {
+                context?.startActivity(Intent(context, EsuvidhaGridAdminActivity::class.java))
+            }
+            "पाठविलेल्या सुविधा" -> {
+                context?.startActivity(Intent(context, ESuvidhaDatesActivity::class.java))
+            }
+            "नियम व अटी" -> {
+                context?.startActivity(Intent(context, TermsConditionsActivity::class.java))
+            }
+            "contact us" -> {
+                context?.startActivity(Intent(context, ContactActivity::class.java))
+            }
+        }
+    }
+
+    inner class TileViewHolder @SuppressLint("RestrictedApi") constructor(val binding: ItemHomeMenuBinding) : RecyclerView.ViewHolder(binding.root)
+
+    inner class BannerViewHolder @SuppressLint("RestrictedApi") constructor(val binding: ItemHomeBannerBinding) : RecyclerView.ViewHolder(binding.root)
+}
