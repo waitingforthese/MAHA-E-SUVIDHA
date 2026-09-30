@@ -11,6 +11,7 @@ import android.text.style.ClickableSpan
 import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.view.View
+import android.util.Base64
 import android.widget.TextView
 import androidx.core.net.toUri
 import androidx.credentials.Credential
@@ -20,7 +21,6 @@ import androidx.credentials.GetCredentialRequest
 import androidx.lifecycle.lifecycleScope
 import com.afollestad.materialdialogs.DialogAction
 import com.afollestad.materialdialogs.MaterialDialog
-import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.android.libraries.identity.googleid.GetSignInWithGoogleOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.google.firebase.auth.GoogleAuthProvider
@@ -29,6 +29,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.coroutines.launch
+import java.security.SecureRandom
 import rahul.jagtap.dmas.databinding.ActivityLoginBinding
 import rahul.jagtap.dmas.extensions.gone
 import rahul.jagtap.dmas.extensions.longToast
@@ -104,7 +105,8 @@ class LoginActivity : BaseActivity() {
     private fun signInWithGoogle() {
         val signInWithGoogleOption = GetSignInWithGoogleOption.Builder(
             BuildConfig.OAUTH_CLIENT_ID
-        ).build()
+        ).setNonce(generateSecureRandomNonce())
+            .build()
 
         val req = GetCredentialRequest.Builder()
             .addCredentialOption(signInWithGoogleOption)
@@ -116,9 +118,33 @@ class LoginActivity : BaseActivity() {
                 handleCredential(res.credential)
             } catch (e: Exception) {
                 Log.e(TAG, "Google Credential Manager sign-in failed", e)
-                longToast("Google Sign-In Error: ${e.javaClass.simpleName}: ${e.message}")
+
+                val details = buildString {
+                    var current: Throwable? = e
+                    var level = 0
+                    while (current != null && level < 5) {
+                        if (level > 0) append("\n\nCaused by: ")
+                        append(current.javaClass.name)
+                        append("\n")
+                        append(current.message ?: "No message")
+                        current = current.cause
+                        level++
+                    }
+                }
+
+                MaterialDialog.Builder(this@LoginActivity)
+                    .title("Google Sign-In Error")
+                    .content(details)
+                    .positiveText("OK")
+                    .show()
             }
         }
+    }
+
+    private fun generateSecureRandomNonce(byteLength: Int = 32): String {
+        val randomBytes = ByteArray(byteLength)
+        SecureRandom().nextBytes(randomBytes)
+        return Base64.encodeToString(randomBytes, Base64.NO_WRAP or Base64.URL_SAFE or Base64.NO_PADDING)
     }
 
     private fun handleCredential(cred: Credential) {
