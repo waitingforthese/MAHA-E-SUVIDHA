@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "815732558455",
+    "project_id": "maha-e-suvidha",
+    "storage_bucket": "maha-e-suvidha.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:815732558455:android:00c6c0d85d0b95d85d1472",
+        "android_client_info": {
+          "package_name": "rahul.jagtap.dmas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "815732558455-15kmfbtlto5pi0s1o5e72uoffb2mlncn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "rahul.jagtap.dmas",
+            "certificate_hash": "f6d0fa07daecae7e49d72d718699ff9c4b68a6cf"
+          }
+        },
+        {
+          "client_id": "815732558455-k849v32efunrf92vj0n3oq9efobrk01c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCaDgz0qLV_CWxMzpbc0PT0ZBO0aLUHqM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "815732558455-k849v32efunrf92vj0n3oq9efobrk01c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-1362852772188633~6349424961"
+    }
+  ],
+  "configuration_version": "1"
+}
