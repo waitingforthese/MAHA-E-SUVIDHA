@@ -21,6 +21,7 @@ import androidx.lifecycle.lifecycleScope
 import com.afollestad.materialdialogs.DialogAction
 import com.afollestad.materialdialogs.MaterialDialog
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption
+import com.google.android.libraries.identity.googleid.GetSignInWithGoogleOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.database.DataSnapshot
@@ -101,10 +102,13 @@ class LoginActivity : BaseActivity() {
 
     // --- Google sign-in via Credential Manager ---
     private fun signInWithGoogle() {
-        val googleIdOpt = GetGoogleIdOption.Builder().setServerClientId(BuildConfig.OAUTH_CLIENT_ID) //getString(R.string.default_web_client_id))
-            .setFilterByAuthorizedAccounts(false).build()
+        val signInWithGoogleOption = GetSignInWithGoogleOption.Builder(
+            BuildConfig.OAUTH_CLIENT_ID
+        ).build()
 
-        val req = GetCredentialRequest.Builder().addCredentialOption(googleIdOpt).build()
+        val req = GetCredentialRequest.Builder()
+            .addCredentialOption(signInWithGoogleOption)
+            .build()
 
         lifecycleScope.launch {
             try {
