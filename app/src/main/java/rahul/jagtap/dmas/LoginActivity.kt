@@ -111,7 +111,8 @@ class LoginActivity : BaseActivity() {
                 val res = credMgr.getCredential(this@LoginActivity, req)
                 handleCredential(res.credential)
             } catch (e: Exception) {
-                longToast("Sign in canceled")
+                Log.e(TAG, "Google Credential Manager sign-in failed", e)
+                longToast("Google Sign-In Error: ${e.javaClass.simpleName}: ${e.message}")
             }
         }
     }
