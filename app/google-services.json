@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "815732558455",
+    "firebase_url": "https://maha-e-suvidha-default-rtdb.firebaseio.com",
     "project_id": "maha-e-suvidha",
     "storage_bucket": "maha-e-suvidha.firebasestorage.app"
   },
@@ -22,6 +23,14 @@
           }
         },
         {
+          "client_id": "815732558455-ccca143msth5lmqhus1hhmtcadsoprv5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "rahul.jagtap.dmas",
+            "certificate_hash": "a8e6a7b5ca1849d919369dc4cf69cf7987edce1a"
+          }
+        },
+        {
           "client_id": "815732558455-k849v32efunrf92vj0n3oq9efobrk01c.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -40,8 +49,7 @@
             }
           ]
         }
-      },
-      "admob_app_id": "ca-app-pub-1362852772188633~6349424961"
+      }
     }
   ],
   "configuration_version": "1"
