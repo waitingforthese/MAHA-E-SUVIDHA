@@ -156,11 +156,13 @@ class LoginActivity : BaseActivity() {
             binding.progressBar?.visible()
             auth.signInWithCredential(firebaseCred).addOnCompleteListener { task ->
                 binding.progressBar?.gone()
-                if (!task.isSuccessful) {
-                    Log.e(TAG, "signInWithGoogle:failure", task.exception)
-                    longToast("Google sign-in failed")
-                    return@addOnCompleteListener
-                }
+              if (!task.isSuccessful) {
+    Log.e(TAG, "signInWithGoogle:failure", task.exception)
+    longToast(
+        "Firebase Error: ${task.exception?.javaClass?.simpleName}: ${task.exception?.message}"
+    )
+    return@addOnCompleteListener
+}
                 val user = auth.currentUser
                 val email = user?.email.orEmpty()
                 val name = user?.displayName.orEmpty()
