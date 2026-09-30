@@ -11,7 +11,6 @@ import android.text.style.ClickableSpan
 import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.view.View
-import android.util.Base64
 import android.widget.TextView
 import androidx.core.net.toUri
 import androidx.credentials.Credential
@@ -21,7 +20,11 @@ import androidx.credentials.GetCredentialRequest
 import androidx.lifecycle.lifecycleScope
 import com.afollestad.materialdialogs.DialogAction
 import com.afollestad.materialdialogs.MaterialDialog
-import com.google.android.libraries.identity.googleid.GetSignInWithGoogleOption
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.database.DataSnapshot
@@ -29,7 +32,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.coroutines.launch
-import java.security.SecureRandom
 import rahul.jagtap.dmas.databinding.ActivityLoginBinding
 import rahul.jagtap.dmas.extensions.gone
 import rahul.jagtap.dmas.extensions.longToast
@@ -44,6 +46,8 @@ class LoginActivity : BaseActivity() {
     private val TAG = LoginActivity::class.java.simpleName
     lateinit var binding: ActivityLoginBinding
     private lateinit var credMgr: CredentialManager
+    private lateinit var googleSignInClient: GoogleSignInClient
+    private val RC_GOOGLE_SIGN_IN = 9001
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +60,13 @@ class LoginActivity : BaseActivity() {
             return
         }
         credMgr = CredentialManager.create(this)
+
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(BuildConfig.OAUTH_CLIENT_ID)
+            .requestEmail()
+            .build()
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
+
         binding.btnGoogle.setOnClickListener {
             signInWithGoogle()
         } //        binding.btnRegister?.setOnClickListener {
@@ -101,15 +112,15 @@ class LoginActivity : BaseActivity() {
         }
     }
 
-    // --- Google sign-in via Credential Manager ---
+    // --- Google sign-in via Credential Manager, with Google Play Services fallback ---
     private fun signInWithGoogle() {
-        val signInWithGoogleOption = GetSignInWithGoogleOption.Builder(
-            BuildConfig.OAUTH_CLIENT_ID
-        ).setNonce(generateSecureRandomNonce())
+        val googleIdOpt = GetGoogleIdOption.Builder()
+            .setServerClientId(BuildConfig.OAUTH_CLIENT_ID)
+            .setFilterByAuthorizedAccounts(false)
             .build()
 
         val req = GetCredentialRequest.Builder()
-            .addCredentialOption(signInWithGoogleOption)
+            .addCredentialOption(googleIdOpt)
             .build()
 
         lifecycleScope.launch {
@@ -117,86 +128,88 @@ class LoginActivity : BaseActivity() {
                 val res = credMgr.getCredential(this@LoginActivity, req)
                 handleCredential(res.credential)
             } catch (e: Exception) {
-                Log.e(TAG, "Google Credential Manager sign-in failed", e)
-
-                val details = buildString {
-                    var current: Throwable? = e
-                    var level = 0
-                    while (current != null && level < 5) {
-                        if (level > 0) append("\n\nCaused by: ")
-                        append(current.javaClass.name)
-                        append("\n")
-                        append(current.message ?: "No message")
-                        current = current.cause
-                        level++
-                    }
-                }
-
-                MaterialDialog.Builder(this@LoginActivity)
-                    .title("Google Sign-In Error")
-                    .content(details)
-                    .positiveText("OK")
-                    .show()
+                Log.e(TAG, "Credential Manager sign-in failed; starting Play Services fallback", e)
+                startLegacyGoogleSignIn()
             }
         }
     }
 
-    private fun generateSecureRandomNonce(byteLength: Int = 32): String {
-        val randomBytes = ByteArray(byteLength)
-        SecureRandom().nextBytes(randomBytes)
-        return Base64.encodeToString(randomBytes, Base64.NO_WRAP or Base64.URL_SAFE or Base64.NO_PADDING)
+    private fun startLegacyGoogleSignIn() {
+        googleSignInClient.signOut().addOnCompleteListener {
+            try {
+                startActivityForResult(googleSignInClient.signInIntent, RC_GOOGLE_SIGN_IN)
+            } catch (e: Exception) {
+                Log.e(TAG, "Google Play Services sign-in could not start", e)
+                longToast("Google Sign-In Error: ${e.javaClass.simpleName}: ${e.message}")
+            }
+        }
+    }
+
+    @Deprecated("Deprecated in Android framework, retained for this existing Activity flow")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode != RC_GOOGLE_SIGN_IN) return
+
+        try {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            val account = task.getResult(ApiException::class.java)
+            val idToken = account.idToken
+
+            if (idToken.isNullOrEmpty()) {
+                longToast("Google Sign-In Error: ID token not received")
+                return
+            }
+
+            firebaseAuthWithGoogle(idToken)
+        } catch (e: ApiException) {
+            Log.e(TAG, "Google Play Services sign-in failed: code=${e.statusCode}", e)
+            longToast("Google Sign-In Error: ${e.statusCode}: ${e.message}")
+        } catch (e: Exception) {
+            Log.e(TAG, "Google Play Services sign-in failed", e)
+            longToast("Google Sign-In Error: ${e.javaClass.simpleName}: ${e.message}")
+        }
     }
 
     private fun handleCredential(cred: Credential) {
-        if (cred is CustomCredential && cred.type == GoogleIdTokenCredential.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL) {
-
+        if (cred is CustomCredential &&
+            cred.type == GoogleIdTokenCredential.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL
+        ) {
             val idToken = GoogleIdTokenCredential.createFrom(cred.data).idToken
-            val firebaseCred = GoogleAuthProvider.getCredential(idToken, null)
-
-            binding.progressBar?.visible()
-            auth.signInWithCredential(firebaseCred).addOnCompleteListener { task ->
-                binding.progressBar?.gone()
-              if (!task.isSuccessful) {
-    Log.e(TAG, "signInWithGoogle:failure", task.exception)
-    longToast(
-        "Firebase Error: ${task.exception?.javaClass?.simpleName}: ${task.exception?.message}"
-    )
-    return@addOnCompleteListener
-}
-                val user = auth.currentUser
-                val email = user?.email.orEmpty()
-                val name = user?.displayName.orEmpty()
-                val uid = user?.uid.orEmpty()
-                Log.e(TAG, "auth uid success: ${auth.uid}") // Enforce Gmail-only
-                val isGmail = email.endsWith("@gmail.com", true) || email.endsWith("@googlemail.com", true)
-                if (!isGmail) { //                    signOutWithMessage("Please choose a Gmail account.")
-                    toast("Please choose a Gmail account.")
-                    return@addOnCompleteListener
-                }
-                findUserAndRedirect(uid, email, name) //                // Check in DB (emails/{email_norm} -> uid)
-                //                val emailNorm = normalizeGmail(email)
-                //                val emailsRef = database.child("users").child(emailNorm)
-                //                emailsRef.get().addOnSuccessListener { snap ->
-                //                    val currentUid = user!!.uid
-                //                    if (snap.exists()) {
-                //                        val storedUid = snap.getValue(String::class.java) ?: ""
-                //                        if (storedUid == currentUid) {
-                //                            // Known user with same uid → proceed
-                //                            goToHome()
-                //                        } else {
-                //                            // Known email but different uid → migrate
-                //                            migrateUserRecord(oldUid = storedUid, newUid = currentUid, email = email, emailNorm = emailNorm)
-                //                        }
-                //                    } else {
-                //                        // Not found → route to Register to capture extra fields
-                //                        goToRegisterPrefilled(name = user.displayName ?: "", email = email)
-                //                    }
-                //                }.addOnFailureListener {
-                //                    longToast("Network error, please try again.")
-                //                }
-            }
+            firebaseAuthWithGoogle(idToken)
         } else {
             longToast("Invalid credential")
+        }
+    }
+
+    private fun firebaseAuthWithGoogle(idToken: String) {
+        val firebaseCred = GoogleAuthProvider.getCredential(idToken, null)
+
+        binding.progressBar?.visible()
+        auth.signInWithCredential(firebaseCred).addOnCompleteListener { task ->
+            binding.progressBar?.gone()
+            if (!task.isSuccessful) {
+                Log.e(TAG, "signInWithGoogle:failure", task.exception)
+                longToast(
+                    "Firebase Error: ${task.exception?.javaClass?.simpleName}: ${task.exception?.message}"
+                )
+                return@addOnCompleteListener
+            }
+
+            val user = auth.currentUser
+            val email = user?.email.orEmpty()
+            val name = user?.displayName.orEmpty()
+            val uid = user?.uid.orEmpty()
+            Log.e(TAG, "auth uid success: ${auth.uid}")
+
+            val isGmail = email.endsWith("@gmail.com", true) ||
+                email.endsWith("@googlemail.com", true)
+            if (!isGmail) {
+                toast("Please choose a Gmail account.")
+                return@addOnCompleteListener
+            }
+
+            findUserAndRedirect(uid, email, name)
         }
     }
 
