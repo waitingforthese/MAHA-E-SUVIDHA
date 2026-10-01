@@ -62,6 +62,9 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.Collections
 import java.util.Locale
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 
 
 class UsersActivity : BaseActivity() {
@@ -398,51 +401,86 @@ class UsersActivity : BaseActivity() {
         return isSuccess
     }
 
-    private fun getUserList() {
-        launchCoroutine({
-            app?.apiRequestHelper?.apiService?.users?.enqueue(object : Callback<ResponseBody> {
-                override fun onResponse(
-                    call: Call<ResponseBody>, response: Response<ResponseBody>
-                ) {
-                    if (response.isSuccessful) {
-                        val json = response.body()?.string()
-                        if (json == null || json == "null") {
-                            return
-                        }
-                        val type: Type = object : TypeToken<HashMap<String, User>?>() {}.type
-                        val map: HashMap<String, User> = Gson().fromJson(json, type)
-                        userList?.clear()
-                        userList?.addAll(map.values.toMutableList())
-                        try {
-                            val df: DateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm:ss")
-                            Collections.sort(userList, Comparator { o1, o2 -> //                                if (o1.createdAt.isNullOrEmpty() || o2.createdAt.isNullOrEmpty()) return@Comparator 1
-                                if (o1.createdAt == null || o2.createdAt == null || o1.createdAt!!.isEmpty() || o2.createdAt!!.isEmpty()) {
-                                    return@Comparator 1
-                                }
-                                return@Comparator try { // Try parsing as English date
-                                    df.parse(o2.createdAt.toString())!!.compareTo(df.parse(o1.createdAt.toString()))
-                                } catch (e: ParseException) { // If parsing as English date fails, try parsing as Marathi date
-                                    Log.e(TAG, "ParseException: " + o2.createdAt + "||" + o1.createdAt)
-                                    val marathiDateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale("mr"))
-                                    marathiDateFormat.parse(o2.createdAt.toString())!!.compareTo(marathiDateFormat.parse(o1.createdAt.toString()))
-                                } catch (e: Exception) { // If parsing as English date fails, try parsing as Marathi date
-                                    Log.e(TAG, "Exception: " + o2.createdAt + "||" + o1.createdAt)
-                                    val marathiDateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale("mr"))
-                                    marathiDateFormat.parse(o2.createdAt.toString())!!.compareTo(marathiDateFormat.parse(o1.createdAt.toString()))
-                                } //                            return@Comparator df.parse(o2.createdAt.toString())!!.compareTo(df.parse(o1.createdAt.toString()))
-                            })
-                        } catch (e: ParseException) {
-                            e.printStackTrace()
-                        } catch (e: Exception) {
-                            e.printStackTrace()
-                        }
-                        if (userList != null && userList?.size!! > 0) {
-                            binding.toolbarTitle?.text = "Users(${userList?.size})"
-                            adapter = UserAdapter(mContext, userList)
+private fun getUserList() {
 
-                            binding.recyclerView?.layoutManager = LinearLayoutManager(mContext, RecyclerView.VERTICAL, false)
-                            binding.recyclerView?.adapter = adapter
-                            adapter?.itemClickListener = object : UserAdapter.ItemClickListener {
+    database.child(Utils.USERS_TABLE)
+        .addListenerForSingleValueEvent(object : ValueEventListener {
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+                try {
+                    val json = Gson().toJson(snapshot.value)
+
+                    if (json == "null") {
+                        userList?.clear()
+                        binding.recyclerView?.gone()
+                        binding.tvError?.visible()
+                        return
+                    }
+
+                    val type: Type =
+                        object : TypeToken<HashMap<String, User>?>() {}.type
+
+                    val map: HashMap<String, User> =
+                        Gson().fromJson(json, type)
+
+                    userList?.clear()
+                    userList?.addAll(map.values.toMutableList())
+
+                    // Sort latest users first
+                    try {
+                        val df = SimpleDateFormat(
+                            "dd-MM-yyyy HH:mm:ss",
+                            Locale.getDefault()
+                        )
+
+                        Collections.sort(
+                            userList,
+                            Comparator { o1, o2 ->
+
+                                if (o1.createdAt.isNullOrEmpty() ||
+                                    o2.createdAt.isNullOrEmpty()
+                                ) {
+                                    return@Comparator 0
+                                }
+
+                                try {
+                                    df.parse(o2.createdAt.toString())!!
+                                        .compareTo(
+                                            df.parse(o1.createdAt.toString())!!
+                                        )
+                                } catch (e: Exception) {
+                                    0
+                                }
+                            }
+                        )
+
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+
+                    if (!userList.isNullOrEmpty()) {
+
+                        binding.toolbarTitle?.text =
+                            "Users(${userList?.size})"
+
+                        adapter = UserAdapter(
+                            mContext,
+                            userList
+                        )
+
+                        binding.recyclerView?.layoutManager =
+                            LinearLayoutManager(
+                                mContext,
+                                RecyclerView.VERTICAL,
+                                false
+                            )
+
+                        binding.recyclerView?.adapter = adapter
+
+                        adapter?.itemClickListener =
+                            object : UserAdapter.ItemClickListener {
+
                                 override fun onItemClick(position: Int) {
                                 }
 
@@ -450,40 +488,79 @@ class UsersActivity : BaseActivity() {
                                     callOrSms(phoneNo)
                                 }
 
-                                override fun saveContactToGoogleContact(position: Int) {
+                                override fun saveContactToGoogleContact(
+                                    position: Int
+                                ) {
                                     val user = userList?.get(position)
+
                                     updateContactSavedByLocalRemote(position)
-                                    saveContactAvoidingDuplicates(user?.name.toString(), user?.contactNo.toString(), user?.email)
+
+                                    saveContactAvoidingDuplicates(
+                                        user?.name.toString(),
+                                        user?.contactNo.toString(),
+                                        user?.email
+                                    )
                                 }
                             }
-                            binding.recyclerView?.visible()
-                            binding.tvError?.gone()
 
-                            binding.searchView.setOnQueryTextListener(object : MaterialSearchView.OnQueryTextListener {
+                        binding.recyclerView?.visible()
+                        binding.tvError?.gone()
+
+                        binding.searchView.setOnQueryTextListener(
+                            object : MaterialSearchView.OnQueryTextListener {
+
                                 override fun onQueryTextSubmit(
                                     query: String
-                                ): Boolean { //Do some magic
-                                    if (adapter != null) adapter?.filter(query)
+                                ): Boolean {
+
+                                    adapter?.filter(query)
+
                                     return false
                                 }
 
                                 override fun onQueryTextChange(
                                     newText: String
-                                ): Boolean { //Do some magic
-                                    if (adapter != null) adapter?.filter(newText)
+                                ): Boolean {
+
+                                    adapter?.filter(newText)
+
                                     return false
                                 }
-                            })
-                        } else {
-                            binding.recyclerView?.gone()
-                            binding.tvError?.visible()
-                        }
-                        signIn()
+                            }
+                        )
+
                     } else {
+
                         binding.recyclerView?.gone()
                         binding.tvError?.visible()
                     }
+
+                } catch (e: Exception) {
+
+                    Log.e(
+                        TAG,
+                        "Firebase Users parsing error",
+                        e
+                    )
+
+                    binding.recyclerView?.gone()
+                    binding.tvError?.visible()
                 }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+                Log.e(
+                    TAG,
+                    "Firebase Users read cancelled: ${error.message}",
+                    error.toException()
+                )
+
+                binding.recyclerView?.gone()
+                binding.tvError?.visible()
+            }
+        })
+}
 
                 override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 }
