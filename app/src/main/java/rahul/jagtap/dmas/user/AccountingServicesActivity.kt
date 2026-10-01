@@ -144,7 +144,7 @@ class AccountingServicesActivity : BaseActivity() {
         filepath.putFile(Uri.fromFile(compressedImageFile)).addOnSuccessListener {
             try {
                 if (cpd != null && cpd.isShowing) cpd.dismiss()
-                filepath.downloadUrl.addOnSuccessListener { uri: Uri ->
+                filepath.downloadUrl.addOnSuccessListener downloadUrlListener@{ uri: Uri ->
                     val downloadUrl = uri.toString()
                     val billMap = HashMap<String, Any?>()
                     billMap["email"] = email
@@ -158,35 +158,39 @@ class AccountingServicesActivity : BaseActivity() {
                     billMap["timeStamp"] = System.currentTimeMillis()
                     billMap["downloadUrl"] = downloadUrl
 
-                    val pushKey = database.child(Utils.BILLS_TABLE).child(getTodayDate()).child(uid!!).push().key
+                    val billDateKey = getTodayDate()
+                    val pushKey = database.child(Utils.BILLS_TABLE).child(billDateKey).child(uid!!).push().key
+                    if (pushKey.isNullOrBlank()) {
+                        filepath.delete()
+                        toast("Bill record तयार करता आला नाही. पुन्हा प्रयत्न करा.")
+                        return@downloadUrlListener
+                    }
                     billMap["pushKey"] = pushKey
 
                     val messageUserMap = HashMap<String, Any?>()
-                    messageUserMap["${Utils.BILLS_TABLE}/${getTodayDate()}/${uid!!}/$pushKey"] = billMap
+                    messageUserMap["${Utils.BILLS_TABLE}/$billDateKey/${uid!!}/$pushKey"] = billMap
 
-                    database.updateChildren(messageUserMap) { databaseError: DatabaseError?, databaseReference: DatabaseReference? ->
+                    database.updateChildren(messageUserMap) { databaseError: DatabaseError?, _: DatabaseReference? ->
                         if (databaseError != null) {
-                            Log.e("db error", databaseError.message)
+                            Log.e(TAG, "Bill database write failed", databaseError.toException())
+                            filepath.delete()
+                            runOnUiThread {
+                                toast("Bill save झाले नाही. कृपया पुन्हा प्रयत्न करा.")
+                            }
+                            return@updateChildren
+                        }
+
+                        val notificationPushKey = database.child(Utils.NOTIFICATIONS_TABLE).push().key
+                        if (notificationPushKey != null) {
+                            val notificationItem = NotificationItem(message = "New bill added by $name", createdAt = createdDateTime, email = email, uid = uid, notificationType = "add_bill", billType = billType)
+                            database.child(Utils.NOTIFICATIONS_TABLE).child(notificationPushKey).setValue(notificationItem)
+                            sendNotification("New bill added by $name")
+                        }
+                        runOnUiThread {
+                            toast("Bill created successfully")
+                            finish()
                         }
                     }
-                    val notificationPushKey = database.child(Utils.NOTIFICATIONS_TABLE).push().key
-                    if (notificationPushKey != null) { //                                val notificationMap = HashMap<String, Any?>()
-                        //                                notificationMap["email"] = email
-                        //                                notificationMap["message"] = "New bill added by $uid"
-                        //                                notificationMap["uid"] = uid
-                        //                                notificationMap["billType"] = billType
-                        //                                notificationMap["notificationType"] = "add_bill"
-                        //                                notificationMap["createdAt"] = createdDateTime
-                        //                                val notificationUserMap = HashMap<String, Any?>()
-                        //                                notificationUserMap["Notifications/$notificationPushKey"] =
-                        //                                    notificationMap
-                        //                                database.updateChildren(notificationUserMap)
-                        val notificationItem = NotificationItem(message = "New bill added by $name", createdAt = createdDateTime, email = email, uid = uid, notificationType = "add_bill", billType = billType)
-                        database.child(Utils.NOTIFICATIONS_TABLE).child(notificationPushKey).setValue(notificationItem)
-                        sendNotification("New bill added by $name")
-                    }
-                    toast("Bill created successfully")
-                    finish()
                 }.addOnFailureListener {
                     it.printStackTrace()
                 }
