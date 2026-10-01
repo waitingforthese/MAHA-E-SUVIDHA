@@ -31,6 +31,14 @@
           }
         },
         {
+          "client_id": "815732558455-jof55h8quu8fuv3ksfr5l0650dr181k3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "rahul.jagtap.dmas",
+            "certificate_hash": "ec099339c6d42b3f7afd39c280649448a800529f"
+          }
+        },
+        {
           "client_id": "815732558455-k849v32efunrf92vj0n3oq9efobrk01c.apps.googleusercontent.com",
           "client_type": 3
         }
