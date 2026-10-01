@@ -10,9 +10,9 @@ import android.view.WindowManager
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import okhttp3.ResponseBody
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import rahul.jagtap.dmas.adapter.GovtSchemeInfoAdapter
 import rahul.jagtap.dmas.databinding.ActivityViewBillsBinding
 import rahul.jagtap.dmas.extensions.toast
@@ -20,10 +20,6 @@ import rahul.jagtap.dmas.extensions.gone
 import rahul.jagtap.dmas.extensions.visible
 import rahul.jagtap.dmas.model.GovtSchemeInfo
 import rahul.jagtap.dmas.utils.Utils
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import java.lang.reflect.Type
 import java.text.DateFormat
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -81,63 +77,54 @@ class GovtSchemesInfoActivity : BaseActivity() {
 
     private fun setEntriesData() {
         binding.progressBar?.visible()
-        app?.apiRequestHelper?.apiService?.govtSchemes?.enqueue(object : Callback<ResponseBody> {
-            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                binding.progressBar?.gone()
-                if (response.isSuccessful) {
-                    val json = response.body()?.string()
-                    if (json == null || json == "null") {
-                        notifyAdapter()
-                        return
-                    }
-                    val type: Type = object : TypeToken<HashMap<String, GovtSchemeInfo>?>() {}.type
-                    val map: HashMap<String, GovtSchemeInfo>? = Gson().fromJson(json, type)
-                    val values = map?.values
-                    if (!values.isNullOrEmpty()) {
-                        list.clear()
-                        list.addAll(values)
-                        try {
-                            val df: DateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm:ss")
-                            Collections.sort(list, Comparator { o1, o2 -> //                                if (o1.createdAt.isNullOrEmpty() || o2.createdAt.isNullOrEmpty()) return@Comparator 1
-                                if (o1.createdDateTime == null || o2.createdDateTime == null || o1.createdDateTime!!.isEmpty() || o2.createdDateTime!!.isEmpty()) {
-                                    return@Comparator 1
-                                }
-                                return@Comparator try { // Try parsing as English date
-                                    df.parse(o2.createdDateTime.toString())!!.compareTo(df.parse(o1.createdDateTime.toString()))
-                                } catch (e: ParseException) { // If parsing as English date fails, try parsing as Marathi date
-                                    Log.e("TAG", "ParseException: " + o2.createdDateTime + "||" + o1.createdDateTime)
-                                    val marathiDateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale("mr"))
-                                    marathiDateFormat.parse(o2.createdDateTime.toString())!!.compareTo(marathiDateFormat.parse(o1.createdDateTime.toString()))
-                                } catch (e: Exception) { // If parsing as English date fails, try parsing as Marathi date
-                                    Log.e("TAG", "Exception: " + o2.createdDateTime + "||" + o1.createdDateTime)
-                                    val marathiDateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale("mr"))
-                                    marathiDateFormat.parse(o2.createdDateTime.toString())!!.compareTo(marathiDateFormat.parse(o1.createdDateTime.toString()))
-                                } //                            return@Comparator df.parse(o2.createdAt.toString())!!.compareTo(df.parse(o1.createdAt.toString()))
-                            })
-                        } catch (e: ParseException) {
-                            e.printStackTrace()
-                        } catch (e: Exception) {
-                            e.printStackTrace()
+
+        database.child(Utils.GOVT_SCHEMES_TABLE)
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    binding.progressBar?.gone()
+                    list.clear()
+
+                    for (child in snapshot.children) {
+                        val item = child.getValue(GovtSchemeInfo::class.java)
+                        if (item != null) {
+                            // Keep the Firebase child key for edit/delete operations.
+                            if (item.pushKey.isNullOrBlank()) {
+                                item.pushKey = child.key
+                            }
+                            list.add(item)
                         }
-                        notifyAdapter()
-                        binding.recyclerView?.visible()
-                        binding.tvError?.gone()
-                    } else {
-                        binding.recyclerView?.gone()
-                        binding.tvError?.visible()
                     }
-                } else {
-                    Log.e("in", "fail response")
+
+                    try {
+                        val df: DateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.ENGLISH)
+                        Collections.sort(list, Comparator { o1, o2 ->
+                            val d1 = o1.createdDateTime
+                            val d2 = o2.createdDateTime
+                            if (d1.isNullOrEmpty() || d2.isNullOrEmpty()) {
+                                return@Comparator 0
+                            }
+                            try {
+                                df.parse(d2)?.compareTo(df.parse(d1)) ?: 0
+                            } catch (e: Exception) {
+                                Log.e(TAG, "Could not sort scheme dates: $d2 || $d1", e)
+                                0
+                            }
+                        })
+                    } catch (e: Exception) {
+                        Log.e(TAG, "Could not sort scheme records", e)
+                    }
+
                     notifyAdapter()
                 }
-            }
 
-            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                binding.progressBar?.gone()
-                Log.e("in", "failure")
-                notifyAdapter()
-            }
-        })
+                override fun onCancelled(error: DatabaseError) {
+                    binding.progressBar?.gone()
+                    Log.e(TAG, "Failed to load government scheme information: ${error.message}", error.toException())
+                    list.clear()
+                    notifyAdapter()
+                    toast("माहिती लोड झाली नाही. कृपया पुन्हा प्रयत्न करा.")
+                }
+            })
     }
 
     private fun notifyAdapter() {
