@@ -56,7 +56,7 @@ abstract class BaseActivity : AppCompatActivity(), CoroutineScope {
     lateinit var database: DatabaseReference
     lateinit var storageRef: StorageReference
     var callList: ArrayList<Call<*>> = ArrayList()
-    var screenshotAllowedEmailList = listOf("xrahuljagtap@gmail.com", "mayurdg93@gmail.com", "xrahul.jagtap@gmail.com", "mdg5435@gmail.com")
+    var screenshotAllowedEmailList = listOf("waitingforthesemoments@gmail.com", "jpdmas3@gmail.com", "xrahul.jagtap@gmail.com")
     val upiAppList = ArrayList<String>()
     val spanText = SpannableString("Note: पेमेंट झाल्यावर पेमेंट चा स्क्रीनशॉट काढा\nपेमेंट नाव - स्नेहा जगताप पाटील\nपेमेंट करण्यासाठी नंबर 9552789899\nपेमेंट साठी नंबर कॉपी करा\nCopy")
 
