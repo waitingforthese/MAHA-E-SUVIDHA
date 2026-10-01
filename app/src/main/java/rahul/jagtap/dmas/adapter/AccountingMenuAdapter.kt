@@ -28,7 +28,7 @@ class AccountingMenuAdapter(var context: Context?, var itemList: List<String?>? 
         val app = context?.applicationContext as App
         loggedInUser = app.preferences?.loggedInUser
         isAdmin = app.preferences?.loggedInUser?.isAdmin == "1"
-        isEmployee = app.preferences?.loggedInUser?.isAdmin == "2"
+        isEmployee = app.preferences?.loggedInUser?.userType == "2"
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder {
