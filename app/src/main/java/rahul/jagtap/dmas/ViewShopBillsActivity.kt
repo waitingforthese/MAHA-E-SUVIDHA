@@ -19,22 +19,23 @@ import rahul.jagtap.dmas.model.Bill
 import rahul.jagtap.dmas.model.ShopBill
 import rahul.jagtap.dmas.model.User
 import rahul.jagtap.dmas.utils.Utils
-import java.util.*
+import java.util.ArrayList
 
 class ViewShopBillsActivity : BaseActivity() {
-    private var uid: String? = ""
-    private var isAdmin: String? = ""
+    private var uid: String? = null
+    private var isAdmin: String? = null
     private var isEmployee: Boolean = false
-    var shopBillList = ArrayList<ShopBill>()
-    var shopBillListAdapter: ShopBillListAdapter? = null
-    var shopName = ""
-
+    private val shopBillList = ArrayList<ShopBill>()
+    private var shopBillListAdapter: ShopBillListAdapter? = null
     private lateinit var binding: ActivityViewBillsBinding
+    private val TAG = "ViewShopBillsActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityViewBillsBinding.inflate(layoutInflater)
-        if (Utils.disableScreenshot) this.window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
+        if (Utils.disableScreenshot) {
+            window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
+        }
         setContentView(binding.root)
 
         uid = app?.preferences?.loggedInUser?.uid
@@ -46,103 +47,100 @@ class ViewShopBillsActivity : BaseActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
         binding.toolbarLayout.toolbarTitle?.text = getString(R.string.txt_bills)
 
-        binding.recyclerView?.layoutManager =
-            LinearLayoutManager(mContext, RecyclerView.VERTICAL, false)
+        binding.recyclerView?.layoutManager = LinearLayoutManager(mContext, RecyclerView.VERTICAL, false)
         shopBillListAdapter = ShopBillListAdapter(mContext, shopBillList)
         binding.recyclerView?.adapter = shopBillListAdapter
         listenForBillsData()
     }
 
     private fun listenForBillsData() {
-        if (isAdmin == "1" || isEmployee) {
-            Firebase.database.getReference(Utils.BILLS_TABLE)
-                .addValueEventListener(object : ValueEventListener {
-                    override fun onDataChange(dataSnapshot: DataSnapshot) {
-                        setAdminBillsData(dataSnapshot)
-                    }
-
-                    override fun onCancelled(dataSnapshot: DatabaseError) {
-                    }
-                })
-        } else {
-            Firebase.database.getReference(Utils.BILLS_TABLE).child(uid!!)
-                .addValueEventListener(object : ValueEventListener {
-                    override fun onDataChange(dataSnapshot: DataSnapshot) {
-                        setUserBillsData(dataSnapshot, uid!!)
-                    }
-
-                    override fun onCancelled(dataSnapshot: DatabaseError) {
-                    }
-                })
+        val currentUid = uid
+        if (currentUid.isNullOrBlank() && isAdmin != "1" && !isEmployee) {
+            showEmptyState()
+            return
         }
-    }
 
-    private fun setUserBillsData(dataSnapshot: DataSnapshot, uid: String) {
         binding.progressBar?.visible()
-        getShopName(uid)
-        val billList = ArrayList<Bill>()
-        for (child in dataSnapshot.children) {
-            val bill = child.getValue(Bill::class.java)
-            bill?.let { billList.add(it) }
-        }
-        shopBillList.add(ShopBill(shopName, uid, billList))
-        notifyAdapter()
-    }
-
-    private fun setAdminBillsData(dataSnapshot: DataSnapshot) {
-        binding.progressBar?.visible()
-        for (snapShot in dataSnapshot.children) {
-            val uid: String? = snapShot.key
-            Log.e("uid key", "$uid")
-            if (uid != null) {
-                getShopName(uid)
-                val billList = ArrayList<Bill>()
-                for (child in snapShot.children) {
-                    val bill = child.getValue(Bill::class.java)
-                    bill?.let { billList.add(it) }
-                }
-                shopBillList.add(ShopBill(shopName, uid, billList))
-            }
-        }
-        notifyAdapter()
-    }
-
-    private fun getShopName(uid: String) {
-        shopName = ""
-        database.child(Utils.USERS_TABLE).child(uid)
+        Firebase.database.getReference(Utils.BILLS_TABLE)
             .addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onCancelled(p0: DatabaseError) {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val billsByUid = LinkedHashMap<String, MutableList<Bill>>()
+
+                    // Database structure: bills / date / uid / pushKey / bill fields
+                    for (dateSnapshot in snapshot.children) {
+                        for (userSnapshot in dateSnapshot.children) {
+                            val billUid = userSnapshot.key ?: continue
+                            if (isAdmin != "1" && !isEmployee && billUid != currentUid) continue
+
+                            val userBills = billsByUid.getOrPut(billUid) { ArrayList() }
+                            for (billSnapshot in userSnapshot.children) {
+                                val bill = billSnapshot.getValue(Bill::class.java) ?: continue
+                                if (bill.pushKey.isNullOrBlank()) bill.pushKey = billSnapshot.key
+                                if (bill.uid.isNullOrBlank()) bill.uid = billUid
+                                userBills.add(bill)
+                            }
+                        }
+                    }
+
+                    shopBillList.clear()
+                    if (billsByUid.isEmpty()) {
+                        showEmptyState()
+                        return
+                    }
+
+                    // Load shop names asynchronously, then publish the completed list once.
+                    var pending = billsByUid.size
+                    billsByUid.forEach { (billUid, bills) ->
+                        Firebase.database.getReference(Utils.USERS_TABLE).child(billUid)
+                            .addListenerForSingleValueEvent(object : ValueEventListener {
+                                override fun onDataChange(userSnapshot: DataSnapshot) {
+                                    val user = userSnapshot.getValue(User::class.java)
+                                    shopBillList.add(ShopBill(user?.shopName.orEmpty(), billUid, bills))
+                                    pending--
+                                    if (pending == 0) publishList()
+                                }
+
+                                override fun onCancelled(error: DatabaseError) {
+                                    Log.e(TAG, "Could not load shop name for $billUid: ${error.message}")
+                                    shopBillList.add(ShopBill(billUid, billUid, bills))
+                                    pending--
+                                    if (pending == 0) publishList()
+                                }
+                            })
+                    }
                 }
 
-                override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    val user = dataSnapshot.getValue(User::class.java)
-                    shopName = user?.shopName ?: ""
+                override fun onCancelled(error: DatabaseError) {
+                    Log.e(TAG, "Could not load bills: ${error.message}")
+                    binding.progressBar?.gone()
+                    toast("Bills load failed: ${error.message}")
+                    showEmptyState()
                 }
             })
     }
 
-    private fun notifyAdapter() {
+    private fun publishList() {
+        shopBillList.sortBy { it.shopName?.lowercase() ?: "" }
         binding.progressBar?.gone()
         shopBillListAdapter?.notifyDataSetChanged()
-        if (shopBillList.size == 0) {
-            binding.tvError?.visible()
-        } else {
+        if (shopBillList.isEmpty()) showEmptyState() else {
+            binding.recyclerView?.visible()
             binding.tvError?.gone()
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> {
-                Utils.hideSoftKeyboard(this)
-                finish()
-                return true
-            }
-        }
-        return super.onOptionsItemSelected(item)
+    private fun showEmptyState() {
+        binding.progressBar?.gone()
+        binding.recyclerView?.gone()
+        binding.tvError?.visible()
     }
 
-    companion object {
-
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            Utils.hideSoftKeyboard(this)
+            finish()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
