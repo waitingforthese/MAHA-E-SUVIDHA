@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.DataSnapshot
@@ -113,7 +114,7 @@ class ViewShopBillsActivity : BaseActivity() {
                 override fun onCancelled(error: DatabaseError) {
                     Log.e(TAG, "Could not load bills: ${error.message}")
                     binding.progressBar?.gone()
-                    toast("Bills load failed: ${error.message}")
+                    Toast.makeText(this@ViewShopBillsActivity, "Bills load failed: ${error.message}", Toast.LENGTH_LONG).show()
                     showEmptyState()
                 }
             })
