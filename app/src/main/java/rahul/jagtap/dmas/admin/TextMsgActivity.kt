@@ -10,9 +10,9 @@ import android.view.WindowManager
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import okhttp3.ResponseBody
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import rahul.jagtap.dmas.databinding.ActivityViewBillsBinding
 import rahul.jagtap.dmas.extensions.toast
 import rahul.jagtap.dmas.BaseActivity
@@ -22,10 +22,6 @@ import rahul.jagtap.dmas.extensions.gone
 import rahul.jagtap.dmas.extensions.visible
 import rahul.jagtap.dmas.model.TextMsg
 import rahul.jagtap.dmas.utils.Utils
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import java.lang.reflect.Type
 
 
 class TextMsgActivity : BaseActivity() {
@@ -79,40 +75,34 @@ class TextMsgActivity : BaseActivity() {
 
     private fun setEntriesData() {
         binding.progressBar?.visible()
-        app?.apiRequestHelper?.apiService?.textMessages?.enqueue(object : Callback<ResponseBody> {
-            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                binding.progressBar?.gone()
-                if (response.isSuccessful) {
-                    val json = response.body()?.string()
-                    if (json == null || json == "null") {
-                        notifyAdapter()
-                        return
+
+        database.child(Utils.TEXT_MSG_TABLE)
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    binding.progressBar?.gone()
+                    list.clear()
+
+                    for (child in snapshot.children) {
+                        val textMsg = child.getValue(TextMsg::class.java)
+                        if (textMsg != null) {
+                            // Preserve the Firebase key so edit/delete targets the correct record.
+                            if (textMsg.pushKey.isNullOrBlank()) {
+                                textMsg.pushKey = child.key
+                            }
+                            list.add(textMsg)
+                        }
                     }
-                    val type: Type = object : TypeToken<HashMap<String, TextMsg>?>() {}.type
-                    val map: HashMap<String, TextMsg>? = Gson().fromJson(json, type)
-                    val textMessages = map?.values
-                    if (!textMessages.isNullOrEmpty()) {
-                        list.clear()
-                        list.addAll(textMessages)
-                        notifyAdapter()
-                        binding.recyclerView?.visible()
-                        binding.tvError?.gone()
-                    } else {
-                        binding.recyclerView?.gone()
-                        binding.tvError?.visible()
-                    }
-                } else {
-                    Log.e("in", "fail response")
+
                     notifyAdapter()
                 }
-            }
 
-            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                binding.progressBar?.gone()
-                Log.e("in", "failure")
-                notifyAdapter()
-            }
-        })
+                override fun onCancelled(error: DatabaseError) {
+                    binding.progressBar?.gone()
+                    Log.e("TextMsgActivity", "Failed to load text messages: ${error.message}", error.toException())
+                    notifyAdapter()
+                    toast("माहिती लोड झाली नाही. कृपया पुन्हा प्रयत्न करा.")
+                }
+            })
     }
 
     private fun notifyAdapter() {
