@@ -28,6 +28,7 @@ import java.util.Locale
 
 
 class GovtSchemesInfoActivity : BaseActivity() {
+        private val TAG = "GovtSchemesInfoActivity"
 //    private var uid: String? = ""
     var list = ArrayList<GovtSchemeInfo>()
     var adapter: GovtSchemeInfoAdapter? = null
