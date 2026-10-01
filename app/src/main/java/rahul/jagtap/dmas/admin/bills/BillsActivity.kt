@@ -63,19 +63,40 @@ class BillsActivity : BaseActivity() {
             override fun onDeleteClick(position: Int) {
                 val selPanCard = list[position]
 
-                storageRef.child("bills/${selPanCard.email}/${selPanCard.fileName}").delete()
-
-                // Delete DB Record
-                Utils.dmyHmsTodmy(selPanCard.createdDateTime)?.let { formattedDate ->
-                    database.child(Utils.BILLS_TABLE).child(formattedDate)
-                        .child(selPanCard.uid!!)
-                        .child(selPanCard.pushKey!!)
-                        .removeValue()
+                val billUid = selPanCard.uid
+                val pushKey = selPanCard.pushKey
+                val formattedDate = Utils.dmyHmsTodmy(selPanCard.createdDateTime)
+                if (billUid.isNullOrBlank() || pushKey.isNullOrBlank() || formattedDate.isNullOrBlank()) {
+                    toast("Bill record details missing. Delete करू शकत नाही.")
+                    return
                 }
 
-                toast("Record deleted successfully")
-                startActivity(Intent(mContext, BillDatesActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
-                finish()
+                binding.progressBar?.visible()
+                database.child(Utils.BILLS_TABLE).child(formattedDate)
+                    .child(billUid)
+                    .child(pushKey)
+                    .removeValue()
+                    .addOnSuccessListener {
+                        storageRef.child("bills/${selPanCard.email}/${selPanCard.fileName}").delete()
+                            .addOnSuccessListener {
+                                binding.progressBar?.gone()
+                                toast("Record deleted successfully")
+                                startActivity(Intent(mContext, BillDatesActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+                                finish()
+                            }
+                            .addOnFailureListener { error ->
+                                binding.progressBar?.gone()
+                                Log.e("BillsActivity", "Bill record removed but photo deletion failed", error)
+                                toast("Bill record deleted, पण photo delete झाला नाही.")
+                                startActivity(Intent(mContext, BillDatesActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+                                finish()
+                            }
+                    }
+                    .addOnFailureListener { error ->
+                        binding.progressBar?.gone()
+                        Log.e("BillsActivity", "Unable to delete bill record", error)
+                        toast("Record delete झाले नाही. कृपया पुन्हा प्रयत्न करा.")
+                    }
             }
         }
     }
