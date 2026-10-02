@@ -13,7 +13,7 @@ android {
     namespace = "rahul.jagtap.dmas"
 
     defaultConfig {
-        applicationId = "rahul.jagtap.dmas"
+        applicationId = "rahul.jagtap.myaccountant"
         minSdk = 23
         targetSdk = 35
         versionCode = 34
