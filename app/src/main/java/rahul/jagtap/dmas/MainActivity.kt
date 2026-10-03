@@ -461,6 +461,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         } else {
             // User home: two full-width banners first, then the grid tiles.
             menuList.add("My Accountant")
+            menuList.add("खाते बुक\n(स्वतःचा हिशोब स्वतः करा)")
             menuList.add("पाठविलेल्या सुविधा")
             menuList.add("नवनवीन माहिती")
             menuList.add("येथून फी भरावी")
