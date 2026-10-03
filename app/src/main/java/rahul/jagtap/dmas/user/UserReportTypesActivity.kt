@@ -32,7 +32,6 @@ class UserReportTypesActivity : BaseActivity() {
     var list = ArrayList<String>()
     var adapter: BillDateListAdapter? = null
     var isAccounting = false
-    var isEsuvidha = false
     var isAdmin = false
     var isEmployee = false
     lateinit var binding: ActivityViewReportsBinding
@@ -44,7 +43,6 @@ class UserReportTypesActivity : BaseActivity() {
         setContentView(binding.root)
 
         isAccounting = intent.getBooleanExtra("isAccounting", false)
-        isEsuvidha = intent.getBooleanExtra("isEsuvidha", false)
         uid = app?.preferences?.loggedInUser?.uid
         isAdmin = app?.preferences?.loggedInUser?.isAdmin == "1"
         isEmployee = app?.preferences?.loggedInUser?.userType == "2"
@@ -62,8 +60,6 @@ class UserReportTypesActivity : BaseActivity() {
                 var strKey = list[position]
                 if (strKey == "Accounting Services" || strKey == "Accounting") {
                     strKey = "bills"
-                } else if (strKey == "E-Suvidha") {
-                    strKey = "esuvidha"
                 }
                 val map: HashMap<String, HashMap<String,  HashMap<String, ReportInfo>>>? = reportData?.map?.get(strKey)
                 val reportsData : HashMap<String, HashMap<String, ReportInfo>>? = map?.get(uid)
@@ -93,9 +89,6 @@ class UserReportTypesActivity : BaseActivity() {
                     if (dateList != null && dateList.size > 0) {
                         if ((dateList.contains("bills") && isAccounting) || isAdmin || isEmployee) {
                             list.add("Accounting Services")
-                        }
-                        if ((dateList.contains("esuvidha") && isEsuvidha) || isAdmin || isEmployee) {
-                            list.add("E-Suvidha")
                         }
                         notifyAdapter()
                         binding.recyclerView?.visible()
