@@ -424,7 +424,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             menuList.add("ट्रेनिंग व्हिडिओ")
             menuList.add("फी/चार्जेस")
             menuList.add("येथून फी भरावी")
-            menuList.add("पाठविलेल्या सुविधा")
             menuList.add("नियम व अटी")
             menuList.add("Day Book")
             menuList.add("Accounting Services")
@@ -437,15 +436,11 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             menuList.add("Download History")
             menuList.add("Text Msg")
             menuList.add("नवनवीन माहिती")
-            menuList.add("फी - सूचना - सुविधा माहिती")
-            menuList.add("सुविधा प्रकार बदल")
-            menuList.add("सेवा ग्रिड सेटिंग")
         } else if (app?.preferences?.loggedInUser?.userType == "2") {
             menuList.add("हे अँप कसे वापरावे")
             menuList.add("ट्रेनिंग व्हिडिओ")
             menuList.add("फी/चार्जेस")
             menuList.add("येथून फी भरावी")
-            menuList.add("पाठविलेल्या सुविधा")
             menuList.add("नियम व अटी")
             menuList.add("Day Book")
             menuList.add("Accounting Services")
@@ -456,13 +451,10 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             menuList.add("Download History")
             menuList.add("Text Msg")
             menuList.add("नवनवीन माहिती")
-            menuList.add("फी - सूचना - सुविधा माहिती")
-            menuList.add("सुविधा प्रकार बदल")
         } else {
             // User home: two full-width banners first, then the grid tiles.
             menuList.add("My Accountant")
             menuList.add("खाते बुक\n(स्वतःचा हिशोब स्वतः करा)")
-            menuList.add("पाठविलेल्या सुविधा")
             menuList.add("नवनवीन माहिती")
             menuList.add("येथून फी भरावी")
             menuList.add("फी/चार्जेस")
@@ -471,7 +463,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             menuList.add("ट्रेनिंग व्हिडिओ")
             menuList.add("contact us")
             // Tiles moved here from the "इतर" (ESuvidhaMenuActivity) hardcoded grid.
-            // येथून फी भरावी + पाठविलेल्या सुविधा were already present above, so they are not repeated.
+            // Removed: पाठविलेल्या सुविधा menu entry.
 //            menuList.add("मिळालेल्या सुविधा")
 //            menuList.add("ज्योतिष शास्त्रींना प्रश्न विचारा")
 //            menuList.add("Project Funding")
