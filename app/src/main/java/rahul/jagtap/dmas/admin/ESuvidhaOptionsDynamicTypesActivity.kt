@@ -27,100 +27,10 @@ class ESuvidhaOptionsDynamicTypesActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityEsuvidhaOptionsDynamicTypesBinding.inflate(layoutInflater)
-        if (Utils.disableScreenshot) this.window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
-        setContentView(binding.root)
-        setSupportActionBar(binding.toolbarLayout.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
-        binding.toolbarLayout.toolbarTitle?.text = "सुविधा प्रकार बदल"
 
-        binding.btnPanCard?.setOnClickListener {
-            redirectToNextScreen(typesMap?.get("pan_cards"), "Pan Card Types", "pan_cards")
-        }
-        binding.btnShopAct?.setOnClickListener {
-            redirectToNextScreen(typesMap?.get("shop_acts"), "Shop Act Types", "shop_acts")
-        }
-        binding.btnUdyamAadhar?.setOnClickListener {
-            redirectToNextScreen(typesMap?.get("udyam_aadhar"), "Udyam Aadhar Types", "udyam_aadhar")
-        }
-        binding.btnFoodLicense?.setOnClickListener {
-            redirectToNextScreen(typesMap?.get("food_license"), "Food License Types", "food_license")
-        }
-        binding.btnProvidentFund?.setOnClickListener {
-            redirectToNextScreen(typesMap?.get("provident_fund"), "Provident Fund Types", "provident_fund")
-        }
-        binding.btnBusinessPanCard?.setOnClickListener {
-            redirectToNextScreen(typesMap?.get("business_pan_cards"), "Business Pan Card Types", "business_pan_cards")
-        }
-        binding.tvElectionCard?.setOnClickListener {
-            redirectToNextScreen(typesMap?.get("election_cards"), "Election Card Types", "election_cards")
-        }
-        binding.tvCibilReport?.setOnClickListener {
-            redirectToNextScreen(typesMap?.get("cibil_reports"), "Cibil Report Types", "cibil_reports")
-        }
-        binding.tvDrivingLearningLicence?.setOnClickListener {
-            redirectToNextScreen(typesMap?.get("driving_learning_licenses"), "Driving Learning License Types", "driving_learning_licenses")
-        }
-        binding.tvPoliceVerification?.setOnClickListener {
-            redirectToNextScreen(typesMap?.get("other_new_schemes"), "रजिस्ट्रेशन / नोंदणी", "other_new_schemes")
-        }
-        binding.tvPassport?.setOnClickListener {
-            redirectToNextScreen(typesMap?.get("passports"), "Passport Types", "passports")
-        }
-        binding.tvGazzet?.setOnClickListener {
-            redirectToNextScreen(typesMap?.get("gazzets"), "Gazzet Types", "gazzets")
-        }
-        binding.tvAllGovtCards?.setOnClickListener {
-            redirectToNextScreen(typesMap?.get("all_govt_cards"), "All Govt Card Types", "all_govt_cards")
-        }
-        binding.tvVerification?.setOnClickListener {
-            redirectToNextScreen(typesMap?.get("verification"), "Verification Types", "verification")
-        }
-        binding.tvFarmerPolicy?.setOnClickListener {
-            redirectToNextScreen(typesMap?.get("farmer_policies"), "Farmer Policy Types", "farmer_policies")
-        }
-        binding.tvGstReg?.setOnClickListener {
-            redirectToNextScreen(typesMap?.get("gst_regs"), "GST Reg Types", "gst_regs")
-        }
-        binding.tvGovtScheme?.setOnClickListener {
-            redirectToNextScreen(typesMap?.get("govt_schemes"), "New Govt Scheme Types", "govt_schemes")
-        }
-        binding.tvJyotishShastra?.setOnClickListener {
-            redirectToNextScreen(typesMap?.get("jyotish_shastra"), "ज्योतिष शास्त्रींना प्रश्न विचारा Types", "jyotish_shastra")
-        }
-        binding.tvTaxAgentWork?.setOnClickListener {
-            redirectToNextScreen(typesMap?.get("tax_agent_work"), "टॅक्स एजंट ची कामे", "tax_agent_work")
-        }
-        binding.tvPrimarySchoolWork?.setOnClickListener {
-            redirectToNextScreen(typesMap?.get("primary_school_work"), "इतर सेवा / सुविधा", "primary_school_work")
-        }
-        //        binding.tvDematAccount?.setOnClickListener {
-        //            redirectToNextScreen(typesMap?.get("udyam_aadhar"), "Udyam Aadhar Types")
-        //        }
-        //        binding.tvFreeCreditCard?.setOnClickListener {
-        //            redirectToNextScreen(typesMap?.get("udyam_aadhar"), "Udyam Aadhar Types")
-        //        }
-        //        binding.tvJanmaKundli?.setOnClickListener {
-        //            redirectToNextScreen(typesMap?.get("udyam_aadhar"), "Udyam Aadhar Types")
-        //        }
-        //        binding.tvAadharPanLink?.setOnClickListener {
-        //            redirectToNextScreen(typesMap?.get("udyam_aadhar"), "Udyam Aadhar Types")
-        //        }
-        //        binding.tvAadharCardUpdate?.setOnClickListener {
-        //            redirectToNextScreen(typesMap?.get("udyam_aadhar"), "Udyam Aadhar Types")
-        //        }
-        //        binding.tvEditPanOrAadharCard?.setOnClickListener {
-        //            redirectToNextScreen(typesMap?.get("udyam_aadhar"), "Udyam Aadhar Types")
-        //        }
-        //        binding.btnNepalMoneyTransfer?.setOnClickListener {
-        //            redirectToNextScreen(typesMap?.get("udyam_aadhar"), "Udyam Aadhar Types")
-        //        }
-        //        binding.btnRailwayTicketBooking?.setOnClickListener {
-        //            redirectToNextScreen(typesMap?.get("udyam_aadhar"), "Udyam Aadhar Types")
-        //        }
-
-        fetchDynamicTypes()
+        // E-Suvidha dynamic service-type management has been discontinued.
+        // Close this screen without loading service types or opening edit screens.
+        finish()
     }
 
     private fun redirectToNextScreen(map: java.util.HashMap<String, HashMap<String, String>>?, typeTitle: String, nodeName: String) {
