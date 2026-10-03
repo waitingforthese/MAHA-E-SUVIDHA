@@ -408,6 +408,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             menuList.add("Reports")
             menuList.add("Send Report")
             menuList.add("Notifications")
+            menuList.add("All Users")
             menuList.add("Text Msg")
             menuList.add("नवनवीन माहिती")
         } else if (loggedInUser?.userType == "2") {
@@ -421,6 +422,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             menuList.add("Reports")
             menuList.add("Send Report")
             menuList.add("Notifications")
+            menuList.add("All Users")
             menuList.add("Text Msg")
             menuList.add("नवनवीन माहिती")
         } else {
