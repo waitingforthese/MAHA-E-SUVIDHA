@@ -71,9 +71,44 @@ class OnlineESuvidhaOptionsActivity : BaseActivity() {
         setSupportActionBar(binding.toolbarLayout.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
-        renderFromCache()
-        fetchDynamicTypes()
-        binding.toolbarLayout.toolbarTitle?.text = "महा ई सुविधा"
+        binding.toolbarLayout.toolbarTitle?.text = "पेमेंट / संपर्क"
+        // E-Suvidha services have been disabled. Keep only UPI payment and WhatsApp contact.
+        binding.llButtons.visible()
+        listOf(
+            binding.btnPanCard,
+            binding.btnShopAct,
+            binding.btnUdyamAadhar,
+            binding.btnFoodLicense,
+            binding.btnProvidentFund,
+            binding.btnManualAadharPanCard,
+            binding.btnNepalMoneyTransfer,
+            binding.btnRailwayTicketBooking,
+            binding.btnBusinessPanCard,
+            binding.tvElectionCard,
+            binding.tvCibilReport,
+            binding.tvDrivingLearningLicence,
+            binding.tvPoliceVerification,
+            binding.tvGstReg,
+            binding.tvAadharCardUpdate,
+            binding.tvEditPanOrAadharCard,
+            binding.tvPassport,
+            binding.tvJanmaKundli,
+            binding.tvAadharPanLink,
+            binding.tvGazzet,
+            binding.tvFreeCreditCard,
+            binding.btnTalukaSetuSuvidha,
+            binding.tvAllGovtCards,
+            binding.tvFarmerPolicy,
+            binding.tvDematAccount,
+            binding.tvGovtScheme,
+            binding.tvProjectReport,
+            binding.tvItrReturn,
+            binding.tvTdsReturn,
+            binding.tvGstReturn,
+            binding.tvPrimarySchoolWork,
+            binding.tvSelfHelpGroupWork,
+            binding.imageView1
+        ).forEach { it?.gone() }
         binding.btnContact?.setOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW,
                 Uri.parse("https://wa.me/919552789899?text")))
@@ -234,7 +269,6 @@ class OnlineESuvidhaOptionsActivity : BaseActivity() {
             bundle.putSerializable("hashMap", typesMap?.get("primary_school_work"))
             startActivity(Intent(mContext, DematAccountActivity::class.java).putExtra("suchna", demat_accounts_suchna).putExtras(bundle))
         }
-        setESuvidhaImage()
     }
 
     internal val UPI_PAYMENT = 0
