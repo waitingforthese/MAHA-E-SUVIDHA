@@ -13,7 +13,6 @@ import rahul.jagtap.dmas.admin.bills.BillDatesActivity
 import rahul.jagtap.dmas.admin.esuvidha.DownloadHistoryActivity
 import rahul.jagtap.dmas.admin.esuvidha.ESuvidhaDatesActivity
 import rahul.jagtap.dmas.admin.esuvidha.newimpl.ESuvidhaListActivity
-import rahul.jagtap.dmas.admin.esuvidha.EsuvidhaGridAdminActivity
 import rahul.jagtap.dmas.user.ESuvidhaServicesGridActivity
 import rahul.jagtap.dmas.admin.reports.ReportTypesActivity
 import rahul.jagtap.dmas.databinding.ItemHomeBannerBinding
