@@ -77,37 +77,10 @@ object EsuvidhaServiceRegistry {
     private fun stripFeeSuffix(title: String): String = title.replace(feeSuffixRegex, "").trim()
 
     // Natural order = order of this list; subtypes inherit their group's slot. Admin overrides can re-order.
-    val SERVICES: List<ServiceDef> = listOf(
-        // --- services WITH subtypes (dynamicTypesKey set) -> flattened into one tile per subtype ---
-        ServiceDef("pan_cards", PanCardActivity::class.java, "pan_cards", Utils.PAN_CARDS_SUCHNA, "पॅन कार्ड", R.drawable.ic_svc_id),
-        ServiceDef("business_pan_cards", BusinessPanCardActivity::class.java, "business_pan_cards", Utils.BUSINESS_PAN_CARDS_SUCHNA, "बिझनेस पॅन कार्ड", R.drawable.ic_svc_store),
-        ServiceDef("election_cards", ElectionCardActivity::class.java, "election_cards", Utils.ELECTION_CARDS_SUCHNA, "मतदान कार्ड (नवीन / दुरुस्ती)", R.drawable.ic_svc_group),
-        ServiceDef("shop_acts", ShopActActivity::class.java, "shop_acts", Utils.SHOP_ACTS_SUCHNA, "शॉप ॲक्ट", R.drawable.ic_svc_store),
-        ServiceDef("udyam_aadhar", UdyamAadharActivity::class.java, "udyam_aadhar", Utils.UDYAM_AADHAR_SUCHNA, "उद्यम आधार", R.drawable.ic_svc_office),
-        ServiceDef("food_license", FoodLicenseActivity::class.java, "food_license", Utils.FOOD_LICENSE_SUCHNA, "फूड लायसन्स", R.drawable.ic_svc_store),
-        ServiceDef("gst_regs", GstRegistrationActivity::class.java, "gst_regs", Utils.GST_REGS_SUCHNA, "GST नोंदणी", R.drawable.ic_svc_receipt),
-        ServiceDef("cibil_reports", CibilReportActivity::class.java, "cibil_reports", Utils.CIBIL_REPORTS_SUCHNA, "सिबिल रिपोर्ट", R.drawable.ic_svc_report),
-        ServiceDef("all_govt_cards", AllGovtCardsActivity::class.java, "all_govt_cards", Utils.ALL_GOVT_CARDS_SUCHNA, "सर्व शासकीय कार्ड", R.drawable.ic_svc_shield),
-        ServiceDef("verification", VerificationActivity::class.java, "verification", Utils.VERIFICATION_SUCHNA, "व्हेरिफिकेशन", R.drawable.ic_svc_report),
-        ServiceDef("farmer_policies", FarmerPolicyActivity::class.java, "farmer_policies", Utils.FARMER_POLICIES_SUCHNA, "शेतकरी योजना", R.drawable.ic_svc_farm),
-        ServiceDef("govt_schemes", GovtSchemesActivity::class.java, "govt_schemes", Utils.GOVT_SCHEMES_SUCHNA, "नवीन शासकीय योजना", R.drawable.ic_svc_gift),
-        ServiceDef("police_verifications", PoliceVerificationActivity::class.java, "other_new_schemes", Utils.POLICE_VERIFICATIONS_SUCHNA, "रजिस्ट्रेशन / नोंदणी", R.drawable.ic_svc_shield),
-        ServiceDef("tax_agent_work", CreditCardActivity::class.java, "tax_agent_work", Utils.FREE_CREDIT_CARDS_SUCHNA, "टॅक्स एजंट ची कामे", R.drawable.ic_svc_card),
-        ServiceDef("driving_learning_licenses", DrivingLearningLicenseActivity::class.java, "driving_learning_licenses", Utils.DRIVING_LEARNING_LICENSES_SUCHNA, "आर टी ओ ची कामे", R.drawable.ic_svc_car),
-        ServiceDef("passports", PassportActivity::class.java, "passports", Utils.PASSPORTS_SUCHNA, "पासपोर्ट (नवीन / दुरूस्ती)", R.drawable.ic_svc_book),
-        ServiceDef("provident_fund", ProvidentFundActivity::class.java, "provident_fund", Utils.PROVIDENT_FUND_SUCHNA, "प्रोव्हिडंट फंड/ पी एफ काढणे", R.drawable.ic_svc_wallet),
-        ServiceDef("gazzets", GazzetActivity::class.java, "gazzets", Utils.GAZZETS_SUCHNA, "गँझेट / राजपत्र - नावात बदल", R.drawable.ic_svc_receipt),
-        ServiceDef("primary_school_work", DematAccountActivity::class.java, "primary_school_work", Utils.DEMAT_ACCOUNTS_SUCHNA, "इतर सेवा / सुविधा", R.drawable.ic_svc_group),
-
-        // --- standalone services (no subtypes) -> exactly one tile each ---
-        ServiceDef("aadhar_card_update", AadharCardUpdateActivity::class.java, null, Utils.AADHAR_CARD_UPDATE_SUCHNA, "आधार कार्ड अपडेट", R.drawable.ic_svc_id),
-        ServiceDef("edit_pan_aadhar_cards", EditPanOrAadharCardActivity::class.java, null, Utils.EDIT_PAN_AADHAR_CARDS_SUCHNA, "फोटो शॉप पँण कार्ड / आधार कार्ड", R.drawable.ic_svc_edit),
-        ServiceDef("janma_kundli", JanmaKundliActivity::class.java, null, Utils.ACHUK_JANMA_KUNDLI_SUCHNA, "जन्म कुंडली", R.drawable.ic_svc_star),
-        ServiceDef("nepal_money_transfer", NepalMoneyTransferActivity::class.java, null, Utils.NEPAL_MONEY_TRANSFER_SUCHNA, "नेपाल मनी ट्रान्सफर", R.drawable.ic_svc_money),
-        ServiceDef("railway_ticket_booking", RailwayTicketBookingActivity::class.java, null, Utils.RAILWAY_TICKET_BOOKING_SUCHNA, "रेल्वे तिकीट बुकिंग", R.drawable.ic_svc_train),
-        ServiceDef("manual_aadhar_pan", ManualAadharPanActivity::class.java, null, null, "मॅन्युअल आधार पॅन कार्ड", R.drawable.ic_svc_id),
-        ServiceDef("taluka_setu", ShriGondaSetuKendraActivity::class.java, null, null, "तालुका सेतू सुविधा", R.drawable.ic_svc_office)
-    )
+    // All E-Suvidha service tiles have been disabled as requested.
+    // Keep the registry and helper methods in place because other screens/adapters
+    // still reference this object; deleting the object could break the build.
+    val SERVICES: List<ServiceDef> = emptyList()
 
     private val byKey: Map<String, ServiceDef> = SERVICES.associateBy { it.serviceKey }
 
