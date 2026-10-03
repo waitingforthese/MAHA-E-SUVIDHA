@@ -108,6 +108,8 @@ class UsersActivity : BaseActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         getUserList()
+        // Ask the admin to choose the Google account used for saving contacts.
+        signIn()
     }
 
     private fun signIn() {
@@ -150,61 +152,80 @@ class UsersActivity : BaseActivity() {
         }
     }
 
-    fun saveContactAvoidingDuplicates(accountName: String, phoneNumber: String, email: String?) {
-        val existingContact = findExistingContact(phoneNumber)
-        if (existingContact == null) {
-            Log.e(TAG, "No duplicate found")
-            // No duplicate found, proceed with creation
-            saveContactToGoogle(accountName, phoneNumber, email)
-        } else {
-            Log.e(TAG, "duplicate found")
-            // Duplicate found, you can update the existing contact or skip
-            // Example: updateExistingContact(peopleService, existingContact, contact)
+    fun saveContactAvoidingDuplicates(accountName: String, phoneNumber: String, email: String?, position: Int) {
+        val service = peopleService
+        val googleEmail = signInEmail
+        if (service == null || googleEmail.isNullOrBlank()) {
+            toast("कृपया आधी Google Account निवडा")
+            signIn()
+            return
         }
-    }
-
-    fun findExistingContact(phoneNumber: String): Person? {
-        var person: Person? = null
-        Thread {
-            val response = peopleService?.people()?.connections()
-                ?.list("people/me")
-                ?.setPageSize(200)
-                ?.setPersonFields("names,emailAddresses,phoneNumbers")
-                ?.execute()
-
-            person = response?.connections?.firstOrNull { person ->
-                person.phoneNumbers?.any { it.value == phoneNumber } == true
-            }
-        }.start()
-//        launchCoroutine({
-//
-//        }, { coroutineContext, throwable ->
-//            throwable.printStackTrace()
-//        })
-        return person
-    }
-
-    fun saveContactToGoogle(accountName: String, phoneNumber: String, email: String?) {
-        val person = Person().apply {
-            names = listOf(Name().apply {
-                givenName = accountName
-            })
-            phoneNumbers = listOf(PhoneNumber().apply {
-                value = phoneNumber
-            })
-            emailAddresses = listOf(EmailAddress().apply {
-                value = email
-            })
+        if (phoneNumber.isBlank() || phoneNumber == "null") {
+            toast("या User चा Contact Number उपलब्ध नाही")
+            return
         }
+
         Thread {
             try {
-                peopleService?.people()?.createContact(person)?.execute()
-                Log.e(TAG, "saveContactToGoogle: success")
+                // Keep the lookup and create operation on the same worker thread.
+                var pageToken: String? = null
+                var duplicateFound = false
+                do {
+                    val response = service.people().connections().list("people/me")
+                        .setPageSize(1000)
+                        .setPersonFields("names,emailAddresses,phoneNumbers")
+                        .setPageToken(pageToken)
+                        .execute()
+                    duplicateFound = response.connections.orEmpty().any { person ->
+                        person.phoneNumbers.orEmpty().any { existing ->
+                            normalizePhone(existing.value) == normalizePhone(phoneNumber)
+                        }
+                    }
+                    pageToken = response.nextPageToken
+                } while (!duplicateFound && !pageToken.isNullOrBlank())
+
+                if (!duplicateFound) {
+                    val person = Person().apply {
+                        names = listOf(Name().apply { givenName = accountName })
+                        phoneNumbers = listOf(PhoneNumber().apply { value = phoneNumber })
+                        if (!email.isNullOrBlank()) {
+                            emailAddresses = listOf(EmailAddress().apply { value = email })
+                        }
+                    }
+                    service.people().createContact(person).execute()
+                }
+
+                runOnUiThread {
+                    markContactSaved(position, googleEmail)
+                    toast(if (duplicateFound) "हा Contact आधीपासून Google Contacts मध्ये आहे" else "Contact Google Contacts मध्ये सेव्ह झाला")
+                }
             } catch (e: Exception) {
-                Log.e(TAG, "saveContactToGoogle: exception")
-                e.printStackTrace()
+                Log.e(TAG, "Google contact save failed", e)
+                runOnUiThread {
+                    adapter?.notifyItemChanged(position)
+                    toast("Contact सेव्ह झाला नाही. Google Account/Contacts permission तपासा")
+                }
             }
         }.start()
+    }
+
+    private fun normalizePhone(phone: String?): String {
+        return phone.orEmpty().filter { it.isDigit() }
+            .takeLast(10)
+    }
+
+    private fun markContactSaved(position: Int, email: String) {
+        val user = adapter?.getUserAt(position) ?: return
+        val current = user.contactSavedBy.orEmpty().split(",")
+            .map { it.trim() }.filter { it.isNotBlank() }.toMutableList()
+        if (!current.contains(email)) current.add(email)
+        val updated = current.joinToString(",")
+        user.contactSavedBy = updated
+        userList?.firstOrNull { it.uid == user.uid }?.contactSavedBy = updated
+        adapter?.markContactSaved(position, updated)
+        user.uid?.takeIf { it.isNotBlank() }?.let { uid ->
+            database.child(Utils.USERS_TABLE).child(uid).child("contactSavedBy").setValue(updated)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -409,23 +430,20 @@ private fun getUserList() {
             override fun onDataChange(snapshot: DataSnapshot) {
 
                 try {
-                    val json = Gson().toJson(snapshot.value)
-
-                    if (json == "null") {
-                        userList?.clear()
+                    userList?.clear()
+                    if (!snapshot.exists()) {
                         binding.recyclerView?.gone()
                         binding.tvError?.visible()
                         return
                     }
-
-                    val type: Type =
-                        object : TypeToken<HashMap<String, User>?>() {}.type
-
-                    val map: HashMap<String, User> =
-                        Gson().fromJson(json, type)
-
-                    userList?.clear()
-                    userList?.addAll(map.values.toMutableList())
+                    // Avoid converting the entire snapshot to JSON and parsing it back.
+                    for (child in snapshot.children) {
+                        val user = child.getValue(User::class.java)
+                        if (user != null) {
+                            if (user.uid.isNullOrBlank()) user.uid = child.key
+                            userList?.add(user)
+                        }
+                    }
 
                     // Sort latest users first
                     try {
@@ -477,6 +495,7 @@ private fun getUserList() {
                             )
 
                         binding.recyclerView?.adapter = adapter
+                        signInEmail?.takeIf { it.isNotBlank() }?.let { adapter?.setSavedByEmail(it) }
 
                         adapter?.itemClickListener =
                             object : UserAdapter.ItemClickListener {
@@ -491,14 +510,17 @@ private fun getUserList() {
                                 override fun saveContactToGoogleContact(
                                     position: Int
                                 ) {
-                                    val user = userList?.get(position)
+                                    val user = adapter?.getUserAt(position)
 
-                                    updateContactSavedByLocalRemote(position)
-
+                                    if (signInEmail.isNullOrBlank() || peopleService == null) {
+                                        signIn()
+                                        return
+                                    }
                                     saveContactAvoidingDuplicates(
-                                        user?.name.toString(),
-                                        user?.contactNo.toString(),
-                                        user?.email
+                                        user?.name.orEmpty(),
+                                        user?.contactNo.orEmpty(),
+                                        user?.email,
+                                        position
                                     )
                                 }
                             }
@@ -562,15 +584,6 @@ private fun getUserList() {
         })
 }
 
-
-    private fun updateContactSavedByLocalRemote(position: Int) {
-        val contactSavedBy = userList?.get(position)?.contactSavedBy
-        val commaSeparatedString = contactSavedBy?.addToCommaSeparatedString(signInEmail!!)
-        userList?.get(position)?.contactSavedBy = commaSeparatedString
-        val user = userList?.get(position)
-        user?.contactSavedBy = commaSeparatedString
-        user?.uid?.let { database.child(Utils.USERS_TABLE).child(it).setValue(user) }
-    }
 
     override fun onDestroy() {
         googleSignInClient?.signOut()
