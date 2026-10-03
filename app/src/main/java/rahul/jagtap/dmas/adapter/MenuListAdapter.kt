@@ -134,6 +134,9 @@ class MenuListAdapter(var context: Context?, var itemList: List<String?>? = null
             "नवनवीन माहिती" -> {
                 context?.startActivity(Intent(context, GovtSchemesInfoActivity::class.java))
             }
+            "All Users" -> {
+                context?.startActivity(Intent(context, UsersActivity::class.java))
+            }
             "नियम व अटी" -> {
                 context?.startActivity(Intent(context, TermsConditionsActivity::class.java))
             }
