@@ -62,32 +62,7 @@ import rahul.jagtap.dmas.model.ContactConfig
 import rahul.jagtap.dmas.model.DayBook
 import rahul.jagtap.dmas.model.ImageDetails
 import rahul.jagtap.dmas.model.User
-import rahul.jagtap.dmas.user.AadharCardUpdateActivity
-import rahul.jagtap.dmas.user.AllGovtCardsActivity
-import rahul.jagtap.dmas.user.BusinessPanCardActivity
-import rahul.jagtap.dmas.user.CibilReportActivity
-import rahul.jagtap.dmas.user.CreditCardActivity
-import rahul.jagtap.dmas.user.DematAccountActivity
-import rahul.jagtap.dmas.user.DrivingLearningLicenseActivity
-import rahul.jagtap.dmas.user.EditPanOrAadharCardActivity
-import rahul.jagtap.dmas.user.ElectionCardActivity
-import rahul.jagtap.dmas.user.FarmerPolicyActivity
-import rahul.jagtap.dmas.user.FoodLicenseActivity
-import rahul.jagtap.dmas.user.GazzetActivity
-import rahul.jagtap.dmas.user.GovtSchemesActivity
-import rahul.jagtap.dmas.user.GstRegistrationActivity
-import rahul.jagtap.dmas.user.JanmaKundliActivity
 import rahul.jagtap.dmas.user.JyotishShastraActivity
-import rahul.jagtap.dmas.user.ManualAadharPanActivity
-import rahul.jagtap.dmas.user.NepalMoneyTransferActivity
-import rahul.jagtap.dmas.user.PanCardActivity
-import rahul.jagtap.dmas.user.PassportActivity
-import rahul.jagtap.dmas.user.PoliceVerificationActivity
-import rahul.jagtap.dmas.user.ProvidentFundActivity
-import rahul.jagtap.dmas.user.RailwayTicketBookingActivity
-import rahul.jagtap.dmas.user.ShopActActivity
-import rahul.jagtap.dmas.user.ShriGondaSetuKendraActivity
-import rahul.jagtap.dmas.user.UdyamAadharActivity
 import rahul.jagtap.dmas.utils.EsuvidhaCache
 import rahul.jagtap.dmas.utils.GridDividerDecoration
 import rahul.jagtap.dmas.utils.HomeGridDividerDecoration
@@ -134,7 +109,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setHomeAsUpIndicator(mContext?.let { ContextCompat.getDrawable(it, R.drawable.ic_menu_white) })
-        binding.toolbarLayout.toolbarTitle?.text = "महा ई सुविधा - संपूर्ण महाराष्ट्र मध्ये"//getString(R.string.app_name)
+        binding.toolbarLayout.toolbarTitle?.text = "माय अकाउंटंट"//getString(R.string.app_name)
         easyImage = EasyImage.Builder(this).setChooserType(ChooserType.CAMERA_AND_GALLERY).allowMultiple(false) // Setting to true will cause taken pictures to show up in the device gallery, DEFAULT false
             .setCopyImagesToPublicGalleryFolder(false).build()
 
@@ -419,57 +394,47 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     private fun setMenuGrid() {
         val gridLayoutManager = GridLayoutManager(mContext, 3)
         menuList = ArrayList<String>()
-        if (app?.preferences?.loggedInUser?.isAdmin == "1") {
+
+        val loggedInUser = app?.preferences?.loggedInUser
+
+        if (loggedInUser?.isAdmin == "1") {
+            // Admin menu: keep only the requested features.
             menuList.add("हे अँप कसे वापरावे")
             menuList.add("ट्रेनिंग व्हिडिओ")
-            menuList.add("फी/चार्जेस")
             menuList.add("येथून फी भरावी")
             menuList.add("नियम व अटी")
             menuList.add("Day Book")
             menuList.add("Accounting Services")
-            menuList.add("ई - सुविधा बास्केट")
             menuList.add("Reports")
             menuList.add("Send Report")
             menuList.add("Notifications")
-            menuList.add("Block/Unblock User")
-            menuList.add("All Users")
-            menuList.add("Download History")
             menuList.add("Text Msg")
             menuList.add("नवनवीन माहिती")
-        } else if (app?.preferences?.loggedInUser?.userType == "2") {
+        } else if (loggedInUser?.userType == "2") {
+            // Employee menu: remove fee/charges and unrelated administration entries.
             menuList.add("हे अँप कसे वापरावे")
             menuList.add("ट्रेनिंग व्हिडिओ")
-            menuList.add("फी/चार्जेस")
             menuList.add("येथून फी भरावी")
             menuList.add("नियम व अटी")
             menuList.add("Day Book")
             menuList.add("Accounting Services")
-            menuList.add("ई - सुविधा बास्केट")
             menuList.add("Reports")
             menuList.add("Send Report")
             menuList.add("Notifications")
-            menuList.add("Download History")
             menuList.add("Text Msg")
             menuList.add("नवनवीन माहिती")
         } else {
-            // User home: two full-width banners first, then the grid tiles.
+            // Regular user menu.
             menuList.add("My Accountant")
             menuList.add("खाते बुक\n(स्वतःचा हिशोब स्वतः करा)")
             menuList.add("नवनवीन माहिती")
             menuList.add("येथून फी भरावी")
-            menuList.add("फी/चार्जेस")
             menuList.add("नियम व अटी")
             menuList.add("हे अँप कसे वापरावे")
             menuList.add("ट्रेनिंग व्हिडिओ")
             menuList.add("contact us")
-            // Tiles moved here from the "इतर" (ESuvidhaMenuActivity) hardcoded grid.
-            // Removed: पाठविलेल्या सुविधा menu entry.
-//            menuList.add("मिळालेल्या सुविधा")
-//            menuList.add("ज्योतिष शास्त्रींना प्रश्न विचारा")
-//            menuList.add("Project Funding")
-//            menuList.add("My Accountant\n(Outsourcing)")
-//            menuList.add("खाते बुक\n(स्वतःचा हिशोब स्वतः करा)")
         }
+
         menuListAdapter = MenuListAdapter(mContext, menuList)
         gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
