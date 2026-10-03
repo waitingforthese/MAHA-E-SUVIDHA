@@ -51,7 +51,6 @@ class ESuvidhaMenuAdapter(
 //            "Accounting" -> holder.itemView.ivMenu.setImageResource(R.drawable.ic_view_reports)
             "ई - सुविधा येथून पाठवा" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_esuvidha)
             "नवनवीन माहिती" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_govt_scheme_white)
-            "मिळालेल्या सुविधा" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
 //            "Send Report" -> holder.itemView.ivMenu.setImageResource(R.drawable.ic_view_reports)
 //            "Notifications" -> holder.itemView.ivMenu.setImageResource(R.drawable.ic_notifications)
 //            "Daily Entries" -> holder.itemView.ivMenu.setImageResource(R.drawable.ic_daily_entries)
@@ -59,7 +58,6 @@ class ESuvidhaMenuAdapter(
             "पाठविलेल्या सुविधा" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
 //            "Block/Unblock User" -> holder.itemView.ivMenu.setImageResource(R.drawable.user_icon)
             "येथून फी भरावी" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_make_payment)
-            "ज्योतिष शास्त्रींना प्रश्न विचारा" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_jyotish_shastra)
             "Project Funding" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_project_funding)
             "My Accountant\n(Outsourcing)" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_accounting)
             "खाते बुक\n(स्वतःचा हिशोब स्वतः करा)" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_khate_book)
@@ -90,11 +88,6 @@ class ESuvidhaMenuAdapter(
                 "नवनवीन माहिती" -> {
                     context?.startActivity(Intent(context, GovtSchemesInfoActivity::class.java))
                 }
-                "मिळालेल्या सुविधा" -> {
-                    if (isAdmin || isEmployee) context?.startActivity(Intent(context, ReportTypesActivity::class.java))
-                    else context?.startActivity(Intent(context, UserReportTypesActivity::class.java).putExtra("isEsuvidha", true))
-//                    context?.startActivity(Intent(context, ReportOptionsActivity::class.java).putExtra("dayBook", (context as? AccountingMenuActivity)?.dayBook))
-                }
 //                "Notifications" -> {
 //                    context?.startActivity(Intent(context, NotificationsActivity::class.java))
 //                }
@@ -115,14 +108,6 @@ class ESuvidhaMenuAdapter(
 //                }
                 "येथून फी भरावी" -> {
                     context?.startActivity(Intent(context, PaymentDetailsActivity::class.java))
-                }
-                "ज्योतिष शास्त्रींना प्रश्न विचारा" -> {
-                    val bundle = Bundle()
-                    bundle.putSerializable("hashMap", typesMap?.get("jyotish_shastra"))
-                    context?.startActivity(Intent(context, JyotishShastraActivity::class.java)
-                        .putExtra("suchna", jyotish_shastra_suchna)
-                        .putExtras(bundle)
-                    )
                 }
                 "Project Funding" -> {
                     context?.startActivity(Intent(context, ProjectFundingActivity::class.java))
