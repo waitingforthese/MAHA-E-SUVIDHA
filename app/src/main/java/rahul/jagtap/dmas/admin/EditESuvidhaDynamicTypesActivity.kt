@@ -27,64 +27,10 @@ class EditESuvidhaDynamicTypesActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityEditEsuvidhaDynamicTypesBinding.inflate(layoutInflater)
-        if (Utils.disableScreenshot) this.window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
-        setContentView(binding.root)
-        // input-field migration: clear errors on edit
-        listOf(binding.tilType, binding.tilSelectedType, binding.tilText, binding.tilEdittext1, binding.tilEdittext2, binding.tilEdittext3, binding.tilEdittext4, binding.tilEdittext5, binding.tilEdittextDate1, binding.tilEdittextPhoto1, binding.tilEdittextPhoto2, binding.tilEdittextPhoto3, binding.tilEdittextPhoto4, binding.tilEdittextPhoto5, binding.tilEdittextPhoto6, binding.tilEdittextPhoto7, binding.tilEdittextPhoto8, binding.tilEdittextPhoto9, binding.tilEdittextPhoto10)
-            .forEach { til -> til.editText?.doAfterTextChanged { til.error = null } }
-        setSupportActionBar(binding.toolbarLayout.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
-        val extras = intent.extras
-        nodeName = extras?.getString("nodeName") ?: ""
-        typeTitle = extras?.getString("typeTitle") ?: ""
-        binding.toolbarLayout.toolbarTitle?.text = typeTitle
 
-        // Safe cast: a service whose esuvidha_dynamic_types node doesn't exist yet passes a null map;
-        // fall back to an empty map instead of crashing (the type dropdown will just be empty).
-        typeMap = extras?.getSerializable("hashMap") as? HashMap<String, HashMap<String, String>> ?: HashMap()
-        binding.etType.setOnClickListener {
-            val list = ArrayList<String>()
-            typeMap?.forEach {
-                list.add(it.key)
-            }
-            MaterialDialog.Builder(mContext!!).items(list).itemsCallback { dialog: MaterialDialog?, itemView: View?, position: Int, text: CharSequence ->
-                run {
-                    dialog?.dismiss()
-                    strSelectedType = list[position]
-                    binding.etType.setText(strSelectedType)
-                    binding.etSelectedType.setText(typeMap?.get(list[position])?.get("type_title").toString())
-                    setInputDataAndVisibility()
-                }
-            }.show()
-        }
-        // Let the admin tap the read-only "Selected Type" field to copy its current text,
-        // then long-press any box below to paste it.
-        binding.etSelectedType.setOnClickListener {
-            val text = binding.etSelectedType.text.toString()
-            if (!TextUtils.isEmpty(text)) {
-                text.copyToClipboard(mContext!!)
-            }
-        }
-        binding.btnSave.setOnClickListener {
-            val strText = binding.etText.text.toString()
-            if (TextUtils.isEmpty(strText)) {
-                binding.tilText?.error = binding.tilText.hint.toString()
-                binding.etText?.requestFocus()
-                return@setOnClickListener
-            }
-            if (typeMap != null && !TextUtils.isEmpty(strSelectedType)) {
-                typeMap?.get(strSelectedType)?.set("type_title", strText)
-            }
-            binding.btnSubmit.isEnabled = true
-            toast("Saved")
-        }
-
-        binding.btnSubmit?.setOnClickListener {
-            setInputDataToMap()
-            updateDbRecord()
-        }
+        // E-Suvidha dynamic service-type editing has been discontinued.
+        // Close this screen without loading or saving E-Suvidha service data.
+        finish()
     }
 
     private fun setInputDataAndVisibility() {
