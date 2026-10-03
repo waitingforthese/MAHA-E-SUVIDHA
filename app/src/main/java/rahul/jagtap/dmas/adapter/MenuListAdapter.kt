@@ -10,9 +10,6 @@ import rahul.jagtap.dmas.*
 import rahul.jagtap.dmas.GovtSchemesInfoActivity
 import rahul.jagtap.dmas.admin.*
 import rahul.jagtap.dmas.admin.bills.BillDatesActivity
-import rahul.jagtap.dmas.admin.esuvidha.DownloadHistoryActivity
-import rahul.jagtap.dmas.admin.esuvidha.ESuvidhaDatesActivity
-import rahul.jagtap.dmas.admin.esuvidha.newimpl.ESuvidhaListActivity
 import rahul.jagtap.dmas.user.ESuvidhaServicesGridActivity
 import rahul.jagtap.dmas.admin.reports.ReportTypesActivity
 import rahul.jagtap.dmas.databinding.ItemHomeBannerBinding
@@ -80,25 +77,14 @@ class MenuListAdapter(var context: Context?, var itemList: List<String?>? = null
         when (title) {
             "Day Book" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
             "Accounting Services" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_scan_bill)
-            "Accounting", "My Accountant\n(Outsourcing)" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_accounting)
-            "ई - सुविधा बास्केट" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_esuvidha)
             "Reports" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
             "Send Report" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
             "Notifications" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_notifications)
             "Daily Entries", "खाते बुक\n(स्वतःचा हिशोब स्वतः करा)" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_khate_book)
-            "View Scan Bills" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
-            "View Scan E-Suvidha" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
-            "Block/Unblock User", "All Users" -> holder.binding.ivMenu.setImageResource(R.drawable.user_icon)
             "येथून फी भरावी" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_make_payment)
             "हे अँप कसे वापरावे" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_tutorial)
-            "Download History" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
-            "रेफरल प्रोग्रॅम" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_referral_program)
             "Text Msg" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
             "नवनवीन माहिती" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_govt_scheme_white)
-            "मिळालेल्या सुविधा" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
-            "ज्योतिष शास्त्रींना प्रश्न विचारा" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_jyotish_shastra)
-            "Project Funding" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_project_funding)
-            "फी/चार्जेस" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_charges)
             "नियम व अटी" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_terms_conditions)
             "contact us" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_headset)
             "ट्रेनिंग व्हिडिओ" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_training_video)
@@ -120,9 +106,6 @@ class MenuListAdapter(var context: Context?, var itemList: List<String?>? = null
             "Accounting", "My Accountant", "My Accountant\n(Outsourcing)" -> {
                 context?.startActivity(Intent(context, AccountingMenuActivity::class.java))
             }
-            "ई - सुविधा बास्केट" -> {
-                if (isAdmin || isEmployee) context?.startActivity(Intent(context, ESuvidhaListActivity::class.java))
-            }
             "Reports" -> {
                 if (isAdmin || isEmployee) context?.startActivity(Intent(context, ReportTypesActivity::class.java))
                 else context?.startActivity(Intent(context, UserReportTypesActivity::class.java))
@@ -136,18 +119,6 @@ class MenuListAdapter(var context: Context?, var itemList: List<String?>? = null
             "Daily Entries", "खाते बुक\n(स्वतःचा हिशोब स्वतः करा)" -> {
                 context?.startActivity(Intent(context, DailyEntriesActivity::class.java))
             }
-            "View Scan Bills" -> {
-                context?.startActivity(Intent(context, BillDatesActivity::class.java))
-            }
-            "View Scan E-Suvidha" -> {
-                context?.startActivity(Intent(context, ESuvidhaDatesActivity::class.java))
-            }
-            "Block/Unblock User" -> {
-                context?.startActivity(Intent(context, BlockUnblockUserActivity::class.java))
-            }
-            "All Users" -> {
-                context?.startActivity(Intent(context, UsersActivity::class.java))
-            }
             "येथून फी भरावी" -> {
                 context?.startActivity(Intent(context, PaymentDetailsActivity::class.java))
             }
@@ -157,28 +128,11 @@ class MenuListAdapter(var context: Context?, var itemList: List<String?>? = null
             "ट्रेनिंग व्हिडिओ" -> {
                 context?.startActivity(Intent(context, TrainingVideoActivity::class.java))
             }
-            "Download History" -> {
-                context?.startActivity(Intent(context, DownloadHistoryActivity::class.java))
-            }
-            "फी/चार्जेस" -> {
-                context?.startActivity(Intent(context, ESuvidhaServicesTableActivity::class.java))
-            }
             "Text Msg" -> {
                 context?.startActivity(Intent(context, TextMsgActivity::class.java))
             }
             "नवनवीन माहिती" -> {
                 context?.startActivity(Intent(context, GovtSchemesInfoActivity::class.java))
-            }
-            "मिळालेल्या सुविधा" -> {
-                if (isAdmin || isEmployee) context?.startActivity(Intent(context, ReportTypesActivity::class.java))
-                else context?.startActivity(Intent(context, UserReportTypesActivity::class.java).putExtra("isEsuvidha", true))
-            }
-            "ज्योतिष शास्त्रींना प्रश्न विचारा" -> {
-                // Needs the dynamic types + suchna, so MainActivity fetches them before launching.
-                (context as? MainActivity)?.openJyotishShastra()
-            }
-            "Project Funding" -> {
-                context?.startActivity(Intent(context, ProjectFundingActivity::class.java))
             }
             "नियम व अटी" -> {
                 context?.startActivity(Intent(context, TermsConditionsActivity::class.java))
