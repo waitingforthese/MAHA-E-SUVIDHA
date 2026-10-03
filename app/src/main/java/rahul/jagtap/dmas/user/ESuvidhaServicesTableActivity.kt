@@ -96,143 +96,15 @@ class ESuvidhaServicesTableActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Set status bar color to black
-        window.statusBarColor = ContextCompat.getColor(this, R.color.font_black_0)
-        // Ensure icons are light (white), so they're visible on dark bar
-        WindowCompat.getInsetsController(window, window.decorView)?.isAppearanceLightStatusBars = false
-        if (Utils.disableScreenshot) {
-            window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
+
+        // E-Suvidha service fee/charges table has been discontinued.
+        // Keep the generic payment option in its separate screen/menu.
+        val fromLogin = intent.getBooleanExtra("fromLogin", false)
+        if (fromLogin) {
+            startActivity(Intent(this, MainActivity::class.java))
         }
-        binding = ActivityServicesTableBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        setSupportActionBar(binding.toolbarLayout.toolbar)
-        val fromLogin = intent.getBooleanExtra("fromLogin", false) == true
-        supportActionBar?.setDisplayHomeAsUpEnabled(!fromLogin)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
-        binding.toolbarLayout.toolbarTitle?.text = "फी/चार्जेस"//getString(R.string.txt_referral_program)
-        // Optional simple title for this screen
-//        title = "सुविधांची यादी"
-
-        // Recycler
-        adapter = ServiceRowsAdapter(rows,
-            onCategoryClick = { parentKey ->
-                // same style of navigation as your reference activity
-//                redirectToCategory(parentKey)
-            }
-        )
-        binding.rvServices.layoutManager = LinearLayoutManager(this)
-        binding.rvServices.adapter = adapter
-        // Thin divider line between rows (not after the last row)
-        val divider = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
-        ContextCompat.getDrawable(this, R.drawable.divider_table_row)?.let { divider.setDrawable(it) }
-        binding.rvServices.addItemDecoration(divider)
-
-        binding.btnSkip.isVisible = fromLogin
-        binding.btnSkip?.setOnClickListener {
-            startActivity(Intent(mContext, MainActivity::class.java))
-            finish()
-        }
-
-
-        // Load from intent "json" if provided; else paint from cache and refresh over the network.
-        val json = intent.getStringExtra("json")
-        if (!json.isNullOrBlank() && json != "null") {
-            parseAndBind(json)
-        } else {
-            renderFromCache()
-            fetchDynamicTypesFromApi()
-        }
+        finish()
     }
-
-    /** Paint instantly from the last cached types so the post-login table never opens blank. */
-    private fun renderFromCache() {
-        val cached = EsuvidhaCache.getDynamicTypesJson(app?.preferences)
-        if (cached != null) {
-            renderedFromCache = true
-            parseAndBind(cached)
-        }
-    }
-
-    private fun fetchDynamicTypesFromApi() {
-        if (!renderedFromCache) binding.progressBar.visible()
-        app?.apiRequestHelper?.apiService?.esuvidhaDynamicTypes?.enqueue(object : Callback<ResponseBody> {
-            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                binding.progressBar.gone()
-                val json = response.body()?.string()
-                if (response.isSuccessful && !json.isNullOrBlank() && json != "null") {
-                    EsuvidhaCache.saveDynamicTypesJson(app?.preferences, json)
-                    parseAndBind(json)
-                }
-            }
-            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                binding.progressBar.gone()
-                // You can show a snack/toast here
-            }
-        })
-    }
-
-    private fun parseAndBind(json: String) {
-        val type: Type = object : TypeToken<HashMap<String, HashMap<String, HashMap<String, String>>>?>() {}.type
-        typesMap = Gson().fromJson(json, type)
-
-        rows.clear()
-        // iterate in custom order
-        for (parentKey in categoryOrder) {
-            val childMap = typesMap?.get(parentKey) ?: continue
-            val categoryText = categoryLabel[parentKey] ?: parentKey
-            childMap.forEach inner@{ (typeKey, leaf) ->
-                val title = leaf["type_title"] ?: return@inner
-                if (title == "0") return@inner
-                rows.add(
-                    TableRowItem(
-                        parentKey = parentKey,
-                        typeKey = typeKey,
-                        title = title,
-                        categoryButton = categoryText,
-                        fee = extractFee(title)
-                    )
-                )
-            }
-        }
-//        // Flatten: parentKey -> typeKey -> { "type_title": ... }
-//        typesMap?.forEach { (parentKey, childMap) ->
-//            val categoryText = categoryLabel[parentKey] ?: parentKey
-//            childMap.forEach inner@{ (typeKey, leaf) ->
-//                val title = leaf["type_title"] ?: return@inner
-//                if (title == "0") return@inner  // skip placeholders
-//                rows.add(
-//                    TableRowItem(
-//                        parentKey = parentKey,
-//                        typeKey = typeKey,
-//                        title = title,
-//                        categoryButton = categoryText,
-//                        fee = "",//extractFee(title)
-//                    )
-//                )
-//            }
-//        }
-//        rows.sortBy { it.title }
-        adapter.notifyDataSetChanged()
-    }
-
-    private fun extractFee(title: String): String {
-        // Tries formats like: "फी 150 रुपये", "फी - 100/-", "फी – 1200/-"
-        val rx = Regex("""फी\s*[-–:]?\s*(\d+)\s*(?:/-|रुपये)?""")
-        val m = rx.find(title)
-        val num = m?.groupValues?.getOrNull(1)
-        return if (!num.isNullOrBlank()) "₹$num" else "—"
-    }
-
-//    private fun redirectToCategory(parentKey: String) {
-//        val map = typesMap?.get(parentKey)
-//        val typeTitle = categoryLabel[parentKey] ?: parentKey
-//        val intent = Intent(this, EditESuvidhaDynamicTypesActivity::class.java).apply {
-//            putExtra("typeTitle", typeTitle)
-//            putExtra("nodeName", parentKey)
-//            putExtra("hashMap", HashMap(map ?: hashMapOf()))
-//        }
-//        startActivity(intent)
-//    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
