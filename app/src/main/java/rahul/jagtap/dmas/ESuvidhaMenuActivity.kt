@@ -71,9 +71,6 @@ class ESuvidhaMenuActivity : BaseActivity() {
     /** Append grouped-service tiles for the current [typesMap] and (re)bind the adapter. Idempotent. */
     private fun buildMenuAdapter(suchnaMap: HashMap<String, String>?) {
         jyotish_shastra_suchna = suchnaMap?.get(Utils.JYOTISH_SHASTRA_SUCHNA) ?: jyotish_shastra_suchna
-        rahul.jagtap.dmas.utils.EsuvidhaServiceRegistry.groupedServices(typesMap).forEach {
-            if (!menuList.contains(it.defaultTitle)) menuList.add(it.defaultTitle)
-        }
         eSuvidhaMenuAdapter = ESuvidhaMenuAdapter(mContext, menuList, jyotish_shastra_suchna, typesMap, suchnaMap)
         binding.rvMenu.adapter = eSuvidhaMenuAdapter
     }
@@ -83,8 +80,7 @@ class ESuvidhaMenuActivity : BaseActivity() {
         binding.rvMenu?.addItemDecoration(GridDividerDecoration(mContext))
         menuList = ArrayList<String>()
 
-        menuList.add("मिळालेल्या सुविधा")
-        menuList.add("ज्योतिष शास्त्रींना प्रश्न विचारा")
+        // Keep only the Khate Book option on this screen.
         menuList.add("खाते बुक\n(स्वतःचा हिशोब स्वतः करा)")
     }
 
