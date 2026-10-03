@@ -460,9 +460,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             menuList.add("सुविधा प्रकार बदल")
         } else {
             // User home: two full-width banners first, then the grid tiles.
-            menuList.add("ई सुविधा येथून पाठवा")
             menuList.add("My Accountant")
-            menuList.add("सुविधा संग्रह")
             menuList.add("पाठविलेल्या सुविधा")
             menuList.add("नवनवीन माहिती")
             menuList.add("येथून फी भरावी")
