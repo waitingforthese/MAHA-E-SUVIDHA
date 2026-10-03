@@ -50,18 +50,10 @@ class ESuvidhaServicesGridActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityEsuvidhaServicesGridBinding.inflate(layoutInflater)
-        if (Utils.disableScreenshot) window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
-        setContentView(binding.root)
-        setSupportActionBar(binding.toolbarLayout.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
-        binding.toolbarLayout.toolbarTitle?.text = "महा ई सुविधा - लिस्ट"
 
-        binding.rvServices.layoutManager = GridLayoutManager(mContext, 3)
-//        setESuvidhaImage()
-        renderFromCache()
-        fetchDynamicTypes()
+        // E-Suvidha services have been removed from the app.
+        // Close this legacy screen so users return to the previous screen.
+        finish()
     }
 
     /**
