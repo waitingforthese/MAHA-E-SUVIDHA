@@ -43,41 +43,10 @@ class ESuvidhaDatesActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityViewBillsBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
-        uid = app?.preferences?.loggedInUser?.uid
-        isAdmin = app?.preferences?.loggedInUser?.isAdmin
-
-        setSupportActionBar(binding.toolbarLayout.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
-        binding.toolbarLayout.toolbarTitle?.text = getString(R.string.txt_online_e_suvidha)
-
-        binding.recyclerView?.layoutManager = LinearLayoutManager(mContext, RecyclerView.VERTICAL, false)
-        adapter = ESuvidhaDateListAdapter(mContext, list)
-        binding.recyclerView?.adapter = adapter
-        adapter?.dateListListener = object : ESuvidhaDateListAdapter.DateListListener {
-            override fun onItemClick(position: Int) {
-                val date = list[position]
-                val usersData: HashMap<String, ESuvidhaType>? = eSuvidhaData?.map?.get(date?.date)
-                if (usersData != null) {
-                    if (isAdmin == "1" || app?.preferences?.loggedInUser?.userType == "2") {
-                        JsonStorage.setJsonString(Gson().toJson(usersData))
-                        startActivity(Intent(mContext, ESuvidhaUsersActivity::class.java)//.putExtra("usersData", usersData)
-                            .putExtra("title", date?.date))
-                    } else {
-                        val eSuvidhaType = usersData[uid]
-                        if (eSuvidhaType != null) {
-                            startActivity(Intent(mContext, ESuvidhaTypesActivity::class.java).putExtra("eSuvidhaType", Gson().toJson(eSuvidhaType)))
-                        } else {
-                            toast("No records found.")
-                        }
-                    }
-                } else toast("No records found.")
-            }
-        }
-        setAdminBillsData()
+        // E-Suvidha date-wise records have been discontinued.
+        // Close this screen without loading E-Suvidha data.
+        finish()
     }
 
     private fun setAdminBillsData() {
