@@ -69,8 +69,16 @@ class UserAdapter(
             holder.binding.btnSaveToGContact.gone()
         }
         holder.binding.btnSaveToGContact?.setOnClickListener {
-            holder.binding.btnSaveToGContact.gone()
-            itemClickListener?.saveContactToGoogleContact(holder.absoluteAdapterPosition)
+            val adapterPosition = holder.absoluteAdapterPosition
+            if (adapterPosition != RecyclerView.NO_POSITION) {
+                holder.binding.btnSaveToGContact.isEnabled = false
+                itemClickListener?.saveContactToGoogleContact(adapterPosition)
+                holder.binding.btnSaveToGContact.postDelayed({
+                    if (holder.absoluteAdapterPosition != RecyclerView.NO_POSITION) {
+                        holder.binding.btnSaveToGContact.isEnabled = true
+                    }
+                }, 1500)
+            }
         }
     }
 
@@ -86,6 +94,8 @@ class UserAdapter(
         fun saveContactToGoogleContact(position: Int)
     }
 
+    fun getUserAt(position: Int): User? = itemList?.getOrNull(position)
+
     fun getSavedByEmail(): String {
         return strSavedByEmail
     }
@@ -99,6 +109,14 @@ class UserAdapter(
     fun setGmailSignedIn(signedIn: Boolean) {
         this.isGmailSinged = signedIn
         notifyDataSetChanged()
+    }
+
+    fun markContactSaved(position: Int, savedBy: String) {
+        val user = itemList?.getOrNull(position) ?: return
+        user.contactSavedBy = savedBy
+        val original = list_search.indexOfFirst { it.uid == user.uid }
+        if (original >= 0) list_search[original].contactSavedBy = savedBy
+        notifyItemChanged(position)
     }
 
     // Filter Class
