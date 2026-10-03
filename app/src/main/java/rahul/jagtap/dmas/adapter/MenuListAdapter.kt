@@ -36,7 +36,7 @@ class MenuListAdapter(var context: Context?, var itemList: List<String?>? = null
     companion object {
         private const val TYPE_BANNER = 0
         private const val TYPE_TILE = 1
-        private val BANNER_TITLES = setOf("ई सुविधा येथून पाठवा", "My Accountant")
+        private val BANNER_TITLES = setOf("My Accountant")
     }
 
     /** Items that should span the full grid width (rendered as banners). */
@@ -67,12 +67,6 @@ class MenuListAdapter(var context: Context?, var itemList: List<String?>? = null
 
     private fun bindBanner(holder: BannerViewHolder, title: String?) {
         when (title) {
-            "ई सुविधा येथून पाठवा" -> {
-                holder.binding.bannerIconBg.setBackgroundResource(R.drawable.bg_banner_logo_orange)
-                holder.binding.ivBanner.setImageResource(R.drawable.ic_esuvidha)
-                holder.binding.tvBannerTitle.text = "ई सुविधा येथून पाठवा"
-                holder.binding.tvBannerSubtitle.text = "चालता बोलता कामे घ्या - आम्ही कमी चार्जेस मध्ये पूर्ण करून देऊ"
-            }
             "My Accountant" -> {
                 holder.binding.bannerIconBg.setBackgroundResource(R.drawable.bg_banner_logo_blue)
                 holder.binding.ivBanner.setImageResource(R.drawable.ic_accounting)
@@ -88,7 +82,7 @@ class MenuListAdapter(var context: Context?, var itemList: List<String?>? = null
             "Day Book" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
             "Accounting Services" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_scan_bill)
             "Accounting", "My Accountant\n(Outsourcing)" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_accounting)
-            "ई सुविधा येथून पाठवा", "ई - सुविधा बास्केट", "सुविधा संग्रह" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_esuvidha)
+            "ई - सुविधा बास्केट" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_esuvidha)
             "Reports" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
             "Send Report" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
             "Notifications" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_notifications)
@@ -131,15 +125,8 @@ class MenuListAdapter(var context: Context?, var itemList: List<String?>? = null
             "Accounting", "My Accountant", "My Accountant\n(Outsourcing)" -> {
                 context?.startActivity(Intent(context, AccountingMenuActivity::class.java))
             }
-            "ई सुविधा येथून पाठवा" -> {
-                // Home banner jumps straight to the new services grid for users; the category menu
-                // (ESuvidhaMenuActivity) stays reachable via the "इतर" tile below.
+            "ई - सुविधा बास्केट" -> {
                 if (isAdmin || isEmployee) context?.startActivity(Intent(context, ESuvidhaListActivity::class.java))
-                else context?.startActivity(Intent(context, ESuvidhaServicesGridActivity::class.java))
-            }
-            "ई - सुविधा बास्केट", "सुविधा संग्रह" -> {
-                if (isAdmin || isEmployee) context?.startActivity(Intent(context, ESuvidhaListActivity::class.java))
-                else context?.startActivity(Intent(context, ESuvidhaMenuActivity::class.java))
             }
             "Reports" -> {
                 if (isAdmin || isEmployee) context?.startActivity(Intent(context, ReportTypesActivity::class.java))
