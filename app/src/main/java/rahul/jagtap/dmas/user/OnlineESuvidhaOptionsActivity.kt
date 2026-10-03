@@ -392,7 +392,7 @@ class OnlineESuvidhaOptionsActivity : BaseActivity() {
     companion object {
     }
 
-    override fun openWhatsapp(view: View) {
+    fun openWhatsapp(view: View) {
         startActivity(Intent(Intent.ACTION_VIEW,
             Uri.parse("https://wa.me/919552789899?text")))
     }
