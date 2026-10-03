@@ -35,37 +35,10 @@ class ESuvidhaUsersActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityViewBillsBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
-        val json_data = JsonStorage.getJsonString()
-        val type: Type = object : TypeToken<HashMap<String, ESuvidhaType>>() {}.type
-        hashMap = Gson().fromJson(json_data, type)
-//        hashMap = intent.getSerializableExtra("usersData") as HashMap<String, ESuvidhaType>
-
-        setSupportActionBar(binding.toolbarLayout.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
-        binding.toolbarLayout.toolbarTitle?.text = intent.getStringExtra("title") ?: getString(R.string.txt_online_e_suvidha)
-
-        binding.recyclerView?.layoutManager = LinearLayoutManager(mContext, RecyclerView.VERTICAL, false)
-        adapter = ESuvidhaUserListAdapter(mContext, list)
-        binding.recyclerView?.adapter = adapter
-
-        setUserList()
-
-        adapter?.dateListListener = object : ESuvidhaUserListAdapter.DateListListener {
-            override fun onItemClick(position: Int) {
-                val uid = list[position].uid
-                val eSuvidhaType = hashMap?.get(uid)
-                if (eSuvidhaType != null) {
-                    startActivity(Intent(mContext, ESuvidhaTypesActivity::class.java)
-                        .putExtra("eSuvidhaType", Gson().toJson(eSuvidhaType))
-                        .putExtra("creatorJsonString", Gson().toJson(list[position]))
-                    )
-                } else toast("No records found.")
-            }
-        }
+        // E-Suvidha user-management screen has been discontinued.
+        // Close this screen without loading or editing E-Suvidha records.
+        finish()
     }
 
     fun setUserList() {
