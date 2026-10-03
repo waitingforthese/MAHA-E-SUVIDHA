@@ -50,22 +50,10 @@ class EsuvidhaGridAdminActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityEsuvidhaGridAdminBinding.inflate(layoutInflater)
-        if (Utils.disableScreenshot) window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
-        setContentView(binding.root)
-        setSupportActionBar(binding.toolbarLayout.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
-        binding.toolbarLayout.toolbarTitle?.text = "सेवा ग्रिड सेटिंग"
 
-        binding.rvTiles.layoutManager = LinearLayoutManager(mContext)
-        adapter = EsuvidhaGridAdminAdapter(mContext, tiles,
-            onEdit = ::openEditor,
-            onToggle = ::toggleEnabled,
-            onStartDrag = { touchHelper.startDrag(it) })
-        binding.rvTiles.adapter = adapter
-        touchHelper = ItemTouchHelper(dragCallback)
-        touchHelper.attachToRecyclerView(binding.rvTiles)
+        // E-Suvidha grid administration has been discontinued.
+        // Close this screen without loading or changing E-Suvidha service data.
+        finish()
     }
 
     private val dragCallback = object : ItemTouchHelper.SimpleCallback(
