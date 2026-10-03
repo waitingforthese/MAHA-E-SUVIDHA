@@ -99,11 +99,7 @@ class MenuListAdapter(var context: Context?, var itemList: List<String?>? = null
             "मिळालेल्या सुविधा" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
             "ज्योतिष शास्त्रींना प्रश्न विचारा" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_jyotish_shastra)
             "Project Funding" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_project_funding)
-            "फी - सूचना - सुविधा माहिती" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
-            "सुविधा प्रकार बदल" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
-            "सेवा ग्रिड सेटिंग" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_svc_report)
             "फी/चार्जेस" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_charges)
-            "पाठविलेल्या सुविधा" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_view_reports)
             "नियम व अटी" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_terms_conditions)
             "contact us" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_headset)
             "ट्रेनिंग व्हिडिओ" -> holder.binding.ivMenu.setImageResource(R.drawable.ic_training_video)
@@ -184,18 +180,6 @@ class MenuListAdapter(var context: Context?, var itemList: List<String?>? = null
             }
             "Project Funding" -> {
                 context?.startActivity(Intent(context, ProjectFundingActivity::class.java))
-            }
-            "फी - सूचना - सुविधा माहिती" -> {
-                context?.startActivity(Intent(context, ESuvidhaSuchnaOptionsActivity::class.java))
-            }
-            "सुविधा प्रकार बदल" -> {
-                context?.startActivity(Intent(context, ESuvidhaOptionsDynamicTypesActivity::class.java))
-            }
-            "सेवा ग्रिड सेटिंग" -> {
-                context?.startActivity(Intent(context, EsuvidhaGridAdminActivity::class.java))
-            }
-            "पाठविलेल्या सुविधा" -> {
-                context?.startActivity(Intent(context, ESuvidhaDatesActivity::class.java))
             }
             "नियम व अटी" -> {
                 context?.startActivity(Intent(context, TermsConditionsActivity::class.java))
